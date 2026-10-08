@@ -1,0 +1,21 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "scenario-branch-input.schema.json",
+  "title": "ScenarioBranchInput",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decisions"],
+  "properties": {
+    "label": {
+      "type": "string",
+      "maxLength": 40
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 9,
+      "items": {
+        "$ref": "decision.schema.json"
+      }
+    }
+  }
+}

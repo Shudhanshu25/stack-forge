@@ -1,0 +1,70 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup-configuration.schema.json",
+  "title": "StartupConfiguration",
+  "description": "Everything the engine needs to initialise a startup. Snapshotted from the industry template and difficulty presets when the startup is created or its economics are edited, so later template changes do not alter existing startups.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "industry",
+    "businessModel",
+    "difficulty",
+    "initialCapital",
+    "initialPrice",
+    "marketSize",
+    "templateVersion",
+    "parameters",
+    "difficultyModifiers",
+    "eventsVersion",
+    "events"
+  ],
+  "properties": {
+    "industry": {
+      "$ref": "enums.schema.json#/definitions/Industry"
+    },
+    "businessModel": {
+      "$ref": "enums.schema.json#/definitions/BusinessModel"
+    },
+    "difficulty": {
+      "$ref": "enums.schema.json#/definitions/Difficulty"
+    },
+    "initialCapital": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise."
+    },
+    "initialPrice": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise per unit (per month for subscriptions)."
+    },
+    "marketSize": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Number of potential customers in the addressable market."
+    },
+    "templateVersion": {
+      "type": "string"
+    },
+    "parameters": {
+      "$ref": "simulation-parameters.schema.json"
+    },
+    "difficultyModifiers": {
+      "$ref": "difficulty-modifiers.schema.json"
+    },
+    "eventsVersion": {
+      "type": "string"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "market-event.schema.json"
+      },
+      "description": "Event catalog snapshotted from shared/templates/events.json."
+    },
+    "locationProfile": {
+      "$ref": "location-profile.schema.json",
+      "description": "Resolved at creation. Absent (configurations from before Milestone 10) means the neutral profile."
+    }
+  }
+}

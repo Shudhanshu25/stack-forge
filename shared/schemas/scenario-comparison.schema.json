@@ -1,0 +1,155 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "scenario-comparison.schema.json",
+  "title": "ScenarioComparison",
+  "description": "Two branches run from the same state with the same seed and rules agents, so the decisions are the only difference. Never stored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["startTurn", "horizon", "label", "agentMode", "branches", "differences"],
+  "properties": {
+    "startTurn": {
+      "type": "integer"
+    },
+    "horizon": {
+      "type": "integer"
+    },
+    "label": {
+      "type": "string",
+      "const": "Simulation estimate"
+    },
+    "agentMode": {
+      "type": "string",
+      "const": "rules"
+    },
+    "branches": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "$ref": "#/definitions/ScenarioBranchResult"
+      }
+    },
+    "differences": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ScenarioDifference"
+      },
+      "description": "Empty when either branch was rejected. Differences only; no recommendation."
+    }
+  },
+  "definitions": {
+    "ScenarioTurn": {
+      "title": "ScenarioTurn",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["turn", "revenue", "profit", "customers", "churnRate", "cash"],
+      "properties": {
+        "turn": {
+          "type": "integer"
+        },
+        "revenue": {
+          "type": "integer"
+        },
+        "profit": {
+          "type": "integer"
+        },
+        "customers": {
+          "type": "integer"
+        },
+        "churnRate": {
+          "type": "number"
+        },
+        "cash": {
+          "type": "integer"
+        }
+      }
+    },
+    "ScenarioTotals": {
+      "title": "ScenarioTotals",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revenue", "profit", "endCash", "endCustomers", "averageChurnRate"],
+      "properties": {
+        "revenue": {
+          "type": "integer"
+        },
+        "profit": {
+          "type": "integer"
+        },
+        "endCash": {
+          "type": "integer"
+        },
+        "endCustomers": {
+          "type": "integer"
+        },
+        "averageChurnRate": {
+          "type": "number"
+        }
+      }
+    },
+    "ScenarioBranchResult": {
+      "title": "ScenarioBranchResult",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "decisions", "rejections", "bankruptAtTurn", "turns", "totals"],
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "$ref": "decision.schema.json"
+          }
+        },
+        "rejections": {
+          "type": "array",
+          "items": {
+            "$ref": "decision-rejection.schema.json"
+          }
+        },
+        "bankruptAtTurn": {
+          "type": ["integer", "null"]
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/ScenarioTurn"
+          }
+        },
+        "totals": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ScenarioTotals"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "ScenarioDifference": {
+      "title": "ScenarioDifference",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["metric", "baseline", "alternative", "difference"],
+      "properties": {
+        "metric": {
+          "type": "string",
+          "enum": ["revenue", "profit", "endCash", "endCustomers", "averageChurnRate"]
+        },
+        "baseline": {
+          "type": "number"
+        },
+        "alternative": {
+          "type": "number"
+        },
+        "difference": {
+          "type": "number",
+          "description": "alternative minus baseline"
+        }
+      }
+    }
+  }
+}

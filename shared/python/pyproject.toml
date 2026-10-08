@@ -1,0 +1,13 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "stackforge-shared"
+version = "0.1.0"
+description = "Pydantic models generated from shared/schemas, plus loaders for the shared data files."
+requires-python = ">=3.12"
+dependencies = ["pydantic>=2.10,<3", "email-validator>=2.2,<3"]
+
+[tool.setuptools.packages.find]
+include = ["stackforge_shared*"]

@@ -1,0 +1,124 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "market-event.schema.json",
+  "title": "MarketEvent",
+  "description": "A data-driven market event definition. Effects are fractional modifiers (0.08 = +8%) applied while the event is active.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type", "polarity", "probability", "duration", "effects"],
+  "properties": {
+    "type": {
+      "$ref": "enums.schema.json#/definitions/EventType"
+    },
+    "polarity": {
+      "$ref": "enums.schema.json#/definitions/EventPolarity"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "probability": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "duration": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 24,
+      "description": "Turns."
+    },
+    "effects": {
+      "title": "MarketEventEffects",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "demand": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "marketingCost": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "cac": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "churn": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "unitCost": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "fixedCosts": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3
+        },
+        "brandAwareness": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "customerSatisfaction": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "productQuality": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1,
+          "description": "Added to product quality each active turn."
+        },
+        "salaries": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 3,
+          "description": "Fractional change to salary costs while active (0.1 = +10%)."
+        }
+      },
+      "description": "demand, marketingCost, cac, churn, unitCost and fixedCosts are fractional multipliers (0.08 = +8%); brandAwareness, customerSatisfaction and productQuality are added to the score each active turn."
+    },
+    "conditions": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Where the event can happen. Every list given must contain the startup's value; an event without conditions can happen anywhere. Startups without a location only get unconditional events.",
+      "properties": {
+        "states": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Z]{2}$",
+            "description": "ISO 3166-2:IN state or union territory code, e.g. KA."
+          }
+        },
+        "tiers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "enums.schema.json#/definitions/LocationTier"
+          }
+        },
+        "cities": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]{2,40}$",
+            "description": "Id of a listed city, e.g. bengaluru."
+          }
+        }
+      }
+    }
+  }
+}

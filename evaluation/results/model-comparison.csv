@@ -1,0 +1,13 @@
+target,model,mae,rmse,r2,fit_seconds,selected
+revenue,persistence (reference),22416679.348721,98534635.095187,0.966568,0.00,0
+revenue,linear_regression,14406755.790224,58854211.347727,0.988073,0.02,0
+revenue,random_forest,11493311.364781,52571485.555493,0.990483,4.99,1
+revenue,xgboost,14353978.862026,79849690.985914,0.978045,0.74,0
+customers,persistence (reference),956.807500,5230.705454,0.967657,0.00,0
+customers,linear_regression,583.753023,2858.024965,0.990344,0.02,0
+customers,random_forest,446.674078,2504.175107,0.992587,4.61,1
+customers,xgboost,576.815613,3795.490338,0.982971,0.65,0
+churnRate,persistence (reference),0.019661,0.048914,0.708440,0.00,0
+churnRate,linear_regression,0.063718,0.083581,0.148699,0.01,0
+churnRate,random_forest,0.010632,0.017874,0.961066,4.31,0
+churnRate,xgboost,0.010578,0.017544,0.962493,0.55,1

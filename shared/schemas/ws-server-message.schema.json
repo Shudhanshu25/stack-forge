@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ws-server-message.schema.json",
+  "title": "WsServerMessage",
+  "description": "Messages the API sends on /api/v1/ws: stage progress and job status changes for subscribed simulations.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["ready", "subscribed", "unsubscribed", "stage", "job", "error", "pong"]
+    },
+    "simulationId": {
+      "type": "string"
+    },
+    "jobId": {
+      "type": "string"
+    },
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stage": {
+      "$ref": "enums.schema.json#/definitions/PipelineStage"
+    },
+    "progress": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "job": {
+      "$ref": "simulation-job.schema.json"
+    },
+    "error": {
+      "title": "WsError",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

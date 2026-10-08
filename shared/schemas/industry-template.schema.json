@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "industry-template.schema.json",
+  "title": "IndustryTemplate",
+  "description": "A data file in shared/templates/industries describing one industry's default economics.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "industry",
+    "templateVersion",
+    "displayName",
+    "description",
+    "defaults",
+    "parameters"
+  ],
+  "properties": {
+    "industry": { "$ref": "enums.schema.json#/definitions/Industry" },
+    "templateVersion": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "displayName": { "type": "string" },
+    "description": { "type": "string" },
+    "defaults": {
+      "title": "IndustryDefaults",
+      "description": "Values the creation wizard pre-fills. Money in paise.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["businessModel", "initialCapital", "initialPrice", "marketSize"],
+      "properties": {
+        "businessModel": { "$ref": "enums.schema.json#/definitions/BusinessModel" },
+        "initialCapital": { "type": "integer", "minimum": 0 },
+        "initialPrice": { "type": "integer", "minimum": 0 },
+        "marketSize": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "parameters": { "$ref": "simulation-parameters.schema.json" }
+  }
+}

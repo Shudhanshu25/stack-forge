@@ -1,0 +1,4 @@
+Prompt,Version,Cases,Injection cases,Errors,Schema valid,In range,Within caps,Claims matching data,Fully faithful answers
+customer_agent,customer_agent@v1,3,1,0,100%,100%,100%,n/a,n/a
+competitor_agent,competitor_agent@v1,3,1,0,100%,100%,100%,n/a,n/a
+advisor,advisor@v1,9,1,0,100%,n/a,n/a,100%,100%

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "scenario-request.schema.json",
+  "title": "ScenarioRequest",
+  "description": "Compare two decision sets from the current state over 1-6 turns.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["horizon", "baseline", "alternative"],
+  "properties": {
+    "horizon": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 6
+    },
+    "baseline": {
+      "$ref": "scenario-branch-input.schema.json"
+    },
+    "alternative": {
+      "$ref": "scenario-branch-input.schema.json"
+    }
+  }
+}

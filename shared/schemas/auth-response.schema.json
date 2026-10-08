@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "auth-response.schema.json",
+  "title": "AuthResponse",
+  "description": "Returned by register, login and refresh. The refresh token travels only in an httpOnly cookie.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["user", "accessToken", "accessTokenExpiresIn"],
+  "properties": {
+    "user": { "$ref": "user.schema.json" },
+    "accessToken": { "type": "string" },
+    "accessTokenExpiresIn": { "type": "integer", "minimum": 1, "description": "Seconds." }
+  }
+}

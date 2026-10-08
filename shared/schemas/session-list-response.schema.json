@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session-list-response.schema.json",
+  "title": "SessionListResponse",
+  "description": "Active sessions, most recently used first.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["sessions"],
+  "properties": {
+    "sessions": {
+      "type": "array",
+      "items": {
+        "$ref": "session.schema.json"
+      }
+    }
+  }
+}

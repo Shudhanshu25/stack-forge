@@ -1,0 +1,3989 @@
+{
+ "currentTurn": 12,
+ "kpis": {
+  "cash": {
+   "value": 83485549.0,
+   "previous": 75073574.0,
+   "change": 8411975.0
+  },
+  "revenue": {
+   "value": 35321715.0,
+   "previous": 31913046.0,
+   "change": 3408669.0
+  },
+  "profit": {
+   "value": 8411975.0,
+   "previous": 7792478.0,
+   "change": 619497.0
+  },
+  "customers": {
+   "value": 715.0,
+   "previous": 646.0,
+   "change": 69.0
+  },
+  "churnRate": {
+   "value": 0.041796,
+   "previous": 0.046154,
+   "change": -0.004358
+  },
+  "marketShare": {
+   "value": 0.002841,
+   "previous": 0.002606,
+   "change": 0.000235
+  }
+ },
+ "market": {
+  "customerSentiment": 0.714922,
+  "sentimentChange": 0.036634,
+  "competitorPressure": 0.521592,
+  "pressureChange": -0.001778,
+  "demandIndex": 1.155,
+  "demandIndexNext": 1.1,
+  "activeEvents": [
+   {
+    "type": "positive_review",
+    "title": "Positive review",
+    "polarity": "POSITIVE",
+    "turnsLeft": 1
+   }
+  ]
+ },
+ "series": [
+  {
+   "turn": 0,
+   "revenue": 0,
+   "expensesTotal": 0,
+   "variableCosts": 0,
+   "fixedCosts": 0,
+   "marketingCosts": 0,
+   "employeeCosts": 0,
+   "productCosts": 0,
+   "profit": 0,
+   "cash": 100000000,
+   "customers": 0,
+   "newCustomers": 0,
+   "churnedCustomers": 0,
+   "churnRate": 0.0,
+   "marketShare": 0.0,
+   "customerSatisfaction": 0.6,
+   "competitorPressure": 0.63,
+   "brandAwareness": 0.05,
+   "productQuality": 0.6,
+   "price": 49900,
+   "marketingBudget": 0,
+   "employees": 3,
+   "grossMargin": null,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": null,
+   "ltv": null,
+   "arpu": null,
+   "demandIndex": 1.0
+  },
+  {
+   "turn": 1,
+   "revenue": 4050882,
+   "expensesTotal": 20183016,
+   "variableCosts": 819016,
+   "fixedCosts": 3828000,
+   "marketingCosts": 8000000,
+   "employeeCosts": 7536000,
+   "productCosts": 0,
+   "profit": -16132134,
+   "cash": 83867866,
+   "customers": 82,
+   "newCustomers": 82,
+   "churnedCustomers": 0,
+   "churnRate": 0.0,
+   "marketShare": 0.000384,
+   "customerSatisfaction": 0.632686,
+   "competitorPressure": 0.536884,
+   "brandAwareness": 0.139936,
+   "productQuality": 0.597,
+   "price": 49900,
+   "marketingBudget": 8000000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 16132134,
+   "runwayMonths": 5.2,
+   "cac": 97561,
+   "ltv": null,
+   "arpu": 49401,
+   "demandIndex": 1.35
+  },
+  {
+   "turn": 2,
+   "revenue": 9188586,
+   "expensesTotal": 21621768,
+   "variableCosts": 1857768,
+   "fixedCosts": 3828000,
+   "marketingCosts": 6700000,
+   "employeeCosts": 7536000,
+   "productCosts": 1700000,
+   "profit": -12433182,
+   "cash": 71434684,
+   "customers": 186,
+   "newCustomers": 107,
+   "churnedCustomers": 3,
+   "churnRate": 0.036585,
+   "marketShare": 0.000858,
+   "customerSatisfaction": 0.66309,
+   "competitorPressure": 0.521823,
+   "brandAwareness": 0.22395,
+   "productQuality": 0.607408,
+   "price": 49900,
+   "marketingBudget": 6700000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 12433182,
+   "runwayMonths": 5.75,
+   "cac": 62617,
+   "ltv": 1077289,
+   "arpu": 49401,
+   "demandIndex": 1.35
+  },
+  {
+   "turn": 3,
+   "revenue": 12745458,
+   "expensesTotal": 19640904,
+   "variableCosts": 2576904,
+   "fixedCosts": 3828000,
+   "marketingCosts": 5700000,
+   "employeeCosts": 7536000,
+   "productCosts": 0,
+   "profit": -6895446,
+   "cash": 64539238,
+   "customers": 258,
+   "newCustomers": 83,
+   "churnedCustomers": 11,
+   "churnRate": 0.05914,
+   "marketShare": 0.001172,
+   "customerSatisfaction": 0.67525,
+   "competitorPressure": 0.522415,
+   "brandAwareness": 0.226394,
+   "productQuality": 0.604408,
+   "price": 49900,
+   "marketingBudget": 5700000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 6895446,
+   "runwayMonths": 9.36,
+   "cac": 68675,
+   "ltv": 666438,
+   "arpu": 49401,
+   "demandIndex": 1.1
+  },
+  {
+   "turn": 4,
+   "revenue": 15215508,
+   "expensesTotal": 20940304,
+   "variableCosts": 3076304,
+   "fixedCosts": 3828000,
+   "marketingCosts": 5200000,
+   "employeeCosts": 7536000,
+   "productCosts": 1300000,
+   "profit": -5724796,
+   "cash": 58814442,
+   "customers": 308,
+   "newCustomers": 66,
+   "churnedCustomers": 16,
+   "churnRate": 0.062016,
+   "marketShare": 0.001379,
+   "customerSatisfaction": 0.663901,
+   "competitorPressure": 0.521163,
+   "brandAwareness": 0.228058,
+   "productQuality": 0.611513,
+   "price": 49900,
+   "marketingBudget": 5200000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 5724796,
+   "runwayMonths": 10.27,
+   "cac": 78788,
+   "ltv": 635535,
+   "arpu": 49401,
+   "demandIndex": 0.855
+  },
+  {
+   "turn": 5,
+   "revenue": 16944543,
+   "expensesTotal": 20064084,
+   "variableCosts": 3425884,
+   "fixedCosts": 4402200,
+   "marketingCosts": 4700000,
+   "employeeCosts": 7536000,
+   "productCosts": 0,
+   "profit": -3119541,
+   "cash": 55694901,
+   "customers": 343,
+   "newCustomers": 54,
+   "churnedCustomers": 19,
+   "churnRate": 0.061688,
+   "marketShare": 0.001513,
+   "customerSatisfaction": 0.65064,
+   "competitorPressure": 0.524498,
+   "brandAwareness": 0.228949,
+   "productQuality": 0.608513,
+   "price": 49900,
+   "marketingBudget": 4700000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 3119541,
+   "runwayMonths": 17.85,
+   "cac": 87037,
+   "ltv": 638906,
+   "arpu": 49401,
+   "demandIndex": 0.855
+  },
+  {
+   "turn": 6,
+   "revenue": 19414593,
+   "expensesTotal": 21463484,
+   "variableCosts": 3925284,
+   "fixedCosts": 4402200,
+   "marketingCosts": 4500000,
+   "employeeCosts": 7536000,
+   "productCosts": 1100000,
+   "profit": -2048891,
+   "cash": 53646010,
+   "customers": 393,
+   "newCustomers": 66,
+   "churnedCustomers": 16,
+   "churnRate": 0.046647,
+   "marketShare": 0.001708,
+   "customerSatisfaction": 0.673579,
+   "competitorPressure": 0.523584,
+   "brandAwareness": 0.229577,
+   "productQuality": 0.613991,
+   "price": 49900,
+   "marketingBudget": 4500000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 2048891,
+   "runwayMonths": 26.18,
+   "cac": 68182,
+   "ltv": 844916,
+   "arpu": 49401,
+   "demandIndex": 1.0
+  },
+  {
+   "turn": 7,
+   "revenue": 21884643,
+   "expensesTotal": 20662884,
+   "variableCosts": 4424684,
+   "fixedCosts": 4402200,
+   "marketingCosts": 4300000,
+   "employeeCosts": 7536000,
+   "productCosts": 0,
+   "profit": 1221759,
+   "cash": 54867769,
+   "customers": 443,
+   "newCustomers": 69,
+   "churnedCustomers": 19,
+   "churnRate": 0.048346,
+   "marketShare": 0.001896,
+   "customerSatisfaction": 0.683451,
+   "competitorPressure": 0.524326,
+   "brandAwareness": 0.22995,
+   "productQuality": 0.610991,
+   "price": 49900,
+   "marketingBudget": 4300000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 62319,
+   "ltv": 815227,
+   "arpu": 49401,
+   "demandIndex": 1.0
+  },
+  {
+   "turn": 8,
+   "revenue": 24404094,
+   "expensesTotal": 21798072,
+   "variableCosts": 4934072,
+   "fixedCosts": 3828000,
+   "marketingCosts": 4400000,
+   "employeeCosts": 7536000,
+   "productCosts": 1100000,
+   "profit": 2606022,
+   "cash": 57473791,
+   "customers": 494,
+   "newCustomers": 72,
+   "churnedCustomers": 21,
+   "churnRate": 0.047404,
+   "marketShare": 0.002083,
+   "customerSatisfaction": 0.695388,
+   "competitorPressure": 0.52343,
+   "brandAwareness": 0.230532,
+   "productQuality": 0.616416,
+   "price": 49900,
+   "marketingBudget": 4400000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 61111,
+   "ltv": 831427,
+   "arpu": 49401,
+   "demandIndex": 1.0
+  },
+  {
+   "turn": 9,
+   "revenue": 26676540,
+   "expensesTotal": 21357520,
+   "variableCosts": 5393520,
+   "fixedCosts": 3828000,
+   "marketingCosts": 4600000,
+   "employeeCosts": 7536000,
+   "productCosts": 0,
+   "profit": 5319020,
+   "cash": 62792811,
+   "customers": 540,
+   "newCustomers": 72,
+   "churnedCustomers": 26,
+   "churnRate": 0.052632,
+   "marketShare": 0.002244,
+   "customerSatisfaction": 0.672136,
+   "competitorPressure": 0.524129,
+   "brandAwareness": 0.231454,
+   "productQuality": 0.613416,
+   "price": 49900,
+   "marketingBudget": 4600000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 63889,
+   "ltv": 748847,
+   "arpu": 49401,
+   "demandIndex": 0.98
+  },
+  {
+   "turn": 10,
+   "revenue": 28899585,
+   "expensesTotal": 24411300,
+   "variableCosts": 5842980,
+   "fixedCosts": 3828000,
+   "marketingCosts": 5000000,
+   "employeeCosts": 8440320,
+   "productCosts": 1300000,
+   "profit": 4488285,
+   "cash": 67281096,
+   "customers": 585,
+   "newCustomers": 74,
+   "churnedCustomers": 29,
+   "churnRate": 0.053704,
+   "marketShare": 0.002395,
+   "customerSatisfaction": 0.663601,
+   "competitorPressure": 0.522828,
+   "brandAwareness": 0.233,
+   "productQuality": 0.620291,
+   "price": 49900,
+   "marketingBudget": 5000000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 67568,
+   "ltv": 733897,
+   "arpu": 49401,
+   "demandIndex": 0.855
+  },
+  {
+   "turn": 11,
+   "revenue": 31913046,
+   "expensesTotal": 24120568,
+   "variableCosts": 6452248,
+   "fixedCosts": 3828000,
+   "marketingCosts": 5400000,
+   "employeeCosts": 8440320,
+   "productCosts": 0,
+   "profit": 7792478,
+   "cash": 75073574,
+   "customers": 646,
+   "newCustomers": 88,
+   "churnedCustomers": 27,
+   "churnRate": 0.046154,
+   "marketShare": 0.002606,
+   "customerSatisfaction": 0.678288,
+   "competitorPressure": 0.52337,
+   "brandAwareness": 0.235165,
+   "productQuality": 0.617291,
+   "price": 49900,
+   "marketingBudget": 5400000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 61364,
+   "ltv": 853948,
+   "arpu": 49401,
+   "demandIndex": 1.08
+  },
+  {
+   "turn": 12,
+   "revenue": 35321715,
+   "expensesTotal": 26909740,
+   "variableCosts": 7141420,
+   "fixedCosts": 3828000,
+   "marketingCosts": 6000000,
+   "employeeCosts": 8440320,
+   "productCosts": 1500000,
+   "profit": 8411975,
+   "cash": 83485549,
+   "customers": 715,
+   "newCustomers": 96,
+   "churnedCustomers": 27,
+   "churnRate": 0.041796,
+   "marketShare": 0.002841,
+   "customerSatisfaction": 0.714922,
+   "competitorPressure": 0.521592,
+   "brandAwareness": 0.238227,
+   "productQuality": 0.625549,
+   "price": 49900,
+   "marketingBudget": 6000000,
+   "employees": 3,
+   "grossMargin": 0.797818,
+   "burnRate": 0,
+   "runwayMonths": null,
+   "cac": 62500,
+   "ltv": 942993,
+   "arpu": 49401,
+   "demandIndex": 1.155
+  }
+ ],
+ "segments": [
+  {
+   "turn": 0,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 0,
+   "population": 52620,
+   "churnProbability": 0.0,
+   "conversionRate": 0.0
+  },
+  {
+   "turn": 0,
+   "segment": "PREMIUM",
+   "customers": 0,
+   "population": 31572,
+   "churnProbability": 0.0,
+   "conversionRate": 0.0
+  },
+  {
+   "turn": 0,
+   "segment": "LOYAL",
+   "customers": 0,
+   "population": 42096,
+   "churnProbability": 0.0,
+   "conversionRate": 0.0
+  },
+  {
+   "turn": 0,
+   "segment": "OCCASIONAL",
+   "customers": 0,
+   "population": 31572,
+   "churnProbability": 0.0,
+   "conversionRate": 0.0
+  },
+  {
+   "turn": 0,
+   "segment": "ENTERPRISE",
+   "customers": 0,
+   "population": 52620,
+   "churnProbability": 0.0,
+   "conversionRate": 0.0
+  },
+  {
+   "turn": 1,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 37,
+   "population": 53409,
+   "churnProbability": 0.082798,
+   "conversionRate": 0.005037
+  },
+  {
+   "turn": 1,
+   "segment": "PREMIUM",
+   "customers": 11,
+   "population": 32046,
+   "churnProbability": 0.034773,
+   "conversionRate": 0.002248
+  },
+  {
+   "turn": 1,
+   "segment": "LOYAL",
+   "customers": 16,
+   "population": 42727,
+   "churnProbability": 0.017541,
+   "conversionRate": 0.002932
+  },
+  {
+   "turn": 1,
+   "segment": "OCCASIONAL",
+   "customers": 11,
+   "population": 32046,
+   "churnProbability": 0.089126,
+   "conversionRate": 0.002338
+  },
+  {
+   "turn": 1,
+   "segment": "ENTERPRISE",
+   "customers": 7,
+   "population": 53409,
+   "churnProbability": 0.020999,
+   "conversionRate": 0.001016
+  },
+  {
+   "turn": 2,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 90,
+   "population": 54210,
+   "churnProbability": 0.076002,
+   "conversionRate": 0.005772
+  },
+  {
+   "turn": 2,
+   "segment": "PREMIUM",
+   "customers": 25,
+   "population": 32527,
+   "churnProbability": 0.03187,
+   "conversionRate": 0.002657
+  },
+  {
+   "turn": 2,
+   "segment": "LOYAL",
+   "customers": 36,
+   "population": 43368,
+   "churnProbability": 0.016456,
+   "conversionRate": 0.003404
+  },
+  {
+   "turn": 2,
+   "segment": "OCCASIONAL",
+   "customers": 21,
+   "population": 32527,
+   "churnProbability": 0.081651,
+   "conversionRate": 0.002698
+  },
+  {
+   "turn": 2,
+   "segment": "ENTERPRISE",
+   "customers": 14,
+   "population": 54210,
+   "churnProbability": 0.019426,
+   "conversionRate": 0.001194
+  },
+  {
+   "turn": 3,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 125,
+   "population": 55023,
+   "churnProbability": 0.074029,
+   "conversionRate": 0.005747
+  },
+  {
+   "turn": 3,
+   "segment": "PREMIUM",
+   "customers": 33,
+   "population": 33015,
+   "churnProbability": 0.031208,
+   "conversionRate": 0.002636
+  },
+  {
+   "turn": 3,
+   "segment": "LOYAL",
+   "customers": 49,
+   "population": 44019,
+   "churnProbability": 0.016117,
+   "conversionRate": 0.003389
+  },
+  {
+   "turn": 3,
+   "segment": "OCCASIONAL",
+   "customers": 28,
+   "population": 33015,
+   "churnProbability": 0.079582,
+   "conversionRate": 0.002687
+  },
+  {
+   "turn": 3,
+   "segment": "ENTERPRISE",
+   "customers": 23,
+   "population": 55023,
+   "churnProbability": 0.019034,
+   "conversionRate": 0.001186
+  },
+  {
+   "turn": 4,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 142,
+   "population": 55848,
+   "churnProbability": 0.083032,
+   "conversionRate": 0.005771
+  },
+  {
+   "turn": 4,
+   "segment": "PREMIUM",
+   "customers": 40,
+   "population": 33510,
+   "churnProbability": 0.034727,
+   "conversionRate": 0.002692
+  },
+  {
+   "turn": 4,
+   "segment": "LOYAL",
+   "customers": 65,
+   "population": 44679,
+   "churnProbability": 0.018025,
+   "conversionRate": 0.003427
+  },
+  {
+   "turn": 4,
+   "segment": "OCCASIONAL",
+   "customers": 33,
+   "population": 33510,
+   "churnProbability": 0.08914,
+   "conversionRate": 0.002708
+  },
+  {
+   "turn": 4,
+   "segment": "ENTERPRISE",
+   "customers": 28,
+   "population": 55848,
+   "churnProbability": 0.021207,
+   "conversionRate": 0.001207
+  },
+  {
+   "turn": 5,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 153,
+   "population": 56686,
+   "churnProbability": 0.085572,
+   "conversionRate": 0.005686
+  },
+  {
+   "turn": 5,
+   "segment": "PREMIUM",
+   "customers": 46,
+   "population": 34013,
+   "churnProbability": 0.036354,
+   "conversionRate": 0.002544
+  },
+  {
+   "turn": 5,
+   "segment": "LOYAL",
+   "customers": 77,
+   "population": 45349,
+   "churnProbability": 0.018682,
+   "conversionRate": 0.003338
+  },
+  {
+   "turn": 5,
+   "segment": "OCCASIONAL",
+   "customers": 36,
+   "population": 34013,
+   "churnProbability": 0.092111,
+   "conversionRate": 0.002654
+  },
+  {
+   "turn": 5,
+   "segment": "ENTERPRISE",
+   "customers": 31,
+   "population": 56686,
+   "churnProbability": 0.022147,
+   "conversionRate": 0.001151
+  },
+  {
+   "turn": 6,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 171,
+   "population": 57536,
+   "churnProbability": 0.074643,
+   "conversionRate": 0.005698
+  },
+  {
+   "turn": 6,
+   "segment": "PREMIUM",
+   "customers": 54,
+   "population": 34523,
+   "churnProbability": 0.031494,
+   "conversionRate": 0.002588
+  },
+  {
+   "turn": 6,
+   "segment": "LOYAL",
+   "customers": 90,
+   "population": 46029,
+   "churnProbability": 0.016244,
+   "conversionRate": 0.003364
+  },
+  {
+   "turn": 6,
+   "segment": "OCCASIONAL",
+   "customers": 41,
+   "population": 34523,
+   "churnProbability": 0.080257,
+   "conversionRate": 0.002668
+  },
+  {
+   "turn": 6,
+   "segment": "ENTERPRISE",
+   "customers": 37,
+   "population": 57536,
+   "churnProbability": 0.019201,
+   "conversionRate": 0.001168
+  },
+  {
+   "turn": 7,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 193,
+   "population": 58399,
+   "churnProbability": 0.073305,
+   "conversionRate": 0.005664
+  },
+  {
+   "turn": 7,
+   "segment": "PREMIUM",
+   "customers": 59,
+   "population": 35041,
+   "churnProbability": 0.031027,
+   "conversionRate": 0.002564
+  },
+  {
+   "turn": 7,
+   "segment": "LOYAL",
+   "customers": 103,
+   "population": 46719,
+   "churnProbability": 0.015974,
+   "conversionRate": 0.003344
+  },
+  {
+   "turn": 7,
+   "segment": "OCCASIONAL",
+   "customers": 46,
+   "population": 35041,
+   "churnProbability": 0.07886,
+   "conversionRate": 0.002652
+  },
+  {
+   "turn": 7,
+   "segment": "ENTERPRISE",
+   "customers": 42,
+   "population": 58399,
+   "churnProbability": 0.018908,
+   "conversionRate": 0.001158
+  },
+  {
+   "turn": 8,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 213,
+   "population": 59275,
+   "churnProbability": 0.071607,
+   "conversionRate": 0.005677
+  },
+  {
+   "turn": 8,
+   "segment": "PREMIUM",
+   "customers": 66,
+   "population": 35567,
+   "churnProbability": 0.030111,
+   "conversionRate": 0.002607
+  },
+  {
+   "turn": 8,
+   "segment": "LOYAL",
+   "customers": 117,
+   "population": 47420,
+   "churnProbability": 0.015566,
+   "conversionRate": 0.00337
+  },
+  {
+   "turn": 8,
+   "segment": "OCCASIONAL",
+   "customers": 49,
+   "population": 35567,
+   "churnProbability": 0.076948,
+   "conversionRate": 0.002666
+  },
+  {
+   "turn": 8,
+   "segment": "ENTERPRISE",
+   "customers": 49,
+   "population": 59275,
+   "churnProbability": 0.018368,
+   "conversionRate": 0.001174
+  },
+  {
+   "turn": 9,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 230,
+   "population": 60164,
+   "churnProbability": 0.082261,
+   "conversionRate": 0.005646
+  },
+  {
+   "turn": 9,
+   "segment": "PREMIUM",
+   "customers": 73,
+   "population": 36101,
+   "churnProbability": 0.034701,
+   "conversionRate": 0.002584
+  },
+  {
+   "turn": 9,
+   "segment": "LOYAL",
+   "customers": 129,
+   "population": 48131,
+   "churnProbability": 0.017906,
+   "conversionRate": 0.00335
+  },
+  {
+   "turn": 9,
+   "segment": "OCCASIONAL",
+   "customers": 53,
+   "population": 36101,
+   "churnProbability": 0.088443,
+   "conversionRate": 0.002652
+  },
+  {
+   "turn": 9,
+   "segment": "ENTERPRISE",
+   "customers": 55,
+   "population": 60164,
+   "churnProbability": 0.021159,
+   "conversionRate": 0.001165
+  },
+  {
+   "turn": 10,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 250,
+   "population": 61066,
+   "churnProbability": 0.083422,
+   "conversionRate": 0.005675
+  },
+  {
+   "turn": 10,
+   "segment": "PREMIUM",
+   "customers": 81,
+   "population": 36643,
+   "churnProbability": 0.034903,
+   "conversionRate": 0.002641
+  },
+  {
+   "turn": 10,
+   "segment": "LOYAL",
+   "customers": 138,
+   "population": 48853,
+   "churnProbability": 0.018105,
+   "conversionRate": 0.003388
+  },
+  {
+   "turn": 10,
+   "segment": "OCCASIONAL",
+   "customers": 56,
+   "population": 36643,
+   "churnProbability": 0.089568,
+   "conversionRate": 0.002673
+  },
+  {
+   "turn": 10,
+   "segment": "ENTERPRISE",
+   "customers": 60,
+   "population": 61066,
+   "churnProbability": 0.02131,
+   "conversionRate": 0.001187
+  },
+  {
+   "turn": 11,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 276,
+   "population": 61982,
+   "churnProbability": 0.073849,
+   "conversionRate": 0.005654
+  },
+  {
+   "turn": 11,
+   "segment": "PREMIUM",
+   "customers": 87,
+   "population": 37193,
+   "churnProbability": 0.030999,
+   "conversionRate": 0.002621
+  },
+  {
+   "turn": 11,
+   "segment": "LOYAL",
+   "customers": 153,
+   "population": 49586,
+   "churnProbability": 0.01605,
+   "conversionRate": 0.003373
+  },
+  {
+   "turn": 11,
+   "segment": "OCCASIONAL",
+   "customers": 63,
+   "population": 37193,
+   "churnProbability": 0.079331,
+   "conversionRate": 0.002663
+  },
+  {
+   "turn": 11,
+   "segment": "ENTERPRISE",
+   "customers": 67,
+   "population": 61982,
+   "churnProbability": 0.018919,
+   "conversionRate": 0.001179
+  },
+  {
+   "turn": 12,
+   "segment": "PRICE_SENSITIVE",
+   "customers": 295,
+   "population": 62912,
+   "churnProbability": 0.068773,
+   "conversionRate": 0.005701
+  },
+  {
+   "turn": 12,
+   "segment": "PREMIUM",
+   "customers": 98,
+   "population": 37751,
+   "churnProbability": 0.028586,
+   "conversionRate": 0.002695
+  },
+  {
+   "turn": 12,
+   "segment": "LOYAL",
+   "customers": 175,
+   "population": 50330,
+   "churnProbability": 0.014895,
+   "conversionRate": 0.003425
+  },
+  {
+   "turn": 12,
+   "segment": "OCCASIONAL",
+   "customers": 72,
+   "population": 37751,
+   "churnProbability": 0.073756,
+   "conversionRate": 0.002695
+  },
+  {
+   "turn": 12,
+   "segment": "ENTERPRISE",
+   "customers": 75,
+   "population": 62912,
+   "churnProbability": 0.017473,
+   "conversionRate": 0.001208
+  }
+ ],
+ "competitors": [
+  {
+   "turn": 0,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 48859,
+   "marketShare": 0.113043,
+   "productQuality": 0.450083,
+   "marketingPower": 0.436539
+  },
+  {
+   "turn": 0,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 88517,
+   "marketShare": 0.089392,
+   "productQuality": 0.743622,
+   "marketingPower": 0.527022
+  },
+  {
+   "turn": 0,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 61286,
+   "marketShare": 0.089874,
+   "productQuality": 0.576229,
+   "marketingPower": 0.820661
+  },
+  {
+   "turn": 0,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 71130,
+   "marketShare": 0.078191,
+   "productQuality": 0.758044,
+   "marketingPower": 0.60834
+  },
+  {
+   "turn": 1,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 48466,
+   "marketShare": 0.108644,
+   "productQuality": 0.450079,
+   "marketingPower": 0.432885
+  },
+  {
+   "turn": 1,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 88051,
+   "marketShare": 0.087418,
+   "productQuality": 0.746441,
+   "marketingPower": 0.52432
+  },
+  {
+   "turn": 1,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 58611,
+   "marketShare": 0.089144,
+   "productQuality": 0.576229,
+   "marketingPower": 0.820661
+  },
+  {
+   "turn": 1,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 70606,
+   "marketShare": 0.079819,
+   "productQuality": 0.757642,
+   "marketingPower": 0.607506
+  },
+  {
+   "turn": 2,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 48112,
+   "marketShare": 0.104496,
+   "productQuality": 0.450075,
+   "marketingPower": 0.429597
+  },
+  {
+   "turn": 2,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 87632,
+   "marketShare": 0.085479,
+   "productQuality": 0.749119,
+   "marketingPower": 0.521888
+  },
+  {
+   "turn": 2,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 58440,
+   "marketShare": 0.088215,
+   "productQuality": 0.574918,
+   "marketingPower": 0.823595
+  },
+  {
+   "turn": 2,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 70134,
+   "marketShare": 0.081021,
+   "productQuality": 0.75726,
+   "marketingPower": 0.606755
+  },
+  {
+   "turn": 3,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 47793,
+   "marketShare": 0.100776,
+   "productQuality": 0.450071,
+   "marketingPower": 0.426637
+  },
+  {
+   "turn": 3,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 87255,
+   "marketShare": 0.083773,
+   "productQuality": 0.751663,
+   "marketingPower": 0.519699
+  },
+  {
+   "turn": 3,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 58286,
+   "marketShare": 0.08735,
+   "productQuality": 0.573672,
+   "marketingPower": 0.826236
+  },
+  {
+   "turn": 3,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 69710,
+   "marketShare": 0.082114,
+   "productQuality": 0.756897,
+   "marketingPower": 0.606079
+  },
+  {
+   "turn": 4,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 47506,
+   "marketShare": 0.097419,
+   "productQuality": 0.450067,
+   "marketingPower": 0.423973
+  },
+  {
+   "turn": 4,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 86916,
+   "marketShare": 0.08225,
+   "productQuality": 0.75408,
+   "marketingPower": 0.517729
+  },
+  {
+   "turn": 4,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 58148,
+   "marketShare": 0.086518,
+   "productQuality": 0.572488,
+   "marketingPower": 0.828612
+  },
+  {
+   "turn": 4,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 69328,
+   "marketShare": 0.083074,
+   "productQuality": 0.756552,
+   "marketingPower": 0.605471
+  },
+  {
+   "turn": 5,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 47248,
+   "marketShare": 0.09427,
+   "productQuality": 0.450064,
+   "marketingPower": 0.421576
+  },
+  {
+   "turn": 5,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 86610,
+   "marketShare": 0.080732,
+   "productQuality": 0.756376,
+   "marketingPower": 0.515956
+  },
+  {
+   "turn": 5,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 58024,
+   "marketShare": 0.085564,
+   "productQuality": 0.571364,
+   "marketingPower": 0.830751
+  },
+  {
+   "turn": 5,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 69328,
+   "marketShare": 0.084614,
+   "productQuality": 0.798315,
+   "marketingPower": 0.605471
+  },
+  {
+   "turn": 6,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 47016,
+   "marketShare": 0.091438,
+   "productQuality": 0.450061,
+   "marketingPower": 0.419418
+  },
+  {
+   "turn": 6,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 86335,
+   "marketShare": 0.079391,
+   "productQuality": 0.758557,
+   "marketingPower": 0.51436
+  },
+  {
+   "turn": 6,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57912,
+   "marketShare": 0.084674,
+   "productQuality": 0.570296,
+   "marketingPower": 0.832676
+  },
+  {
+   "turn": 6,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 68984,
+   "marketShare": 0.085951,
+   "productQuality": 0.795899,
+   "marketingPower": 0.604924
+  },
+  {
+   "turn": 7,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46807,
+   "marketShare": 0.08891,
+   "productQuality": 0.450058,
+   "marketingPower": 0.417476
+  },
+  {
+   "turn": 7,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 86088,
+   "marketShare": 0.078231,
+   "productQuality": 0.760629,
+   "marketingPower": 0.512924
+  },
+  {
+   "turn": 7,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57811,
+   "marketShare": 0.083866,
+   "productQuality": 0.569281,
+   "marketingPower": 0.834408
+  },
+  {
+   "turn": 7,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 68675,
+   "marketShare": 0.087138,
+   "productQuality": 0.793604,
+   "marketingPower": 0.604432
+  },
+  {
+   "turn": 8,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46619,
+   "marketShare": 0.086635,
+   "productQuality": 0.450055,
+   "marketingPower": 0.415728
+  },
+  {
+   "turn": 8,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 85865,
+   "marketShare": 0.077209,
+   "productQuality": 0.762598,
+   "marketingPower": 0.511632
+  },
+  {
+   "turn": 8,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57720,
+   "marketShare": 0.08311,
+   "productQuality": 0.568317,
+   "marketingPower": 0.835967
+  },
+  {
+   "turn": 8,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 68396,
+   "marketShare": 0.088159,
+   "productQuality": 0.791424,
+   "marketingPower": 0.603989
+  },
+  {
+   "turn": 9,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46450,
+   "marketShare": 0.084606,
+   "productQuality": 0.450052,
+   "marketingPower": 0.414155
+  },
+  {
+   "turn": 9,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 85664,
+   "marketShare": 0.076332,
+   "productQuality": 0.764468,
+   "marketingPower": 0.510469
+  },
+  {
+   "turn": 9,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57638,
+   "marketShare": 0.082424,
+   "productQuality": 0.567401,
+   "marketingPower": 0.83737
+  },
+  {
+   "turn": 9,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 68145,
+   "marketShare": 0.089063,
+   "productQuality": 0.789353,
+   "marketingPower": 0.60359
+  },
+  {
+   "turn": 10,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46298,
+   "marketShare": 0.082775,
+   "productQuality": 0.450049,
+   "marketingPower": 0.412739
+  },
+  {
+   "turn": 10,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 85484,
+   "marketShare": 0.075557,
+   "productQuality": 0.766245,
+   "marketingPower": 0.509422
+  },
+  {
+   "turn": 10,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57565,
+   "marketShare": 0.081774,
+   "productQuality": 0.566531,
+   "marketingPower": 0.838633
+  },
+  {
+   "turn": 10,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 67920,
+   "marketShare": 0.089824,
+   "productQuality": 0.787385,
+   "marketingPower": 0.603231
+  },
+  {
+   "turn": 11,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46161,
+   "marketShare": 0.081142,
+   "productQuality": 0.450047,
+   "marketingPower": 0.411465
+  },
+  {
+   "turn": 11,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 85322,
+   "marketShare": 0.074898,
+   "productQuality": 0.767933,
+   "marketingPower": 0.50848
+  },
+  {
+   "turn": 11,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57499,
+   "marketShare": 0.081183,
+   "productQuality": 0.565704,
+   "marketingPower": 0.83977
+  },
+  {
+   "turn": 11,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 67717,
+   "marketShare": 0.090493,
+   "productQuality": 0.785516,
+   "marketingPower": 0.602908
+  },
+  {
+   "turn": 12,
+   "id": "competitor-budget",
+   "name": "ValueMart",
+   "archetype": "BUDGET",
+   "price": 46037,
+   "marketShare": 0.07966,
+   "productQuality": 0.450045,
+   "marketingPower": 0.410319
+  },
+  {
+   "turn": 12,
+   "id": "competitor-premium",
+   "name": "Prestige Co",
+   "archetype": "PREMIUM",
+   "price": 85176,
+   "marketShare": 0.07431,
+   "productQuality": 0.769536,
+   "marketingPower": 0.507632
+  },
+  {
+   "turn": 12,
+   "id": "competitor-aggressive",
+   "name": "Blitz Labs",
+   "archetype": "AGGRESSIVE",
+   "price": 57440,
+   "marketShare": 0.080614,
+   "productQuality": 0.564919,
+   "marketingPower": 0.840793
+  },
+  {
+   "turn": 12,
+   "id": "competitor-innovative",
+   "name": "Novum",
+   "archetype": "INNOVATIVE",
+   "price": 67534,
+   "marketShare": 0.091036,
+   "productQuality": 0.78374,
+   "marketingPower": 0.602617
+  }
+ ],
+ "forecasts": [],
+ "forecastAccuracy": {
+  "pairs": 0,
+  "revenueMape": null,
+  "customersMape": null,
+  "churnRateMae": null
+ },
+ "decisions": [
+  {
+   "turn": 1,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 8000000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 1.0
+  },
+  {
+   "turn": 2,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 6700000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1700000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.3333
+  },
+  {
+   "turn": 3,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 5700000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "directionAgreement": 0.2857
+  },
+  {
+   "turn": 4,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 5200000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1300000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.375
+  },
+  {
+   "turn": 5,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 4700000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "directionAgreement": 0.3333
+  },
+  {
+   "turn": 6,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 4500000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1100000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.6
+  },
+  {
+   "turn": 7,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 4300000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "cash",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "directionAgreement": 0.5
+  },
+  {
+   "turn": 8,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 4400000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1100000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.5
+  },
+  {
+   "turn": 9,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 4600000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "cash",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "directionAgreement": 0.0
+  },
+  {
+   "turn": 10,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 5000000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1300000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "LARGE"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.6667
+  },
+  {
+   "turn": 11,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 5400000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "cash",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    }
+   ],
+   "directionAgreement": 0.8
+  },
+  {
+   "turn": 12,
+   "decisions": [
+    {
+     "decision": {
+      "type": "MARKETING",
+      "value": 6000000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "cash",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      }
+     ]
+    },
+    {
+     "decision": {
+      "type": "PRODUCT_QUALITY",
+      "value": 1500000
+     },
+     "previewed": [
+      {
+       "metric": "revenue",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "profit",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "cash",
+       "direction": "DOWN",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "newCustomers",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "churnedCustomers",
+       "direction": "DOWN",
+       "magnitude": "MEDIUM"
+      },
+      {
+       "metric": "marketShare",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "customerSatisfaction",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      },
+      {
+       "metric": "brandAwareness",
+       "direction": "FLAT",
+       "magnitude": "NONE"
+      },
+      {
+       "metric": "productQuality",
+       "direction": "UP",
+       "magnitude": "SMALL"
+      }
+     ]
+    }
+   ],
+   "combinedPreview": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "profit",
+     "direction": "DOWN",
+     "magnitude": "LARGE"
+    },
+    {
+     "metric": "cash",
+     "direction": "DOWN",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "DOWN",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "actual": [
+    {
+     "metric": "revenue",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "profit",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "cash",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "newCustomers",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "churnedCustomers",
+     "direction": "FLAT",
+     "magnitude": "NONE"
+    },
+    {
+     "metric": "marketShare",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "customerSatisfaction",
+     "direction": "UP",
+     "magnitude": "MEDIUM"
+    },
+    {
+     "metric": "brandAwareness",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    },
+    {
+     "metric": "productQuality",
+     "direction": "UP",
+     "magnitude": "SMALL"
+    }
+   ],
+   "directionAgreement": 0.6667
+  }
+ ],
+ "location": {
+  "profile": {
+   "dataVersion": "1.0.0",
+   "basis": "LISTED_CITY",
+   "country": "IN",
+   "state": "KA",
+   "stateName": "Karnataka",
+   "city": "Bengaluru",
+   "cityId": "bengaluru",
+   "tier": "METRO",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.256,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 19.04 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.286,
+     "isEstimate": false,
+     "source": "Office rent 97.1 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.799,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 339,813 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.524,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 8,520,435 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.38,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 3.4 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.5,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (16,093 in Karnataka) and Inc42 2025 funding (USD 4500 million)."
+    },
+    "fundingAccess": {
+     "value": 1.8,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 4500 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "LEADS 2025 Karnataka: Accelerator (1.0) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  "localDemandWeight": 0.1,
+  "costs": [
+   {
+    "key": "salaries",
+    "label": "Salaries",
+    "factor": 1.256,
+    "actual": 8440320,
+    "baseline": 6720000
+   },
+   {
+    "key": "recruiting",
+    "label": "Recruiting",
+    "factor": 0.9101,
+    "actual": 0,
+    "baseline": 0
+   },
+   {
+    "key": "fixed",
+    "label": "Rent and overheads",
+    "factor": 1.286,
+    "actual": 3858000,
+    "baseline": 3000000
+   },
+   {
+    "key": "compliance",
+    "label": "State compliance",
+    "factor": 0.99,
+    "actual": -30000,
+    "baseline": 0
+   },
+   {
+    "key": "logistics",
+    "label": "Logistics",
+    "factor": 0.9524,
+    "actual": 0,
+    "baseline": 0
+   }
+  ],
+  "monthlyCostBase": 26909740,
+  "monthlyLocationCost": 2548320,
+  "demand": [
+   {
+    "key": "marketSize",
+    "label": "Local market size",
+    "factor": 1.0524
+   },
+   {
+    "key": "priceElasticity",
+    "label": "Price sensitivity",
+    "factor": 0.9711
+   },
+   {
+    "key": "competition",
+    "label": "Competition",
+    "factor": 1.05
+   }
+  ]
+ }
+}

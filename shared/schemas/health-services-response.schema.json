@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "health-services-response.schema.json",
+  "title": "HealthServicesResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["api", "mongodb", "redis", "simulationEngine"],
+  "properties": {
+    "api": { "$ref": "#/definitions/ServiceStatus" },
+    "mongodb": { "$ref": "#/definitions/ServiceStatus" },
+    "redis": { "$ref": "#/definitions/ServiceStatus" },
+    "simulationEngine": { "$ref": "#/definitions/ServiceStatus" }
+  },
+  "definitions": {
+    "ServiceStatus": { "title": "ServiceStatus", "type": "string", "enum": ["ok", "down"] }
+  }
+}

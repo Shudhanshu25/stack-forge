@@ -1,0 +1,273 @@
+{
+  "eventsVersion": "1.1.0",
+  "events": [
+    {
+      "type": "viral_exposure",
+      "polarity": "POSITIVE",
+      "title": "Viral exposure",
+      "description": "A post about the product spreads widely.",
+      "probability": 0.03,
+      "duration": 2,
+      "effects": {
+        "demand": 0.35,
+        "brandAwareness": 0.08
+      }
+    },
+    {
+      "type": "positive_review",
+      "polarity": "POSITIVE",
+      "title": "Positive review",
+      "description": "A respected publication reviews the product favourably.",
+      "probability": 0.06,
+      "duration": 2,
+      "effects": {
+        "demand": 0.1,
+        "customerSatisfaction": 0.03
+      }
+    },
+    {
+      "type": "influencer_mention",
+      "polarity": "POSITIVE",
+      "title": "Influencer mention",
+      "description": "A popular creator recommends the product.",
+      "probability": 0.04,
+      "duration": 1,
+      "effects": {
+        "demand": 0.2,
+        "brandAwareness": 0.04
+      }
+    },
+    {
+      "type": "supplier_discount",
+      "polarity": "POSITIVE",
+      "title": "Supplier discount",
+      "description": "A key supplier cuts prices.",
+      "probability": 0.04,
+      "duration": 3,
+      "effects": {
+        "unitCost": -0.1
+      }
+    },
+    {
+      "type": "unexpected_demand",
+      "polarity": "POSITIVE",
+      "title": "Unexpected demand",
+      "description": "Demand jumps for reasons outside your control.",
+      "probability": 0.04,
+      "duration": 1,
+      "effects": {
+        "demand": 0.25
+      }
+    },
+    {
+      "type": "competitor_price_war",
+      "polarity": "NEGATIVE",
+      "title": "Competitor price war",
+      "description": "Competitors slash prices and bid up advertising.",
+      "probability": 0.04,
+      "duration": 2,
+      "effects": {
+        "demand": -0.12,
+        "marketingCost": 0.08
+      }
+    },
+    {
+      "type": "supply_disruption",
+      "polarity": "NEGATIVE",
+      "title": "Supply disruption",
+      "description": "Supply problems raise costs and delay orders.",
+      "probability": 0.03,
+      "duration": 2,
+      "effects": {
+        "unitCost": 0.15,
+        "demand": -0.08
+      }
+    },
+    {
+      "type": "bad_review",
+      "polarity": "NEGATIVE",
+      "title": "Bad review",
+      "description": "A widely read review criticises the product.",
+      "probability": 0.05,
+      "duration": 2,
+      "effects": {
+        "demand": -0.1,
+        "churn": 0.1,
+        "customerSatisfaction": -0.04
+      }
+    },
+    {
+      "type": "economic_slowdown",
+      "polarity": "NEGATIVE",
+      "title": "Economic slowdown",
+      "description": "Customers tighten budgets.",
+      "probability": 0.02,
+      "duration": 4,
+      "effects": {
+        "demand": -0.1,
+        "churn": 0.08
+      }
+    },
+    {
+      "type": "employee_turnover",
+      "polarity": "NEGATIVE",
+      "title": "Employee turnover",
+      "description": "Key people leave; hiring replacements costs time and money.",
+      "probability": 0.04,
+      "duration": 1,
+      "effects": {
+        "fixedCosts": 0.1,
+        "productQuality": -0.02
+      }
+    },
+    {
+      "type": "regulatory_cost",
+      "polarity": "NEGATIVE",
+      "title": "Regulatory cost",
+      "description": "New compliance requirements raise overheads.",
+      "probability": 0.02,
+      "duration": 3,
+      "effects": {
+        "fixedCosts": 0.15
+      }
+    },
+    {
+      "type": "market_trend",
+      "polarity": "NEUTRAL",
+      "title": "Market trend",
+      "description": "Interest in the category grows, and so does competition for attention.",
+      "probability": 0.04,
+      "duration": 3,
+      "effects": {
+        "demand": 0.06,
+        "cac": 0.05
+      }
+    },
+    {
+      "type": "seasonality",
+      "polarity": "NEUTRAL",
+      "title": "Seasonal spike",
+      "description": "A seasonal surge lifts demand and ad prices together.",
+      "probability": 0.05,
+      "duration": 1,
+      "effects": {
+        "demand": 0.08,
+        "marketingCost": 0.05
+      }
+    },
+    {
+      "type": "new_technology",
+      "polarity": "NEUTRAL",
+      "title": "New technology",
+      "description": "A new technology cuts costs but makes the product look dated.",
+      "probability": 0.03,
+      "duration": 2,
+      "effects": {
+        "unitCost": -0.05,
+        "productQuality": -0.01
+      }
+    },
+    {
+      "type": "customer_preference_shift",
+      "polarity": "NEUTRAL",
+      "title": "Preference shift",
+      "description": "Customer tastes drift away from the current offering.",
+      "probability": 0.03,
+      "duration": 3,
+      "effects": {
+        "demand": -0.04,
+        "churn": 0.05
+      }
+    },
+    {
+      "type": "state_startup_incentive",
+      "polarity": "POSITIVE",
+      "title": "State startup incentive",
+      "description": "The state government's startup policy reimburses part of your rent and marketing (states rated Best or Top Performer in the States' Startup Ranking 5.0).",
+      "probability": 0.04,
+      "duration": 3,
+      "effects": {
+        "fixedCosts": -0.15,
+        "marketingCost": -0.1
+      },
+      "conditions": {
+        "states": ["GJ", "AR", "GA", "KA", "PB", "TN", "UP", "HP"]
+      }
+    },
+    {
+      "type": "state_regulatory_change",
+      "polarity": "NEGATIVE",
+      "title": "State regulatory change",
+      "description": "New state compliance rules add filings and fees for a few months.",
+      "probability": 0.03,
+      "duration": 3,
+      "effects": {
+        "fixedCosts": 0.08
+      },
+      "conditions": {
+        "tiers": ["METRO", "TIER_2", "TIER_3"]
+      }
+    },
+    {
+      "type": "local_festival_demand",
+      "polarity": "POSITIVE",
+      "title": "Local festival season",
+      "description": "A major regional festival brings a surge of local spending.",
+      "probability": 0.06,
+      "duration": 1,
+      "effects": {
+        "demand": 0.18,
+        "brandAwareness": 0.02
+      },
+      "conditions": {
+        "tiers": ["METRO", "TIER_2", "TIER_3"]
+      }
+    },
+    {
+      "type": "monsoon_disruption",
+      "polarity": "NEGATIVE",
+      "title": "Monsoon flooding",
+      "description": "Heavy rain and flooding disrupt deliveries, supplies and footfall.",
+      "probability": 0.05,
+      "duration": 1,
+      "effects": {
+        "demand": -0.12,
+        "unitCost": 0.08,
+        "customerSatisfaction": -0.04
+      },
+      "conditions": {
+        "states": ["MH", "KL", "AS", "WB", "OD", "TN", "AP", "GJ", "BR", "UK", "HP"]
+      }
+    },
+    {
+      "type": "local_talent_war",
+      "polarity": "NEGATIVE",
+      "title": "Local talent war",
+      "description": "Well-funded startups nearby bid up salaries for the people you need.",
+      "probability": 0.05,
+      "duration": 3,
+      "effects": {
+        "salaries": 0.12
+      },
+      "conditions": {
+        "cities": ["bengaluru", "hyderabad", "pune", "delhi-ncr", "mumbai", "chennai"]
+      }
+    },
+    {
+      "type": "infrastructure_outage",
+      "polarity": "NEGATIVE",
+      "title": "Infrastructure outage",
+      "description": "Power cuts and network outages interrupt service for a while.",
+      "probability": 0.04,
+      "duration": 1,
+      "effects": {
+        "productQuality": -0.02,
+        "customerSatisfaction": -0.05,
+        "fixedCosts": 0.03
+      },
+      "conditions": {
+        "tiers": ["TIER_2", "TIER_3"]
+      }
+    }
+  ]
+}

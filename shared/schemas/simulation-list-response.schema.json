@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-list-response.schema.json",
+  "title": "SimulationListResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["simulations"],
+  "properties": {
+    "simulations": {
+      "type": "array",
+      "items": {
+        "$ref": "simulation.schema.json"
+      }
+    }
+  }
+}

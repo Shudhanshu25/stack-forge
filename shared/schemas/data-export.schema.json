@@ -1,0 +1,147 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "data-export.schema.json",
+  "title": "DataExport",
+  "description": "Everything stored about a user, as downloaded from GET /account/export. Password hashes and token hashes are never included.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "exportedAt",
+    "user",
+    "startups",
+    "simulations",
+    "turns",
+    "advice",
+    "sessions",
+    "llmUsage"
+  ],
+  "properties": {
+    "exportedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "user": {
+      "$ref": "user.schema.json"
+    },
+    "startups": {
+      "type": "array",
+      "items": {
+        "$ref": "startup.schema.json"
+      }
+    },
+    "simulations": {
+      "type": "array",
+      "items": {
+        "$ref": "simulation.schema.json"
+      }
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "$ref": "simulation-turn.schema.json"
+      }
+    },
+    "advice": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/AdviceRecord"
+      }
+    },
+    "sessions": {
+      "type": "array",
+      "items": {
+        "$ref": "session.schema.json"
+      }
+    },
+    "llmUsage": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/LlmUsageRecord"
+      }
+    }
+  },
+  "definitions": {
+    "AdviceRecord": {
+      "title": "AdviceRecord",
+      "description": "An on-demand AI CEO question and its answer.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["simulationId", "turnNumber", "mode", "question", "advice", "createdAt"],
+      "properties": {
+        "simulationId": {
+          "type": "string"
+        },
+        "turnNumber": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "mode": {
+          "$ref": "enums.schema.json#/definitions/AdviceMode"
+        },
+        "question": {
+          "type": ["string", "null"]
+        },
+        "advice": {
+          "$ref": "ai-advice.schema.json"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "LlmUsageRecord": {
+      "title": "LlmUsageRecord",
+      "description": "One LLM call made for the user.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "simulationId",
+        "turnNumber",
+        "purpose",
+        "model",
+        "promptVersion",
+        "promptTokens",
+        "completionTokens",
+        "cached",
+        "outcome",
+        "createdAt"
+      ],
+      "properties": {
+        "simulationId": {
+          "type": ["string", "null"]
+        },
+        "turnNumber": {
+          "type": ["integer", "null"]
+        },
+        "purpose": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "promptVersion": {
+          "type": "string"
+        },
+        "promptTokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completionTokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "cached": {
+          "type": "boolean"
+        },
+        "outcome": {
+          "type": "string"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

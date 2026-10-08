@@ -1,0 +1,20 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.prod
+*.log
+__pycache__/
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+simulation/ml/data/
+simulation/ml/artifacts/
+infrastructure/backups/
+.outbox/
+frontend/test-results/
+frontend/playwright-report/
+
+# Review screenshots (frontend/e2e/screenshots.spec.ts)
+screenshots/

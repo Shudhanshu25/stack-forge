@@ -1,0 +1,60 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "admin-stats.schema.json",
+  "title": "AdminStats",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "users",
+    "startups",
+    "simulations",
+    "turnsPlayed",
+    "averageTurnDurationMs",
+    "aiRequests",
+    "mlPredictions",
+    "failedJobs",
+    "engineVersion",
+    "modelVersion",
+    "generatedAt"
+  ],
+  "properties": {
+    "users": {
+      "type": "integer"
+    },
+    "startups": {
+      "type": "integer"
+    },
+    "simulations": {
+      "type": "integer"
+    },
+    "turnsPlayed": {
+      "type": "integer"
+    },
+    "averageTurnDurationMs": {
+      "type": ["number", "null"],
+      "description": "Mean startedAt to completedAt of completed turn jobs."
+    },
+    "aiRequests": {
+      "type": "integer",
+      "description": "LLM requests: llm-mode agent calls, per-turn AI CEO analyses that reached the LLM, and on-demand advisor questions."
+    },
+    "mlPredictions": {
+      "type": "integer",
+      "description": "Turns that carry an available ML forecast."
+    },
+    "failedJobs": {
+      "type": "integer"
+    },
+    "engineVersion": {
+      "type": ["string", "null"]
+    },
+    "modelVersion": {
+      "type": ["string", "null"]
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "description": "Platform metrics. Totals include the anonymous counts kept when an account is deleted; no per-user data."
+}

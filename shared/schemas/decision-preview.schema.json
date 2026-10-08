@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "decision-preview.schema.json",
+  "title": "DecisionPreview",
+  "description": "A simulation estimate of a set of decisions: the direction and rough size of each effect, never exact figures. Nothing is recorded.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["turnNumber", "label", "decisionResults", "combinedEffects"],
+  "properties": {
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "label": {
+      "type": "string",
+      "const": "Simulation estimate"
+    },
+    "decisionResults": {
+      "type": "array",
+      "items": {
+        "$ref": "decision-result.schema.json"
+      },
+      "description": "Each decision on its own against keeping everything unchanged."
+    },
+    "combinedEffects": {
+      "type": "array",
+      "items": {
+        "$ref": "estimated-effect.schema.json"
+      },
+      "description": "All accepted decisions together."
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "difficulty-presets.schema.json",
+  "title": "DifficultyPresets",
+  "description": "Shape of shared/templates/difficulty.json.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["EASY", "NORMAL", "HARD"],
+  "properties": {
+    "EASY": { "$ref": "difficulty-modifiers.schema.json" },
+    "NORMAL": { "$ref": "difficulty-modifiers.schema.json" },
+    "HARD": { "$ref": "difficulty-modifiers.schema.json" }
+  }
+}

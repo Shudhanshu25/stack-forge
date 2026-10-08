@@ -1,0 +1,149 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "enums.schema.json",
+  "title": "Enums",
+  "description": "Shared enumerations. Referenced from other schemas via enums.schema.json#/definitions/<Name>.",
+  "definitions": {
+    "DecisionType": {
+      "title": "DecisionType",
+      "description": "PRICING, MARKETING, HIRING and PRODUCT_QUALITY are implemented. The rest are reserved and rejected as not yet supported.",
+      "type": "string",
+      "enum": [
+        "PRICING",
+        "MARKETING",
+        "HIRING",
+        "PRODUCT_QUALITY",
+        "FIRING",
+        "R_AND_D",
+        "EXPANSION",
+        "COST_CUTTING",
+        "FUNDING"
+      ]
+    },
+    "SimulationStatus": {
+      "title": "SimulationStatus",
+      "type": "string",
+      "enum": ["ACTIVE", "BANKRUPT", "COMPLETED", "ARCHIVED"]
+    },
+    "JobStatus": {
+      "title": "JobStatus",
+      "type": "string",
+      "enum": ["QUEUED", "RUNNING", "COMPLETED", "FAILED", "CANCELLED"]
+    },
+    "EventType": {
+      "title": "EventType",
+      "type": "string",
+      "enum": [
+        "viral_exposure",
+        "positive_review",
+        "influencer_mention",
+        "supplier_discount",
+        "unexpected_demand",
+        "competitor_price_war",
+        "supply_disruption",
+        "bad_review",
+        "economic_slowdown",
+        "employee_turnover",
+        "regulatory_cost",
+        "market_trend",
+        "seasonality",
+        "new_technology",
+        "customer_preference_shift",
+        "state_startup_incentive",
+        "state_regulatory_change",
+        "local_festival_demand",
+        "monsoon_disruption",
+        "local_talent_war",
+        "infrastructure_outage"
+      ]
+    },
+    "EventPolarity": {
+      "title": "EventPolarity",
+      "type": "string",
+      "enum": ["POSITIVE", "NEGATIVE", "NEUTRAL"]
+    },
+    "Industry": {
+      "title": "Industry",
+      "type": "string",
+      "enum": [
+        "SAAS",
+        "ECOMMERCE",
+        "FOOD_AND_BEVERAGE",
+        "EDTECH",
+        "HEALTHTECH",
+        "FINTECH",
+        "GAMING",
+        "CONSUMER_APP"
+      ]
+    },
+    "BusinessModel": {
+      "title": "BusinessModel",
+      "type": "string",
+      "enum": ["SUBSCRIPTION", "TRANSACTIONAL", "FREEMIUM", "MARKETPLACE", "ADVERTISING"]
+    },
+    "Difficulty": {
+      "title": "Difficulty",
+      "type": "string",
+      "enum": ["EASY", "NORMAL", "HARD"]
+    },
+    "UserRole": {
+      "title": "UserRole",
+      "type": "string",
+      "enum": ["USER", "ADMIN"]
+    },
+    "AgentMode": {
+      "title": "AgentMode",
+      "type": "string",
+      "enum": ["rules", "llm"]
+    },
+    "CustomerSegmentType": {
+      "title": "CustomerSegmentType",
+      "type": "string",
+      "enum": ["PRICE_SENSITIVE", "PREMIUM", "LOYAL", "OCCASIONAL", "ENTERPRISE"]
+    },
+    "CompetitorArchetype": {
+      "title": "CompetitorArchetype",
+      "type": "string",
+      "enum": ["BUDGET", "PREMIUM", "AGGRESSIVE", "INNOVATIVE"]
+    },
+    "AdviceMode": {
+      "title": "AdviceMode",
+      "type": "string",
+      "enum": ["EXPLAIN", "ANALYZE", "SCENARIO"]
+    },
+    "UnitInterval": {
+      "title": "UnitInterval",
+      "description": "A rate or score in [0, 1].",
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "PipelineStage": {
+      "title": "PipelineStage",
+      "description": "Turn pipeline stages in order. Stages a milestone has not built yet are not emitted.",
+      "type": "string",
+      "enum": [
+        "PROCESSING_DECISION",
+        "ANALYZING_CUSTOMERS",
+        "ANALYZING_COMPETITORS",
+        "APPLYING_MARKET_EVENT",
+        "UPDATING_FINANCIAL_MODEL",
+        "GENERATING_FORECAST",
+        "AI_CEO_ANALYSIS",
+        "COMPLETE"
+      ]
+    },
+    "LocationTier": {
+      "title": "LocationTier",
+      "description": "City tier, following the house rent allowance classification of cities (X = METRO, Y = TIER_2, Z = TIER_3).",
+      "type": "string",
+      "enum": ["METRO", "TIER_2", "TIER_3"]
+    },
+    "LocationBasis": {
+      "title": "LocationBasis",
+      "description": "How a location profile was built: a listed city's own values, a state's values with tier defaults (any other city), or the neutral baseline (startups created before locations existed).",
+      "type": "string",
+      "enum": ["LISTED_CITY", "STATE_AND_TIER", "NEUTRAL"]
+    }
+  }
+}

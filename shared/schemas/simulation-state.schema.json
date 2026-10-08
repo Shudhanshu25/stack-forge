@@ -1,0 +1,254 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-state.schema.json",
+  "title": "SimulationState",
+  "description": "The full state of a startup at the end of a turn. Produced only by the simulation engine. Money in paise.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "turn",
+    "cash",
+    "revenue",
+    "expenses",
+    "profit",
+    "customers",
+    "newCustomers",
+    "churnedCustomers",
+    "price",
+    "marketingBudget",
+    "employees",
+    "productQuality",
+    "marketShare",
+    "customerSatisfaction",
+    "brandAwareness",
+    "competitorPressure",
+    "customerSegments",
+    "competitors",
+    "activeEvents"
+  ],
+  "properties": {
+    "turn": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cash": {
+      "type": "integer"
+    },
+    "revenue": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expenses": {
+      "$ref": "#/definitions/Expenses"
+    },
+    "profit": {
+      "type": "integer"
+    },
+    "customers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "newCustomers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "churnedCustomers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "price": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "marketingBudget": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "employees": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "productQuality": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "marketShare": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "customerSatisfaction": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "brandAwareness": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "competitorPressure": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "customerSegments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CustomerSegment"
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Competitor"
+      }
+    },
+    "activeEvents": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ActiveEvent"
+      }
+    }
+  },
+  "definitions": {
+    "Expenses": {
+      "title": "Expenses",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["total", "variable", "fixed", "marketing", "employees", "product"],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "variable": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "fixed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "marketing": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "employees": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "product": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "One-off product quality investment this turn."
+        }
+      },
+      "description": "Costs for the turn in paise. total is the sum of the other fields, so cash change equals revenue minus total."
+    },
+    "CustomerSegment": {
+      "title": "CustomerSegment",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "population",
+        "customers",
+        "priceSensitivity",
+        "qualitySensitivity",
+        "brandLoyalty",
+        "conversionRate",
+        "churnProbability"
+      ],
+      "properties": {
+        "type": {
+          "$ref": "enums.schema.json#/definitions/CustomerSegmentType"
+        },
+        "population": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "customers": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "priceSensitivity": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "qualitySensitivity": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "brandLoyalty": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "conversionRate": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "churnProbability": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        }
+      }
+    },
+    "Competitor": {
+      "title": "Competitor",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "archetype",
+        "pricingStrategy",
+        "price",
+        "marketingPower",
+        "marketShare",
+        "reactionTendency",
+        "productQuality",
+        "cashStrength"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "archetype": {
+          "$ref": "enums.schema.json#/definitions/CompetitorArchetype"
+        },
+        "pricingStrategy": {
+          "type": "string",
+          "enum": ["UNDERCUT", "MATCH", "PREMIUM", "PENETRATION"]
+        },
+        "price": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "marketingPower": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "marketShare": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "reactionTendency": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "productQuality": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "cashStrength": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        }
+      }
+    },
+    "ActiveEvent": {
+      "title": "ActiveEvent",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["event", "startedTurn", "remainingTurns"],
+      "properties": {
+        "event": {
+          "$ref": "market-event.schema.json"
+        },
+        "startedTurn": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "remainingTurns": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    }
+  }
+}

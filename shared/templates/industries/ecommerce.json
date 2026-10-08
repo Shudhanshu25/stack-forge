@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "ECOMMERCE",
+  "displayName": "E-commerce",
+  "description": "Online retail. Thin margins after cost of goods, logistics and returns; inventory ties up cash; festive season peaks.",
+  "defaults": {
+    "businessModel": "TRANSACTIONAL",
+    "initialCapital": 250000000,
+    "initialPrice": 120000,
+    "marketSize": 1000000
+  },
+  "parameters": {
+    "unitCostRate": 0.5,
+    "variableCostPerCustomer": 1500,
+    "logisticsCostPerOrder": 9000,
+    "returnRate": 0.12,
+    "inventoryHoldingRate": 0.02,
+    "purchasesPerCustomerPerMonth": 0.6,
+    "fixedCostsMonthly": 8000000,
+    "salaryPerEmployeeMonthly": 2500000,
+    "initialEmployees": 4,
+    "customersPerEmployee": 1000,
+    "baseChurnRate": 0.06,
+    "baseCac": 50000,
+    "baseConversionRate": 0.02,
+    "priceElasticity": 1.8,
+    "referencePrice": 120000,
+    "initialProductQuality": 0.55,
+    "initialBrandAwareness": 0.03,
+    "marketGrowthRateMonthly": 0.02,
+    "seasonality": [0.9, 0.9, 1.0, 0.95, 0.95, 0.9, 0.95, 1.0, 1.05, 1.35, 1.45, 1.1],
+    "competitorIntensity": 0.8,
+    "eventProbabilityMultiplier": 1.1,
+    "segmentMix": {
+      "priceSensitive": 0.4,
+      "premium": 0.12,
+      "loyal": 0.15,
+      "occasional": 0.3,
+      "enterprise": 0.03
+    },
+    "localDemandWeight": 0.4
+  }
+}

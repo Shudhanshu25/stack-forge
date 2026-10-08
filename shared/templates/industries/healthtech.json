@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "HEALTHTECH",
+  "displayName": "HealthTech",
+  "description": "Digital health. Clinician time makes serving costs high, compliance raises overheads, and trust keeps churn low once won.",
+  "defaults": {
+    "businessModel": "SUBSCRIPTION",
+    "initialCapital": 300000000,
+    "initialPrice": 79900,
+    "marketSize": 250000
+  },
+  "parameters": {
+    "unitCostRate": 0.3,
+    "variableCostPerCustomer": 8000,
+    "logisticsCostPerOrder": 0,
+    "returnRate": 0.02,
+    "inventoryHoldingRate": 0.0,
+    "purchasesPerCustomerPerMonth": 1,
+    "fixedCostsMonthly": 6000000,
+    "salaryPerEmployeeMonthly": 3000000,
+    "initialEmployees": 4,
+    "customersPerEmployee": 250,
+    "baseChurnRate": 0.045,
+    "baseCac": 200000,
+    "baseConversionRate": 0.015,
+    "priceElasticity": 0.9,
+    "referencePrice": 89900,
+    "initialProductQuality": 0.65,
+    "initialBrandAwareness": 0.03,
+    "marketGrowthRateMonthly": 0.015,
+    "seasonality": [1.1, 1.05, 1.0, 0.95, 0.95, 1.0, 1.05, 1.05, 1.0, 1.0, 1.05, 1.1],
+    "competitorIntensity": 0.55,
+    "eventProbabilityMultiplier": 0.9,
+    "segmentMix": {
+      "priceSensitive": 0.2,
+      "premium": 0.25,
+      "loyal": 0.25,
+      "occasional": 0.1,
+      "enterprise": 0.2
+    },
+    "localDemandWeight": 0.5
+  }
+}

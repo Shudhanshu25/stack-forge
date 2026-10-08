@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "engine-start-response.schema.json",
+  "title": "EngineStartResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["state", "engineVersion"],
+  "properties": {
+    "state": {
+      "$ref": "simulation-state.schema.json"
+    },
+    "engineVersion": {
+      "type": "string"
+    }
+  }
+}

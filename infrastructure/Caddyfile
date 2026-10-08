@@ -1,0 +1,23 @@
+# Reverse proxy: terminates HTTPS and routes to the frontend and the API.
+# SITE_ADDRESS is a domain (Caddy obtains a certificate automatically) or "localhost"
+# (Caddy issues one from its own local CA). HTTP requests are redirected to HTTPS.
+{$SITE_ADDRESS:localhost} {
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+
+	# REST API and the live-events WebSocket (/api/v1/ws); the path is passed through unchanged.
+	# /metrics and the root /health are not routed: they stay on the internal network.
+	handle /api/* {
+		reverse_proxy api:4000
+	}
+
+	handle {
+		reverse_proxy frontend:8080
+	}
+}

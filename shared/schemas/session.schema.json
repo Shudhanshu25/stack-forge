@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "session.schema.json",
+  "title": "Session",
+  "description": "An active sign-in (one refresh-token family).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "device", "signedInAt", "lastUsedAt", "current"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Session id (the refresh-token family)."
+    },
+    "device": {
+      "type": "string",
+      "maxLength": 120,
+      "description": "Browser and operating system from the User-Agent, e.g. \"Chrome on Windows\"."
+    },
+    "signedInAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "lastUsedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "When the session last refreshed its access token."
+    },
+    "current": {
+      "type": "boolean",
+      "description": "Whether this is the session making the request."
+    }
+  }
+}

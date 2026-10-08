@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "location.schema.json",
+  "title": "Location",
+  "description": "Where a startup is based. Set at creation; it cannot change once a simulation has started.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["country", "state", "city", "tier"],
+  "properties": {
+    "country": {
+      "type": "string",
+      "const": "IN",
+      "description": "Only India for now; the field lets other countries be added later."
+    },
+    "state": {
+      "type": "string",
+      "pattern": "^[A-Z]{2}$",
+      "description": "ISO 3166-2:IN state or union territory code, e.g. KA."
+    },
+    "city": {
+      "type": "string",
+      "minLength": 2,
+      "maxLength": 60,
+      "description": "City name: a listed city's name, or any other city the founder typed."
+    },
+    "cityId": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9-]{2,40}$",
+          "description": "Id of a listed city, e.g. bengaluru."
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "The listed city's id, or null for any other city (profile from state and tier)."
+    },
+    "tier": {
+      "$ref": "enums.schema.json#/definitions/LocationTier"
+    }
+  }
+}

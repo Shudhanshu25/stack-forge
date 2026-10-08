@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "pipeline-event.schema.json",
+  "title": "PipelineEvent",
+  "description": "One line of the NDJSON stream returned by POST /pipeline/turn: stage events as each stage completes, then exactly one result or error.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["stage", "result", "error"]
+    },
+    "stage": {
+      "$ref": "enums.schema.json#/definitions/PipelineStage"
+    },
+    "progress": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "record": {
+      "$ref": "simulation-turn.schema.json"
+    },
+    "error": {
+      "$ref": "#/definitions/PipelineError"
+    }
+  },
+  "definitions": {
+    "PipelineError": {
+      "title": "PipelineError",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {}
+      }
+    }
+  }
+}

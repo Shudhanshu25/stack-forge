@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup-list-response.schema.json",
+  "title": "StartupListResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["startups"],
+  "properties": {
+    "startups": { "type": "array", "items": { "$ref": "startup.schema.json" } }
+  }
+}

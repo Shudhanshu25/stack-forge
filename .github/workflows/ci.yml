@@ -1,0 +1,133 @@
+# Every pull request (and every deploy, via workflow_call): lint, type checks, all test suites,
+# the stale-generated-types check and the engine determinism check.
+name: CI
+
+on:
+  pull_request:
+  workflow_call:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '22'
+  PYTHON_VERSION: '3.12'
+
+jobs:
+  node:
+    name: Node (lint, types, unit + integration tests)
+    runs-on: ubuntu-latest
+    services:
+      redis:
+        image: redis:7.4-alpine
+        ports: ['6379:6379']
+        options: >-
+          --health-cmd "redis-cli ping" --health-interval 5s --health-timeout 3s --health-retries 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - name: Simulation venv (FastAPI for the contract and end-to-end tests)
+        run: |
+          python -m venv simulation/.venv
+          simulation/.venv/bin/python -m pip install -r simulation/requirements.txt
+      - run: npm ci
+      - name: Lint (ESLint + Prettier)
+        run: npm run lint
+      - name: Type check
+        run: npm run typecheck -w backend && npm run typecheck -w frontend
+      - name: Shared contract tests
+        run: npm test -w shared
+      - name: Backend tests (in-memory MongoDB, real Redis, real FastAPI)
+        run: npm test -w backend
+        env:
+          TEST_REDIS_URL: redis://localhost:6379/15
+      - name: Frontend tests
+        run: npm test -w frontend
+      - name: Accessibility check (axe, WCAG 2.1 AA; main routes at desktop and phone width)
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:a11y -w frontend
+      - name: Build
+        run: npm run build
+
+  python:
+    name: Python (lint, tests)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: simulation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Ruff (simulation and evaluation)
+        run: |
+          python -m ruff check . && python -m ruff format --check .
+          cd ../evaluation && python -m ruff check . && python -m ruff format --check .
+      - name: Train a small forecasting model (forecast tests and pipeline)
+        run: python -m ml.train --sims 300 --quick
+      - name: Unit, property, pipeline and API tests (fake LLM client, no keys)
+        run: python -m pytest -q
+      - name: Prompt regression evals (fake client; the real model runs in prompt-evals.yml)
+        run: python ../evaluation/prompts/run_evals.py --provider fake
+
+  contracts:
+    name: Generated types are up to date
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - run: |
+          python -m venv simulation/.venv
+          simulation/.venv/bin/python -m pip install -r simulation/requirements-dev.txt
+      - run: npm ci
+      - run: npm run generate
+      - name: Fail if regenerating changed anything
+        run: |
+          if ! git diff --exit-code -- shared/generated shared/python; then
+            echo "::error::Generated types are stale. Run 'npm run generate' and commit the result."
+            exit 1
+          fi
+
+  determinism:
+    name: Engine determinism and version replay
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: simulation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Same inputs, same outputs; replay of every retained engine version
+        run: python -m pytest -q tests/engine/test_determinism_replay.py tests/test_engine_versions.py
+      - name: Invariants and determinism across seeds (consistency evaluation, CI size)
+        run: python ../evaluation/consistency.py --seeds 3 --turns 12

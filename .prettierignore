@@ -1,0 +1,13 @@
+node_modules
+dist
+coverage
+shared/generated
+shared/python/stackforge_shared/models
+simulation
+*.md
+backend/tests/fixtures
+evaluation/results
+test-results
+playwright-report
+evaluation/prompts/cases.json
+screenshots

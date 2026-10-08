@@ -1,0 +1,143 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-turn.schema.json",
+  "title": "SimulationTurn",
+  "description": "An immutable turn record. Written once, never updated.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "turnNumber",
+    "stateBefore",
+    "decisions",
+    "events",
+    "competitorActions",
+    "agentEffects",
+    "stateAfter",
+    "engineVersion"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "simulationId": {
+      "type": "string"
+    },
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "stateBefore": {
+      "$ref": "simulation-state.schema.json"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "decision.schema.json"
+      }
+    },
+    "decisionResults": {
+      "type": "array",
+      "items": {
+        "$ref": "decision-result.schema.json"
+      }
+    },
+    "events": {
+      "type": "array",
+      "description": "Events that started this turn.",
+      "items": {
+        "$ref": "market-event.schema.json"
+      }
+    },
+    "agentEffects": {
+      "$ref": "agent-effects.schema.json"
+    },
+    "stateAfter": {
+      "$ref": "simulation-state.schema.json"
+    },
+    "engineVersion": {
+      "type": "string"
+    },
+    "forecast": {
+      "$ref": "forecast.schema.json"
+    },
+    "advice": {
+      "$ref": "ai-advice.schema.json"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "competitorActions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CompetitorAction"
+      },
+      "description": "Each competitor's response this turn, including NONE."
+    },
+    "llmUsage": {
+      "$ref": "#/definitions/TurnLlmUsage"
+    }
+  },
+  "definitions": {
+    "CompetitorAction": {
+      "title": "CompetitorAction",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["competitorId", "action", "change", "reason"],
+      "properties": {
+        "competitorId": {
+          "type": "string"
+        },
+        "action": {
+          "type": "string",
+          "enum": ["PRICE_CHANGE", "MARKETING_CHANGE", "PRODUCT_INVESTMENT", "NONE"]
+        },
+        "change": {
+          "type": "number",
+          "description": "Relative price change, or absolute change in marketing power or product quality; 0 for NONE."
+        },
+        "reason": {
+          "type": "string"
+        }
+      }
+    },
+    "TurnLlmUsage": {
+      "title": "TurnLlmUsage",
+      "description": "Which prompts the turn used and what its LLM calls cost.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["promptVersions", "calls", "dailyQuotaExhausted", "turnBudgetExhausted"],
+      "properties": {
+        "promptVersions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "customerAgent": {
+              "type": "string"
+            },
+            "competitorAgent": {
+              "type": "string"
+            },
+            "advisor": {
+              "type": "string"
+            }
+          }
+        },
+        "calls": {
+          "type": "array",
+          "items": {
+            "$ref": "llm-call.schema.json"
+          }
+        },
+        "dailyQuotaExhausted": {
+          "type": "boolean",
+          "description": "The user's daily token quota was used up: agents ran on rules and the AI CEO was skipped."
+        },
+        "turnBudgetExhausted": {
+          "type": "boolean",
+          "description": "The per-turn token budget ran out before every LLM call was made."
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "FINTECH",
+  "displayName": "FinTech",
+  "description": "Financial services. Low fees across a very large market, high compliance cost, sticky users and regulatory event risk.",
+  "defaults": {
+    "businessModel": "SUBSCRIPTION",
+    "initialCapital": 300000000,
+    "initialPrice": 24900,
+    "marketSize": 2000000
+  },
+  "parameters": {
+    "unitCostRate": 0.25,
+    "variableCostPerCustomer": 2500,
+    "logisticsCostPerOrder": 0,
+    "returnRate": 0.005,
+    "inventoryHoldingRate": 0.0,
+    "purchasesPerCustomerPerMonth": 1,
+    "fixedCostsMonthly": 6000000,
+    "salaryPerEmployeeMonthly": 3500000,
+    "initialEmployees": 4,
+    "customersPerEmployee": 2000,
+    "baseChurnRate": 0.03,
+    "baseCac": 60000,
+    "baseConversionRate": 0.01,
+    "priceElasticity": 1.0,
+    "referencePrice": 24900,
+    "initialProductQuality": 0.6,
+    "initialBrandAwareness": 0.02,
+    "marketGrowthRateMonthly": 0.02,
+    "seasonality": [1.0, 1.0, 1.15, 1.05, 1.0, 1.0, 1.0, 1.0, 1.0, 1.05, 1.1, 1.0],
+    "competitorIntensity": 0.75,
+    "eventProbabilityMultiplier": 1.2,
+    "segmentMix": {
+      "priceSensitive": 0.35,
+      "premium": 0.15,
+      "loyal": 0.25,
+      "occasional": 0.15,
+      "enterprise": 0.1
+    },
+    "localDemandWeight": 0.25
+  }
+}

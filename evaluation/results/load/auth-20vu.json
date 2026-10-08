@@ -1,0 +1,299 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "setup": {
+                "name": "setup",
+                "path": "::setup",
+                "id": "5c0f8025f7e0b6654089e5b00e950f1a",
+                "groups": {},
+                "checks": {
+                        "registered": {
+                            "id": "a82e5b220d515a8be8ede1567cea0fe4",
+                            "passes": 20,
+                            "fails": 0,
+                            "name": "registered",
+                            "path": "::setup::registered"
+                        }
+                    }
+            }
+        },
+        "checks": {
+            "login 200": {
+                "id": "48b06dc5cde7f6ebb606ad7da726a2a5",
+                "passes": 2085,
+                "fails": 0,
+                "name": "login 200",
+                "path": "::login 200"
+            },
+            "me 200": {
+                "name": "me 200",
+                "path": "::me 200",
+                "id": "30e7556edf82eff0e3762598c402eb40",
+                "passes": 2085,
+                "fails": 0
+            },
+            "refresh 200": {
+                "passes": 2085,
+                "fails": 0,
+                "name": "refresh 200",
+                "path": "::refresh 200",
+                "id": "f36de36298bb1980bc159e5087688671"
+            }
+        }
+    },
+    "metrics": {
+        "checks": {
+            "passes": 6275,
+            "fails": 0,
+            "value": 1
+        },
+        "rate_limited_logins": {
+            "count": 5,
+            "rate": 0.08076327078451966,
+            "thresholds": {
+                "count>=1": false
+            }
+        },
+        "http_req_blocked": {
+            "med": 0.006031,
+            "max": 2.347614,
+            "p(90)": 0.008927,
+            "p(95)": 0.010439,
+            "avg": 0.008947809365079357,
+            "min": 0.001793
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "data_received": {
+            "count": 10668398,
+            "rate": 172322.9433022056
+        },
+        "iterations": {
+            "count": 2086,
+            "rate": 33.6944365713016
+        },
+        "auth_flow_duration": {
+            "avg": 577.9750599520384,
+            "min": 161,
+            "med": 576,
+            "max": 728,
+            "p(90)": 614,
+            "p(95)": 626
+        },
+        "login_duration": {
+            "avg": 559.3958857515606,
+            "min": 133.10754,
+            "med": 557.752439,
+            "max": 713.512635,
+            "p(90)": 593.3655386,
+            "p(95)": 605.3044342,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "http_req_connecting": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.0016707106349206347,
+            "min": 0,
+            "med": 0,
+            "max": 1.046257
+        },
+        "http_req_failed": {
+            "passes": 5,
+            "fails": 6295,
+            "value": 0.0007936507936507937
+        },
+        "http_reqs": {
+            "count": 6300,
+            "rate": 101.76172118849477
+        },
+        "iteration_duration": {
+            "max": 11500.708067,
+            "p(90)": 614.293138,
+            "p(95)": 626.31689375,
+            "avg": 583.3509653101645,
+            "min": 161.673659,
+            "med": 576.437736
+        },
+        "http_req_duration{expected_response:true}": {
+            "p(90)": 572.6546312,
+            "p(95)": 588.3357925,
+            "avg": 193.20173714138295,
+            "min": 1.58892,
+            "med": 11.876296,
+            "max": 713.512635
+        },
+        "vus": {
+            "value": 20,
+            "min": 0,
+            "max": 21
+        },
+        "logins_allowed_before_limit": {
+            "count": 20,
+            "rate": 0.3230530831380786
+        },
+        "http_req_duration": {
+            "p(90)": 572.6458152,
+            "p(95)": 588.33560125,
+            "avg": 193.05125049666756,
+            "min": 0.636508,
+            "med": 11.873478500000001,
+            "max": 713.512635
+        },
+        "http_req_sending": {
+            "avg": 0.03817530079365083,
+            "min": 0.006552,
+            "med": 0.031754000000000004,
+            "max": 4.302688,
+            "p(90)": 0.059221,
+            "p(95)": 0.06891844999999999
+        },
+        "http_req_waiting": {
+            "p(95)": 588.13142425,
+            "avg": 192.8535155330156,
+            "min": 0.5838,
+            "med": 11.6575005,
+            "max": 713.350136,
+            "p(90)": 572.4140697
+        },
+        "data_sent": {
+            "count": 1911820,
+            "rate": 30880.967270252077
+        },
+        "checks{scenario:throughput}": {
+            "passes": 6255,
+            "fails": 0,
+            "thresholds": {
+                "rate>0.99": false
+            },
+            "value": 1
+        },
+        "http_req_receiving": {
+            "avg": 0.15955966285714288,
+            "min": 0.044904,
+            "med": 0.148135,
+            "max": 3.593829,
+            "p(90)": 0.20564800000000003,
+            "p(95)": 0.24067644999999985
+        },
+        "vus_max": {
+            "value": 21,
+            "min": 21,
+            "max": 21
+        }
+    },
+    "setup_data": {
+        "users": [
+            {
+                "email": "load-auth-0-1791261555824@example.com",
+                "ip": "10.34.169.240",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NSwiZXhwIjoxNzkxMjYyNDU1LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3YjczZWQ3ZDE2NmNhYWU4Njk4NyJ9.kJSMX_mrxB0j-5pESyUyq7fPDRolWh1VZEp5LTajm80"
+            },
+            {
+                "email": "load-auth-1-1791261555905@example.com",
+                "ip": "10.34.169.241",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NSwiZXhwIjoxNzkxMjYyNDU1LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3YjczZWQ3ZDE2NmNhYWU4Njk4YyJ9.KiaQGp4eHbPoB9mzKkwF8LzkFjWT_BMHLoRVW5N_fpk"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4Njk5MSJ9.nITncLVORiVONNoREVXo6A7QqZgtvDwTT6fJ3ts4Ams",
+                "email": "load-auth-2-1791261555976@example.com",
+                "ip": "10.34.169.242"
+            },
+            {
+                "email": "load-auth-3-1791261556051@example.com",
+                "ip": "10.34.169.243",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4Njk5NiJ9.Uu9AcHhgFqL-JWb0ZN4yZ4qZVzLcUGxqkz_dISAwvW0"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4Njk5YiJ9.7CDNYjm57tjHfJUt3q6JOzYn6WujRtSDgQNh1aihlko",
+                "email": "load-auth-4-1791261556125@example.com",
+                "ip": "10.34.169.244"
+            },
+            {
+                "email": "load-auth-5-1791261556187@example.com",
+                "ip": "10.34.169.245",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjlhMCJ9.MIC5k63xeLaXOyTKcDmEtmgru1vaqiHN6gkXUHKyJzg"
+            },
+            {
+                "email": "load-auth-6-1791261556259@example.com",
+                "ip": "10.34.169.246",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjlhNSJ9.Mfa1htKiMC2GoHcJP622LCj50eFn1TeAPHXOMGChgfQ"
+            },
+            {
+                "email": "load-auth-7-1791261556326@example.com",
+                "ip": "10.34.169.247",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjlhYSJ9.QutCdK9TvaRo_0b8-nKy9L5LqVAfyuSqeRS4uUO7HQk"
+            },
+            {
+                "email": "load-auth-8-1791261556402@example.com",
+                "ip": "10.34.169.248",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjlhZiJ9.ilZyxIICK6Rzkh5wDV2LUcXDn-KWvGGCjZrVgzemk7Y"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjliNCJ9.jwBlkOUIMzWYYP5aWQo2U2ncY3MAIuX592cYZAIRjgI",
+                "email": "load-auth-9-1791261556473@example.com",
+                "ip": "10.34.169.249"
+            },
+            {
+                "ip": "10.34.169.250",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjliOSJ9.ovPf2Z93yn6TJwxlfjU-QtxVVwraDju0wkcoJRam3Wo",
+                "email": "load-auth-10-1791261556545@example.com"
+            },
+            {
+                "ip": "10.34.169.251",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjliZSJ9.oIWdaLUeNnBzKuzFyL_aX_h12-DWGFGBffH7cHwoRmk",
+                "email": "load-auth-11-1791261556620@example.com"
+            },
+            {
+                "email": "load-auth-12-1791261556691@example.com",
+                "ip": "10.34.169.252",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjljMyJ9.5djeKU5wyoKrpJTCHZwpFxAVCOA9HtslGRVenoZ9GvQ"
+            },
+            {
+                "ip": "10.34.169.253",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjljOCJ9.ECvc-HE-YY4i6Vr_YSWrOvGQDcMzPDHTKY0vg7CoQxU",
+                "email": "load-auth-13-1791261556754@example.com"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjljZCJ9.uVVrk-mroKP73PHKq4wStV0zZ-K_70t_XLZRhrm1vwU",
+                "email": "load-auth-14-1791261556822@example.com",
+                "ip": "10.34.169.254"
+            },
+            {
+                "email": "load-auth-15-1791261556888@example.com",
+                "ip": "10.34.169.255",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NiwiZXhwIjoxNzkxMjYyNDU2LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc0ZWQ3ZDE2NmNhYWU4NjlkMiJ9.a_YTNGq79JJaT7HZzxpTRAVcII-9tnbtvvJ1T17y7xQ"
+            },
+            {
+                "email": "load-auth-16-1791261556957@example.com",
+                "ip": "10.34.170.0",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NywiZXhwIjoxNzkxMjYyNDU3LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc1ZWQ3ZDE2NmNhYWU4NjlkNyJ9.4uY5eX1R14EQNNGJvZON5c3G96DNcNDd-yr2OaDVKcc"
+            },
+            {
+                "email": "load-auth-17-1791261557031@example.com",
+                "ip": "10.34.170.1",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NywiZXhwIjoxNzkxMjYyNDU3LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc1ZWQ3ZDE2NmNhYWU4NjlkYyJ9.sjLwRZKfjUN7_XLSjfQZ4qopg-EMsxfNsP648QoHQfk"
+            },
+            {
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NywiZXhwIjoxNzkxMjYyNDU3LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc1ZWQ3ZDE2NmNhYWU4NjllMSJ9.kymbq44BPq4rWjroz0fYaQsZM1ps1pZStJwWraH1QMI",
+                "email": "load-auth-18-1791261557097@example.com",
+                "ip": "10.34.170.2"
+            },
+            {
+                "email": "load-auth-19-1791261557166@example.com",
+                "ip": "10.34.170.3",
+                "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiVVNFUiIsImlhdCI6MTc5MTI2MTU1NywiZXhwIjoxNzkxMjYyNDU3LCJhdWQiOiJzdGFjay1mb3JnZS1hcGkiLCJpc3MiOiJzdGFjay1mb3JnZSIsInN1YiI6IjZhYzQ3Yjc1ZWQ3ZDE2NmNhYWU4NjllNiJ9.-EMjFQhMddfD8fWZ2mrBa0sABnLwQIufw5IQZJRMojE"
+            }
+        ]
+    }
+}

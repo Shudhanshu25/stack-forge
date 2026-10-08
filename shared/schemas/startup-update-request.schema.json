@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup-update-request.schema.json",
+  "title": "StartupUpdateRequest",
+  "description": "Partial update. Changing industry, businessModel or difficulty re-snapshots the template parameters.",
+  "type": "object",
+  "additionalProperties": false,
+  "minProperties": 1,
+  "properties": {
+    "name": {
+      "$ref": "startup-create-request.schema.json#/properties/name"
+    },
+    "industry": {
+      "$ref": "enums.schema.json#/definitions/Industry"
+    },
+    "businessModel": {
+      "$ref": "enums.schema.json#/definitions/BusinessModel"
+    },
+    "initialCapital": {
+      "$ref": "startup-create-request.schema.json#/properties/initialCapital"
+    },
+    "product": {
+      "$ref": "product.schema.json"
+    },
+    "initialPrice": {
+      "$ref": "startup-create-request.schema.json#/properties/initialPrice"
+    },
+    "marketSize": {
+      "$ref": "startup-create-request.schema.json#/properties/marketSize"
+    },
+    "difficulty": {
+      "$ref": "enums.schema.json#/definitions/Difficulty"
+    },
+    "location": {
+      "$ref": "location.schema.json",
+      "description": "Allowed only while the startup has no simulation (409 LOCATION_LOCKED otherwise)."
+    }
+  }
+}

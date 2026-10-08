@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-job.schema.json",
+  "title": "SimulationJob",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "jobId",
+    "simulationId",
+    "turnNumber",
+    "status",
+    "progress",
+    "stage",
+    "startedAt",
+    "completedAt",
+    "error",
+    "createdAt"
+  ],
+  "properties": {
+    "jobId": {
+      "type": "string"
+    },
+    "simulationId": {
+      "type": "string"
+    },
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "$ref": "enums.schema.json#/definitions/JobStatus"
+    },
+    "progress": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "stage": {
+      "anyOf": [
+        {
+          "$ref": "enums.schema.json#/definitions/PipelineStage"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "startedAt": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "completedAt": {
+      "type": ["string", "null"],
+      "format": "date-time"
+    },
+    "error": {
+      "anyOf": [
+        {
+          "$ref": "#/definitions/JobError"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "definitions": {
+    "JobError": {
+      "title": "JobError",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {}
+      }
+    }
+  },
+  "description": "A queued turn. Only one job per simulation can be QUEUED or RUNNING at a time."
+}

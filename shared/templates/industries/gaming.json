@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "GAMING",
+  "displayName": "Gaming",
+  "description": "Games with in-app purchases. App store fees take a large cut, players churn fast, and virality drives demand spikes.",
+  "defaults": {
+    "businessModel": "FREEMIUM",
+    "initialCapital": 80000000,
+    "initialPrice": 14900,
+    "marketSize": 5000000
+  },
+  "parameters": {
+    "unitCostRate": 0.3,
+    "variableCostPerCustomer": 300,
+    "logisticsCostPerOrder": 0,
+    "returnRate": 0.01,
+    "inventoryHoldingRate": 0.0,
+    "purchasesPerCustomerPerMonth": 1.5,
+    "fixedCostsMonthly": 2000000,
+    "salaryPerEmployeeMonthly": 1800000,
+    "initialEmployees": 5,
+    "customersPerEmployee": 20000,
+    "baseChurnRate": 0.2,
+    "baseCac": 15000,
+    "baseConversionRate": 0.03,
+    "priceElasticity": 1.6,
+    "referencePrice": 14900,
+    "initialProductQuality": 0.55,
+    "initialBrandAwareness": 0.02,
+    "marketGrowthRateMonthly": 0.02,
+    "seasonality": [1.05, 0.95, 0.95, 1.0, 1.1, 1.1, 1.0, 0.95, 0.95, 1.1, 1.15, 1.2],
+    "competitorIntensity": 0.8,
+    "eventProbabilityMultiplier": 1.3,
+    "segmentMix": {
+      "priceSensitive": 0.45,
+      "premium": 0.1,
+      "loyal": 0.15,
+      "occasional": 0.28,
+      "enterprise": 0.02
+    },
+    "localDemandWeight": 0.05
+  }
+}

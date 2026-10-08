@@ -1,0 +1,6 @@
+extend = "../simulation/pyproject.toml"
+
+[lint.isort]
+# common puts the simulation service on sys.path, so it must be imported before its packages.
+known-third-party = ["common", "api_client"]
+known-first-party = ["app", "engine", "ml", "runner", "stackforge_shared"]

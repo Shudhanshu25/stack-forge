@@ -1,0 +1,1798 @@
+{
+ "dataVersion": "1.0.0",
+ "country": "IN",
+ "baseline": "Every index is relative to a national baseline of 1.0. See docs/locations.md for the method and sources.",
+ "tiers": {
+  "METRO": {
+   "label": "Metro",
+   "description": "Class X city for house rent allowance (8 largest metros).",
+   "defaults": {
+    "salaryIndex": {
+     "value": 1.154,
+     "isEstimate": false,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "operatingCostIndex": {
+     "value": 1.145,
+     "isEstimate": false,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "localMarketSize": {
+     "value": 1.663,
+     "isEstimate": false,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "talentAvailability": {
+     "value": 1.141,
+     "isEstimate": true,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "competitionDensity": {
+     "value": 1.256,
+     "isEstimate": true,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "fundingAccess": {
+     "value": 1.3,
+     "isEstimate": true,
+     "source": "Mean of the 8 listed Metro cities."
+    },
+    "infrastructure": {
+     "value": 1.09,
+     "isEstimate": true,
+     "source": "Mean of the 8 listed Metro cities."
+    }
+   }
+  },
+  "TIER_2": {
+   "label": "Tier 2",
+   "description": "Class Y city: large cities beyond the metros.",
+   "defaults": {
+    "salaryIndex": {
+     "value": 0.897,
+     "isEstimate": false,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": false,
+     "source": "Mean of the 6 listed Tier 2 cities."
+    },
+    "localMarketSize": {
+     "value": 0.744,
+     "isEstimate": false,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    },
+    "talentAvailability": {
+     "value": 0.804,
+     "isEstimate": true,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    },
+    "competitionDensity": {
+     "value": 0.796,
+     "isEstimate": true,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    },
+    "infrastructure": {
+     "value": 0.974,
+     "isEstimate": true,
+     "source": "Mean of the 12 listed Tier 2 cities."
+    }
+   }
+  },
+  "TIER_3": {
+   "label": "Tier 3",
+   "description": "Class Z: any smaller city or town.",
+   "defaults": {
+    "salaryIndex": {
+     "value": 0.65,
+     "isEstimate": true,
+     "source": "Estimate: below the listed tier-2 mean, in line with smaller cities' lower pay."
+    },
+    "operatingCostIndex": {
+     "value": 0.7,
+     "isEstimate": true,
+     "source": "Estimate: lower rents than tier-2 cities."
+    },
+    "localMarketSize": {
+     "value": 0.35,
+     "isEstimate": true,
+     "source": "Estimate: a city of about half a million people on the same square-root scale."
+    },
+    "talentAvailability": {
+     "value": 0.6,
+     "isEstimate": true,
+     "source": "Estimate: small local talent pool; hiring is slow."
+    },
+    "competitionDensity": {
+     "value": 0.6,
+     "isEstimate": true,
+     "source": "Estimate: few local startups."
+    },
+    "fundingAccess": {
+     "value": 0.5,
+     "isEstimate": true,
+     "source": "Estimate: little local investor presence."
+    },
+    "infrastructure": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: tier factor 0.85 at an average state."
+    }
+   }
+  }
+ },
+ "states": [
+  {
+   "code": "AN",
+   "name": "Andaman and Nicobar Islands",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.46,
+     "isEstimate": false,
+     "source": "Per capita NSDP 275,758 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "AP",
+   "name": "Andhra Pradesh",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.26,
+     "isEstimate": false,
+     "source": "Per capita NSDP 237,951 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "AR",
+   "name": "Arunachal Pradesh",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.166,
+     "isEstimate": false,
+     "source": "Per capita NSDP 220,209 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Best Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "AS",
+   "name": "Assam",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.74,
+     "isEstimate": false,
+     "source": "Per capita NSDP 139,783 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "BR",
+   "name": "Bihar",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.319,
+     "isEstimate": false,
+     "source": "Per capita NSDP 60,180 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO | "
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "CH",
+   "name": "Chandigarh",
+   "indices": {
+    "purchasingPower": {
+     "value": 2.277,
+     "isEstimate": false,
+     "source": "Per capita NSDP 430,119 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "CG",
+   "name": "Chhattisgarh",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.788,
+     "isEstimate": false,
+     "source": "Per capita NSDP 148,922 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "DH",
+   "name": "Dadra and Nagar Haveli and Daman and Diu",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.4,
+     "isEstimate": true,
+     "source": "Estimate: not in the RBI table; an industrial UT, set between Gujarat (1.58) and the baseline."
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "DL",
+   "name": "Delhi",
+   "indices": {
+    "purchasingPower": {
+     "value": 2.432,
+     "isEstimate": false,
+     "source": "Per capita NSDP 459,408 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "GA",
+   "name": "Goa",
+   "indices": {
+    "purchasingPower": {
+     "value": 2.5,
+     "isEstimate": false,
+     "source": "Per capita NSDP 585,953 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Best Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "GJ",
+   "name": "Gujarat",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.576,
+     "isEstimate": false,
+     "source": "Per capita NSDP 297,722 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Best Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "HR",
+   "name": "Haryana",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.691,
+     "isEstimate": false,
+     "source": "Per capita NSDP 319,363 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "HP",
+   "name": "Himachal Pradesh",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.243,
+     "isEstimate": false,
+     "source": "Per capita NSDP 234,782 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "JK",
+   "name": "Jammu and Kashmir",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.741,
+     "isEstimate": false,
+     "source": "Per capita NSDP 139,880 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "JH",
+   "name": "Jharkhand",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.557,
+     "isEstimate": false,
+     "source": "Per capita NSDP 105,274 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate: did not take part in States' Startup Ranking 5.0; national baseline."
+    }
+   }
+  },
+  {
+   "code": "KA",
+   "name": "Karnataka",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.799,
+     "isEstimate": false,
+     "source": "Per capita NSDP 339,813 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "KL",
+   "name": "Kerala",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.481,
+     "isEstimate": false,
+     "source": "Per capita NSDP 279,751 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "LA",
+   "name": "Ladakh",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "Estimate: not in the RBI table; set near Jammu and Kashmir's level (0.74) and Himachal Pradesh's (1.24)."
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "LD",
+   "name": "Lakshadweep",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate: not in the RBI table; national baseline."
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "MP",
+   "name": "Madhya Pradesh",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.74,
+     "isEstimate": false,
+     "source": "Per capita NSDP 139,713 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "MH",
+   "name": "Maharashtra",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.475,
+     "isEstimate": false,
+     "source": "Per capita NSDP 278,681 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "MN",
+   "name": "Manipur",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.683,
+     "isEstimate": false,
+     "source": "Per capita NSDP 128,925 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "ML",
+   "name": "Meghalaya",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.725,
+     "isEstimate": false,
+     "source": "Per capita NSDP 136,948 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "MZ",
+   "name": "Mizoram",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.248,
+     "isEstimate": false,
+     "source": "Per capita NSDP 235,823 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "NL",
+   "name": "Nagaland",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.84,
+     "isEstimate": false,
+     "source": "Per capita NSDP 158,730 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "OD",
+   "name": "Odisha",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.874,
+     "isEstimate": false,
+     "source": "Per capita NSDP 165,068 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "PY",
+   "name": "Puducherry",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.414,
+     "isEstimate": false,
+     "source": "Per capita NSDP 267,124 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "PB",
+   "name": "Punjab",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.033,
+     "isEstimate": false,
+     "source": "Per capita NSDP 195,031 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "RJ",
+   "name": "Rajasthan",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.882,
+     "isEstimate": false,
+     "source": "Per capita NSDP 166,647 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "SK",
+   "name": "Sikkim",
+   "indices": {
+    "purchasingPower": {
+     "value": 2.5,
+     "isEstimate": false,
+     "source": "Per capita NSDP 587,743 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "TN",
+   "name": "Tamil Nadu",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.669,
+     "isEstimate": false,
+     "source": "Per capita NSDP 315,220 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "TS",
+   "name": "Telangana",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.834,
+     "isEstimate": false,
+     "source": "Per capita NSDP 346,457 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "TR",
+   "name": "Tripura",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.937,
+     "isEstimate": false,
+     "source": "Per capita NSDP 176,943 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "UP",
+   "name": "Uttar Pradesh",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.495,
+     "isEstimate": false,
+     "source": "Per capita NSDP 93,422 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO | "
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "UK",
+   "name": "Uttarakhand",
+   "indices": {
+    "purchasingPower": {
+     "value": 1.303,
+     "isEstimate": false,
+     "source": "Per capita NSDP 246,178 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "code": "WB",
+   "name": "West Bengal",
+   "indices": {
+    "purchasingPower": {
+     "value": 0.792,
+     "isEstimate": false,
+     "source": "Per capita NSDP 149,515 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2011-12; underlying source NSO |"
+    },
+    "regulatoryBurden": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate: did not take part in States' Startup Ranking 5.0; national baseline."
+    }
+   }
+  }
+ ],
+ "cities": [
+  {
+   "id": "bengaluru",
+   "name": "Bengaluru",
+   "state": "KA",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.256,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 19.04 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.286,
+     "isEstimate": false,
+     "source": "Office rent 97.1 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.799,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 339,813 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.524,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 8,520,435 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.38,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 3.4 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.5,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (16,093 in Karnataka) and Inc42 2025 funding (USD 4500 million)."
+    },
+    "fundingAccess": {
+     "value": 1.8,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 4500 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "LEADS 2025 Karnataka: Accelerator (1.0) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "mumbai",
+   "name": "Mumbai",
+   "state": "MH",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.212,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 18.37 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.512,
+     "isEstimate": false,
+     "source": "Office rent 125.0 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.475,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 278,681 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 2.239,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 18,394,912 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.14,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 2.2 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.4,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (27,014 in Maharashtra) and Inc42 2025 funding (USD 2000 million)."
+    },
+    "fundingAccess": {
+     "value": 1.6,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 2000 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.103,
+     "isEstimate": true,
+     "source": "LEADS 2025 Maharashtra: High Performer (1.05) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "delhi-ncr",
+   "name": "Delhi NCR",
+   "state": "DL",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.125,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 17.06 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.279,
+     "isEstimate": false,
+     "source": "Office rent 96.2 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 2.432,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 459,408 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 2.111,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 16,349,831 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.08,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 1.9 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.4,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (15,645 in Delhi) and Inc42 2025 funding (USD 2200 million)."
+    },
+    "fundingAccess": {
+     "value": 1.6,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 2200 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.155,
+     "isEstimate": true,
+     "source": "LEADS 2025 Delhi: Exemplar (1.1) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "hyderabad",
+   "name": "Hyderabad",
+   "state": "TS",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.17,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 17.74 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.123,
+     "isEstimate": false,
+     "source": "Office rent 77.0 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.834,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 346,457 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.446,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 7,677,018 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.22,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 2.6 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.25,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (7,918 in Telangana) and Inc42 2025 funding (USD 287 million)."
+    },
+    "fundingAccess": {
+     "value": 1.15,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 287 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.103,
+     "isEstimate": true,
+     "source": "LEADS 2025 Telangana: High Performer (1.05) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "pune",
+   "name": "Pune",
+   "state": "MH",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.212,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 18.37 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.131,
+     "isEstimate": false,
+     "source": "Office rent 78.0 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.475,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 278,681 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.174,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 5,057,709 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.22,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 2.6 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.25,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (27,014 in Maharashtra) and Inc42 2025 funding (USD 450 million)."
+    },
+    "fundingAccess": {
+     "value": 1.2,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 450 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.103,
+     "isEstimate": true,
+     "source": "LEADS 2025 Maharashtra: High Performer (1.05) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "chennai",
+   "name": "Chennai",
+   "state": "TN",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.182,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 17.92 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.091,
+     "isEstimate": false,
+     "source": "Office rent 73.0 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.669,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 315,220 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.536,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 8,653,521 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.14,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 2.2 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.2,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (10,053 in Tamil Nadu) and Inc42 2025 funding (USD 432 million)."
+    },
+    "fundingAccess": {
+     "value": 1.2,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 432 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.155,
+     "isEstimate": true,
+     "source": "LEADS 2025 Tamil Nadu: Exemplar (1.1) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "kolkata",
+   "name": "Kolkata",
+   "state": "WB",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.869,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 13.18 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.884,
+     "isEstimate": false,
+     "source": "Office rent 47.5 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 0.792,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 149,515 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.957,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 14,057,991 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate: a metro without a Colliers score; large graduate base, smaller tech workforce."
+    },
+    "competitionDensity": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (5,001 in West Bengal)."
+    },
+    "fundingAccess": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.945,
+     "isEstimate": true,
+     "source": "LEADS 2025 West Bengal: Growth-Seeker (0.9) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 1.0,
+     "isEstimate": true,
+     "source": "Estimate: did not take part in States' Startup Ranking 5.0; national baseline."
+    }
+   }
+  },
+  {
+   "id": "ahmedabad",
+   "name": "Ahmedabad",
+   "state": "GJ",
+   "tier": "METRO",
+   "tierSource": "House rent allowance class X. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.206,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 18.29 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.856,
+     "isEstimate": false,
+     "source": "Office rent 44.0 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.576,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 297,722 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.316,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 6,357,693 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "Estimate: a metro without a Colliers score; growing GIFT City and IT services base."
+    },
+    "competitionDensity": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (12,540 in Gujarat)."
+    },
+    "fundingAccess": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.103,
+     "isEstimate": true,
+     "source": "LEADS 2025 Gujarat: High Performer (1.05) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Best Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "jaipur",
+   "name": "Jaipur",
+   "state": "RJ",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.737,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 11.18 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.793,
+     "isEstimate": false,
+     "source": "Office rent 36.2 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 49.8 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 0.882,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 166,647 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.911,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 3,046,163 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: emerging IT and startup hub; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (5,395 in Rajasthan)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.855,
+     "isEstimate": true,
+     "source": "LEADS 2025 Rajasthan: Growth-Seeker (0.9) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "kochi",
+   "name": "Kochi",
+   "state": "KL",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.088,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 16.49 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 1.481,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 279,751 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.76,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 2,119,724 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: Infopark Kochi tech park; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (6,173 in Kerala)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.997,
+     "isEstimate": true,
+     "source": "LEADS 2025 Kerala: High Performer (1.05) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "indore",
+   "name": "Indore",
+   "state": "MP",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.058,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 16.04 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.764,
+     "isEstimate": false,
+     "source": "Office rent 32.7 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 45 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 0.74,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 139,713 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.769,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 2,170,295 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: IIT and IIM campuses, emerging IT hub; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (4,913 in Madhya Pradesh)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "LEADS 2025 Madhya Pradesh: Accelerator (1.0) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "chandigarh",
+   "name": "Chandigarh",
+   "state": "CH",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.914,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 13.86 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 2.277,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 430,119 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.529,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 1,026,459 / 3,669,575, the geometric mean of the 20 cities). Wikipedia 'Urban agglomerations in India' (2011 column cites citypopulation.de 'India: Major Agglomerations') | https://en.wikipedia.org/wiki/Urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: IT parks in the Chandigarh tricity; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (521 in Chandigarh)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "LEADS 2025 Chandigarh: Accelerator (1.0) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 1.1,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Emerging Startup Ecosystem; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "coimbatore",
+   "name": "Coimbatore",
+   "state": "TN",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.892,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 13.53 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.795,
+     "isEstimate": false,
+     "source": "Office rent 36.4 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 50.2 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 1.669,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 315,220 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.763,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 2,136,916 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: engineering colleges and a growing IT sector; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (10,053 in Tamil Nadu)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.045,
+     "isEstimate": true,
+     "source": "LEADS 2025 Tamil Nadu: Exemplar (1.1) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "lucknow",
+   "name": "Lucknow",
+   "state": "UP",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.638,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 9.67 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.891,
+     "isEstimate": false,
+     "source": "Office rent 48.3 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 66.5 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 0.495,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 93,422 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base 2"
+    },
+    "localMarketSize": {
+     "value": 0.889,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 2,902,920 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: tier-2 city with a small tech workforce."
+    },
+    "competitionDensity": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (14,429 in Uttar Pradesh)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.045,
+     "isEstimate": true,
+     "source": "LEADS 2025 Uttar Pradesh: Exemplar (1.1) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "bhubaneswar",
+   "name": "Bhubaneswar",
+   "state": "OD",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.925,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 14.03 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 0.874,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 165,068 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.491,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 885,363 / 3,669,575, the geometric mean of the 20 cities). Wikipedia 'Urban agglomerations in India' (2011 column cites citypopulation.de 'India: Major Agglomerations') | https://en.wikipedia.org/wiki/Urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate: Infocity and IIT Bhubaneswar; tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (2,670 in Odisha)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "LEADS 2025 Odisha: Accelerator (1.0) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "nagpur",
+   "name": "Nagpur",
+   "state": "MH",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.84,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 12.74 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 1.475,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 278,681 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.825,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 2,497,870 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: tier-2 city; MIHAN SEZ IT units."
+    },
+    "competitionDensity": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (27,014 in Maharashtra)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.997,
+     "isEstimate": true,
+     "source": "LEADS 2025 Maharashtra: High Performer (1.05) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "surat",
+   "name": "Surat",
+   "state": "GJ",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.891,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 13.51 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 1.576,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 297,722 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.119,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 4,591,246 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: tier-2 city; manufacturing and trade rather than tech."
+    },
+    "competitionDensity": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (12,540 in Gujarat)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.997,
+     "isEstimate": true,
+     "source": "LEADS 2025 Gujarat: High Performer (1.05) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Best Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "visakhapatnam",
+   "name": "Visakhapatnam",
+   "state": "AP",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.814,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 12.34 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.829,
+     "isEstimate": false,
+     "source": "Office rent 40.7 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 56 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 1.26,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 237,951 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.686,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 1,728,128 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate: tier-2 city with a growing IT sector."
+    },
+    "competitionDensity": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (2,446 in Andhra Pradesh)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "LEADS 2025 Andhra Pradesh: Accelerator (1.0) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "thiruvananthapuram",
+   "name": "Thiruvananthapuram",
+   "state": "KL",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.106,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 16.77 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.766,
+     "isEstimate": false,
+     "source": "Office rent 32.9 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. CRE Matrix 45.3 INR/sq ft/month x 0.726 (rescaled to Knight Frank via Ahmedabad). CRE Matrix, 'Top 10 Most Affordable Office Markets in India (2026)' (blog, 29 Jul 2026) | https://www.crematrix.com/blog/?p=3904"
+    },
+    "purchasingPower": {
+     "value": 1.481,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 279,751 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.677,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 1,679,754 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.85,
+     "isEstimate": true,
+     "source": "Estimate: Technopark (one of India's largest IT parks); tier-2 city."
+    },
+    "competitionDensity": {
+     "value": 0.8,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (6,173 in Kerala)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.997,
+     "isEstimate": true,
+     "source": "LEADS 2025 Kerala: High Performer (1.05) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  },
+  {
+   "id": "guwahati",
+   "name": "Guwahati",
+   "state": "AS",
+   "tier": "TIER_2",
+   "tierSource": "House rent allowance class Y. Ministry of Finance, Department of Expenditure, OM No. 2/5/2017-E.II(B) dated 7 July 2017 (HRA under 7th CPC); annexure carries the X/Y list of OM No. 2/5/2014-E.II(B) dated 21.07.2015 | https://www.staffnews.in/2017/07/7th-cpc-house-rent-allowance-hra-finance-ministry-om.html",
+   "indices": {
+    "salaryIndex": {
+     "value": 0.862,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 13.07 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 0.806,
+     "isEstimate": true,
+     "source": "Estimate: no published office rent; mean of the listed Tier 2 cities."
+    },
+    "purchasingPower": {
+     "value": 0.74,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 139,783 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 0.514,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 968,549 / 3,669,575, the geometric mean of the 20 cities). Wikipedia 'Urban agglomerations in India' (2011 column cites citypopulation.de 'India: Major Agglomerations') | https://en.wikipedia.org/wiki/Urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 0.7,
+     "isEstimate": true,
+     "source": "Estimate: tier-2 city; smallest tech workforce among the listed cities."
+    },
+    "competitionDensity": {
+     "value": 0.7,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (1,434 in Assam)."
+    },
+    "fundingAccess": {
+     "value": 0.75,
+     "isEstimate": true,
+     "source": "Estimate: no published city funding figure. Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 0.95,
+     "isEstimate": true,
+     "source": "LEADS 2025 Assam: Accelerator (1.0) x city tier (0.95); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Aspiring Leader; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  }
+ ],
+ "method": {
+  "salaryBaselineLakh": 15.16,
+  "populationBaseline": 3669575,
+  "rentBaseline": 61.78,
+  "rentShareOfOverheads": 0.5,
+  "creToKnightFrank": 0.7261,
+  "allIndiaPerCapitaNni": 188892
+ }
+}

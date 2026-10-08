@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "FOOD_AND_BEVERAGE",
+  "displayName": "Food & Beverage",
+  "description": "Restaurants and food brands. Food cost near a third of revenue, high rent, perishable inventory and frequent repeat orders.",
+  "defaults": {
+    "businessModel": "TRANSACTIONAL",
+    "initialCapital": 150000000,
+    "initialPrice": 35000,
+    "marketSize": 300000
+  },
+  "parameters": {
+    "unitCostRate": 0.35,
+    "variableCostPerCustomer": 500,
+    "logisticsCostPerOrder": 4000,
+    "returnRate": 0.02,
+    "inventoryHoldingRate": 0.06,
+    "purchasesPerCustomerPerMonth": 2.5,
+    "fixedCostsMonthly": 8000000,
+    "salaryPerEmployeeMonthly": 1500000,
+    "initialEmployees": 8,
+    "customersPerEmployee": 250,
+    "baseChurnRate": 0.15,
+    "baseCac": 60000,
+    "baseConversionRate": 0.04,
+    "priceElasticity": 1.5,
+    "referencePrice": 35000,
+    "initialProductQuality": 0.6,
+    "initialBrandAwareness": 0.04,
+    "marketGrowthRateMonthly": 0.01,
+    "seasonality": [1.0, 1.0, 1.0, 0.95, 0.9, 0.9, 0.95, 1.0, 1.0, 1.1, 1.15, 1.15],
+    "competitorIntensity": 0.85,
+    "eventProbabilityMultiplier": 1.0,
+    "segmentMix": {
+      "priceSensitive": 0.35,
+      "premium": 0.15,
+      "loyal": 0.25,
+      "occasional": 0.22,
+      "enterprise": 0.03
+    },
+    "localDemandWeight": 0.9
+  }
+}

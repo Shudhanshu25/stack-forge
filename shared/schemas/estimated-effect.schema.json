@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "estimated-effect.schema.json",
+  "title": "EstimatedEffect",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["metric", "direction", "magnitude"],
+  "properties": {
+    "metric": {
+      "type": "string"
+    },
+    "direction": {
+      "type": "string",
+      "enum": ["UP", "DOWN", "FLAT"]
+    },
+    "magnitude": {
+      "type": "string",
+      "enum": ["NONE", "SMALL", "MEDIUM", "LARGE"]
+    }
+  },
+  "description": "Direction and rough size of a decision's effect on one metric, relative to keeping everything unchanged."
+}

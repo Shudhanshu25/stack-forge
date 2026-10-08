@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "industry-template-list-response.schema.json",
+  "title": "IndustryTemplateListResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["templates"],
+  "properties": {
+    "templates": { "type": "array", "items": { "$ref": "industry-template.schema.json" } }
+  }
+}

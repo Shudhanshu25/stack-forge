@@ -1,0 +1,4710 @@
+{
+ "engineVersion": "1.1.0",
+ "seed": 2024,
+ "configuration": {
+  "industry": "SAAS",
+  "businessModel": "SUBSCRIPTION",
+  "difficulty": "NORMAL",
+  "initialCapital": 100000000,
+  "initialPrice": 49900,
+  "marketSize": 200000,
+  "templateVersion": "1.2.0",
+  "parameters": {
+   "unitCostRate": 0.12,
+   "variableCostPerCustomer": 4000,
+   "logisticsCostPerOrder": 0,
+   "returnRate": 0.01,
+   "inventoryHoldingRate": 0.0,
+   "purchasesPerCustomerPerMonth": 1.0,
+   "fixedCostsMonthly": 3000000,
+   "salaryPerEmployeeMonthly": 2000000,
+   "initialEmployees": 3,
+   "baseChurnRate": 0.05,
+   "baseCac": 120000,
+   "baseConversionRate": 0.025,
+   "priceElasticity": 1.2,
+   "referencePrice": 59900,
+   "initialProductQuality": 0.6,
+   "initialBrandAwareness": 0.05,
+   "marketGrowthRateMonthly": 0.015,
+   "seasonality": [
+    1.0,
+    1.0,
+    1.1,
+    0.95,
+    0.95,
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    0.95,
+    1.0,
+    1.05
+   ],
+   "competitorIntensity": 0.6,
+   "eventProbabilityMultiplier": 1.0,
+   "segmentMix": {
+    "priceSensitive": 0.25,
+    "premium": 0.15,
+    "loyal": 0.2,
+    "occasional": 0.15,
+    "enterprise": 0.25
+   },
+   "customersPerEmployee": 300,
+   "localDemandWeight": 0.1
+  },
+  "difficultyModifiers": {
+   "cacMultiplier": 1.0,
+   "churnMultiplier": 1.0,
+   "conversionMultiplier": 1.0,
+   "competitorIntensityMultiplier": 1.0,
+   "eventProbabilityMultiplier": 1.0,
+   "negativeEventWeight": 1.0
+  },
+  "eventsVersion": "1.1.0",
+  "events": [
+   {
+    "type": "viral_exposure",
+    "polarity": "POSITIVE",
+    "title": "Viral exposure",
+    "description": "A post about the product spreads widely.",
+    "probability": 0.03,
+    "duration": 2,
+    "effects": {
+     "demand": 0.35,
+     "brandAwareness": 0.08
+    }
+   },
+   {
+    "type": "positive_review",
+    "polarity": "POSITIVE",
+    "title": "Positive review",
+    "description": "A respected publication reviews the product favourably.",
+    "probability": 0.06,
+    "duration": 2,
+    "effects": {
+     "demand": 0.1,
+     "customerSatisfaction": 0.03
+    }
+   },
+   {
+    "type": "influencer_mention",
+    "polarity": "POSITIVE",
+    "title": "Influencer mention",
+    "description": "A popular creator recommends the product.",
+    "probability": 0.04,
+    "duration": 1,
+    "effects": {
+     "demand": 0.2,
+     "brandAwareness": 0.04
+    }
+   },
+   {
+    "type": "supplier_discount",
+    "polarity": "POSITIVE",
+    "title": "Supplier discount",
+    "description": "A key supplier cuts prices.",
+    "probability": 0.04,
+    "duration": 3,
+    "effects": {
+     "unitCost": -0.1
+    }
+   },
+   {
+    "type": "unexpected_demand",
+    "polarity": "POSITIVE",
+    "title": "Unexpected demand",
+    "description": "Demand jumps for reasons outside your control.",
+    "probability": 0.04,
+    "duration": 1,
+    "effects": {
+     "demand": 0.25
+    }
+   },
+   {
+    "type": "competitor_price_war",
+    "polarity": "NEGATIVE",
+    "title": "Competitor price war",
+    "description": "Competitors slash prices and bid up advertising.",
+    "probability": 0.04,
+    "duration": 2,
+    "effects": {
+     "demand": -0.12,
+     "marketingCost": 0.08
+    }
+   },
+   {
+    "type": "supply_disruption",
+    "polarity": "NEGATIVE",
+    "title": "Supply disruption",
+    "description": "Supply problems raise costs and delay orders.",
+    "probability": 0.03,
+    "duration": 2,
+    "effects": {
+     "demand": -0.08,
+     "unitCost": 0.15
+    }
+   },
+   {
+    "type": "bad_review",
+    "polarity": "NEGATIVE",
+    "title": "Bad review",
+    "description": "A widely read review criticises the product.",
+    "probability": 0.05,
+    "duration": 2,
+    "effects": {
+     "demand": -0.1,
+     "churn": 0.1,
+     "customerSatisfaction": -0.04
+    }
+   },
+   {
+    "type": "economic_slowdown",
+    "polarity": "NEGATIVE",
+    "title": "Economic slowdown",
+    "description": "Customers tighten budgets.",
+    "probability": 0.02,
+    "duration": 4,
+    "effects": {
+     "demand": -0.1,
+     "churn": 0.08
+    }
+   },
+   {
+    "type": "employee_turnover",
+    "polarity": "NEGATIVE",
+    "title": "Employee turnover",
+    "description": "Key people leave; hiring replacements costs time and money.",
+    "probability": 0.04,
+    "duration": 1,
+    "effects": {
+     "fixedCosts": 0.1,
+     "productQuality": -0.02
+    }
+   },
+   {
+    "type": "regulatory_cost",
+    "polarity": "NEGATIVE",
+    "title": "Regulatory cost",
+    "description": "New compliance requirements raise overheads.",
+    "probability": 0.02,
+    "duration": 3,
+    "effects": {
+     "fixedCosts": 0.15
+    }
+   },
+   {
+    "type": "market_trend",
+    "polarity": "NEUTRAL",
+    "title": "Market trend",
+    "description": "Interest in the category grows, and so does competition for attention.",
+    "probability": 0.04,
+    "duration": 3,
+    "effects": {
+     "demand": 0.06,
+     "cac": 0.05
+    }
+   },
+   {
+    "type": "seasonality",
+    "polarity": "NEUTRAL",
+    "title": "Seasonal spike",
+    "description": "A seasonal surge lifts demand and ad prices together.",
+    "probability": 0.05,
+    "duration": 1,
+    "effects": {
+     "demand": 0.08,
+     "marketingCost": 0.05
+    }
+   },
+   {
+    "type": "new_technology",
+    "polarity": "NEUTRAL",
+    "title": "New technology",
+    "description": "A new technology cuts costs but makes the product look dated.",
+    "probability": 0.03,
+    "duration": 2,
+    "effects": {
+     "unitCost": -0.05,
+     "productQuality": -0.01
+    }
+   },
+   {
+    "type": "customer_preference_shift",
+    "polarity": "NEUTRAL",
+    "title": "Preference shift",
+    "description": "Customer tastes drift away from the current offering.",
+    "probability": 0.03,
+    "duration": 3,
+    "effects": {
+     "demand": -0.04,
+     "churn": 0.05
+    }
+   },
+   {
+    "type": "state_startup_incentive",
+    "polarity": "POSITIVE",
+    "title": "State startup incentive",
+    "description": "The state government's startup policy reimburses part of your rent and marketing (states rated Best or Top Performer in the States' Startup Ranking 5.0).",
+    "probability": 0.04,
+    "duration": 3,
+    "effects": {
+     "marketingCost": -0.1,
+     "fixedCosts": -0.15
+    },
+    "conditions": {
+     "states": [
+      "GJ",
+      "AR",
+      "GA",
+      "KA",
+      "PB",
+      "TN",
+      "UP",
+      "HP"
+     ]
+    }
+   },
+   {
+    "type": "state_regulatory_change",
+    "polarity": "NEGATIVE",
+    "title": "State regulatory change",
+    "description": "New state compliance rules add filings and fees for a few months.",
+    "probability": 0.03,
+    "duration": 3,
+    "effects": {
+     "fixedCosts": 0.08
+    },
+    "conditions": {
+     "tiers": [
+      "METRO",
+      "TIER_2",
+      "TIER_3"
+     ]
+    }
+   },
+   {
+    "type": "local_festival_demand",
+    "polarity": "POSITIVE",
+    "title": "Local festival season",
+    "description": "A major regional festival brings a surge of local spending.",
+    "probability": 0.06,
+    "duration": 1,
+    "effects": {
+     "demand": 0.18,
+     "brandAwareness": 0.02
+    },
+    "conditions": {
+     "tiers": [
+      "METRO",
+      "TIER_2",
+      "TIER_3"
+     ]
+    }
+   },
+   {
+    "type": "monsoon_disruption",
+    "polarity": "NEGATIVE",
+    "title": "Monsoon flooding",
+    "description": "Heavy rain and flooding disrupt deliveries, supplies and footfall.",
+    "probability": 0.05,
+    "duration": 1,
+    "effects": {
+     "demand": -0.12,
+     "unitCost": 0.08,
+     "customerSatisfaction": -0.04
+    },
+    "conditions": {
+     "states": [
+      "MH",
+      "KL",
+      "AS",
+      "WB",
+      "OD",
+      "TN",
+      "AP",
+      "GJ",
+      "BR",
+      "UK",
+      "HP"
+     ]
+    }
+   },
+   {
+    "type": "local_talent_war",
+    "polarity": "NEGATIVE",
+    "title": "Local talent war",
+    "description": "Well-funded startups nearby bid up salaries for the people you need.",
+    "probability": 0.05,
+    "duration": 3,
+    "effects": {
+     "salaries": 0.12
+    },
+    "conditions": {
+     "cities": [
+      "bengaluru",
+      "hyderabad",
+      "pune",
+      "delhi-ncr",
+      "mumbai",
+      "chennai"
+     ]
+    }
+   },
+   {
+    "type": "infrastructure_outage",
+    "polarity": "NEGATIVE",
+    "title": "Infrastructure outage",
+    "description": "Power cuts and network outages interrupt service for a while.",
+    "probability": 0.04,
+    "duration": 1,
+    "effects": {
+     "fixedCosts": 0.03,
+     "customerSatisfaction": -0.05,
+     "productQuality": -0.02
+    },
+    "conditions": {
+     "tiers": [
+      "TIER_2",
+      "TIER_3"
+     ]
+    }
+   }
+  ],
+  "locationProfile": {
+   "dataVersion": "1.0.0",
+   "basis": "LISTED_CITY",
+   "country": "IN",
+   "state": "KA",
+   "stateName": "Karnataka",
+   "city": "Bengaluru",
+   "cityId": "bengaluru",
+   "tier": "METRO",
+   "indices": {
+    "salaryIndex": {
+     "value": 1.256,
+     "isEstimate": false,
+     "source": "Average CTC (6-14 years) INR 19.04 lakh vs 15.16 lakh (mean of the 20 cities). Randstad India, Annual Salary Trends Report 2024-25, 'salary trends across tier-1 / tier-2 cities and job hierarchies' tables (pp. 14, 19-21) | https://info.randstad.in/hubfs/Thought%20leadership%20reports/Annual%20salary%20trends%20report%202024-%2025.pdf"
+    },
+    "operatingCostIndex": {
+     "value": 1.286,
+     "isEstimate": false,
+     "source": "Office rent 97.1 INR/sq ft/month vs 61.8 (mean of 14 cities); rent assumed to be 50% of overheads. Knight Frank, India Real Estate: Office and Residential Market, July-December 2025 (24th edition), city office market summaries, 'Average transacted rent' | https://content.knightfrank.com/research/3070/documents/en/india-real-estate-office-and-residential-market-h2-2025-12597.pdf"
+    },
+    "purchasingPower": {
+     "value": 1.799,
+     "isEstimate": false,
+     "source": "State figure used for the city. Per capita NSDP 339,813 / all-India per capita NNI 188,892 (INR, 2023-24, current prices). RBI Handbook of Statistics on Indian Economy, Table 9 (current prices, base 2011-12) (2023-24). Reserve Bank of India, Handbook of Statistics on Indian Economy (web table dated 29 Aug 2025), Table 9: Per Capita Net State Domestic Product - State-wise (At Current Prices), base "
+    },
+    "localMarketSize": {
+     "value": 1.524,
+     "isEstimate": false,
+     "source": "sqrt(Census 2011 population 8,520,435 / 3,669,575, the geometric mean of the 20 cities). Census of India 2011, A-04 Towns and urban agglomerations classified by population size class (as tabulated on Wikipedia 'List of million-plus urban agglomerations in India') | https://en.wikipedia.org/wiki/List_of_million-plus_urban_agglomerations_in_India"
+    },
+    "talentAvailability": {
+     "value": 1.38,
+     "isEstimate": true,
+     "source": "Colliers 2025 tech-talent score 3.4 mapped as 0.7 + 0.2 x score (mapping is an estimate). Colliers, Global Tech Markets: Top Talent Locations 2025 (10 Jul 2025), 'Regional ranking of cities in India' | https://www.india-briefing.com/news/indias-bengaluru-hyderabad-among-top-tech-talent-hubs-colliers-2025-report-38739.html/"
+    },
+    "competitionDensity": {
+     "value": 1.5,
+     "isEstimate": true,
+     "source": "Estimate informed by DPIIT-recognised startups in the state (16,093 in Karnataka) and Inc42 2025 funding (USD 4500 million)."
+    },
+    "fundingAccess": {
+     "value": 1.8,
+     "isEstimate": true,
+     "source": "Estimate ordered by Inc42 2025 startup funding (USD 4500 million). Reserved for the funding decision; unused by the engine."
+    },
+    "infrastructure": {
+     "value": 1.05,
+     "isEstimate": true,
+     "source": "LEADS 2025 Karnataka: Accelerator (1.0) x city tier (1.05); category values are estimates. DPIIT, LEADS 2025 (Logistics Ease Across Different States, seventh edition, FY 2024-25), PIB release PRID 2260854 | https://www.pib.gov.in/PressReleasePage.aspx?PRID=2260854&reg=48&lang=2"
+    },
+    "regulatoryBurden": {
+     "value": 0.9,
+     "isEstimate": true,
+     "source": "States' Startup Ranking 5.0: Top Performer; category mapped to an index (Best 0.85, Top 0.9, Leader 0.95, Aspiring 1.05, Emerging 1.1). DPIIT / Startup India, States' Startup Ranking 5.0 (fifth edition, results 2026; evaluation period 1 Jan 2023 - 30 Nov 2024) | https://www.startupindia.gov.in/srf/index.html"
+    }
+   }
+  }
+ },
+ "initialState": {
+  "turn": 0,
+  "cash": 100000000,
+  "revenue": 0,
+  "expenses": {
+   "total": 0,
+   "variable": 0,
+   "fixed": 0,
+   "marketing": 0,
+   "employees": 0,
+   "product": 0
+  },
+  "profit": 0,
+  "customers": 0,
+  "newCustomers": 0,
+  "churnedCustomers": 0,
+  "price": 49900,
+  "marketingBudget": 0,
+  "employees": 3,
+  "productQuality": 0.6,
+  "marketShare": 0.0,
+  "customerSatisfaction": 0.6,
+  "brandAwareness": 0.05,
+  "competitorPressure": 0.63,
+  "customerSegments": [
+   {
+    "type": "PRICE_SENSITIVE",
+    "population": 52620,
+    "customers": 0,
+    "priceSensitivity": 0.9,
+    "qualitySensitivity": 0.3,
+    "brandLoyalty": 0.2,
+    "conversionRate": 0.0,
+    "churnProbability": 0.0
+   },
+   {
+    "type": "PREMIUM",
+    "population": 31572,
+    "customers": 0,
+    "priceSensitivity": 0.2,
+    "qualitySensitivity": 0.9,
+    "brandLoyalty": 0.5,
+    "conversionRate": 0.0,
+    "churnProbability": 0.0
+   },
+   {
+    "type": "LOYAL",
+    "population": 42096,
+    "customers": 0,
+    "priceSensitivity": 0.4,
+    "qualitySensitivity": 0.5,
+    "brandLoyalty": 0.9,
+    "conversionRate": 0.0,
+    "churnProbability": 0.0
+   },
+   {
+    "type": "OCCASIONAL",
+    "population": 31572,
+    "customers": 0,
+    "priceSensitivity": 0.6,
+    "qualitySensitivity": 0.4,
+    "brandLoyalty": 0.2,
+    "conversionRate": 0.0,
+    "churnProbability": 0.0
+   },
+   {
+    "type": "ENTERPRISE",
+    "population": 52620,
+    "customers": 0,
+    "priceSensitivity": 0.3,
+    "qualitySensitivity": 0.8,
+    "brandLoyalty": 0.7,
+    "conversionRate": 0.0,
+    "churnProbability": 0.0
+   }
+  ],
+  "competitors": [
+   {
+    "id": "competitor-budget",
+    "name": "ValueMart",
+    "archetype": "BUDGET",
+    "pricingStrategy": "UNDERCUT",
+    "price": 48859,
+    "marketingPower": 0.436539,
+    "marketShare": 0.113043,
+    "reactionTendency": 0.548611,
+    "productQuality": 0.450083,
+    "cashStrength": 0.528396
+   },
+   {
+    "id": "competitor-premium",
+    "name": "Prestige Co",
+    "archetype": "PREMIUM",
+    "pricingStrategy": "PREMIUM",
+    "price": 88517,
+    "marketingPower": 0.527022,
+    "marketShare": 0.089392,
+    "reactionTendency": 0.323483,
+    "productQuality": 0.743622,
+    "cashStrength": 0.650746
+   },
+   {
+    "id": "competitor-aggressive",
+    "name": "Blitz Labs",
+    "archetype": "AGGRESSIVE",
+    "pricingStrategy": "PENETRATION",
+    "price": 61286,
+    "marketingPower": 0.820661,
+    "marketShare": 0.089874,
+    "reactionTendency": 0.988727,
+    "productQuality": 0.576229,
+    "cashStrength": 0.602723
+   },
+   {
+    "id": "competitor-innovative",
+    "name": "Novum",
+    "archetype": "INNOVATIVE",
+    "pricingStrategy": "MATCH",
+    "price": 71130,
+    "marketingPower": 0.60834,
+    "marketShare": 0.078191,
+    "reactionTendency": 0.528297,
+    "productQuality": 0.758044,
+    "cashStrength": 0.582014
+   }
+  ],
+  "activeEvents": []
+ },
+ "records": [
+  {
+   "turnNumber": 1,
+   "stateBefore": {
+    "turn": 0,
+    "cash": 100000000,
+    "revenue": 0,
+    "expenses": {
+     "total": 0,
+     "variable": 0,
+     "fixed": 0,
+     "marketing": 0,
+     "employees": 0,
+     "product": 0
+    },
+    "profit": 0,
+    "customers": 0,
+    "newCustomers": 0,
+    "churnedCustomers": 0,
+    "price": 49900,
+    "marketingBudget": 0,
+    "employees": 3,
+    "productQuality": 0.6,
+    "marketShare": 0.0,
+    "customerSatisfaction": 0.6,
+    "brandAwareness": 0.05,
+    "competitorPressure": 0.63,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 52620,
+      "customers": 0,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.0,
+      "churnProbability": 0.0
+     },
+     {
+      "type": "PREMIUM",
+      "population": 31572,
+      "customers": 0,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.0,
+      "churnProbability": 0.0
+     },
+     {
+      "type": "LOYAL",
+      "population": 42096,
+      "customers": 0,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.0,
+      "churnProbability": 0.0
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 31572,
+      "customers": 0,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.0,
+      "churnProbability": 0.0
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 52620,
+      "customers": 0,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.0,
+      "churnProbability": 0.0
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 48859,
+      "marketingPower": 0.436539,
+      "marketShare": 0.113043,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450083,
+      "cashStrength": 0.528396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 88517,
+      "marketingPower": 0.527022,
+      "marketShare": 0.089392,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.743622,
+      "cashStrength": 0.650746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 61286,
+      "marketingPower": 0.820661,
+      "marketShare": 0.089874,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.576229,
+      "cashStrength": 0.602723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 71130,
+      "marketingPower": 0.60834,
+      "marketShare": 0.078191,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.758044,
+      "cashStrength": 0.582014
+     }
+    ],
+    "activeEvents": []
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 8000000
+    }
+   ],
+   "events": [
+    {
+     "type": "viral_exposure",
+     "polarity": "POSITIVE",
+     "title": "Viral exposure",
+     "description": "A post about the product spreads widely.",
+     "probability": 0.03,
+     "duration": 2,
+     "effects": {
+      "demand": 0.35,
+      "brandAwareness": 0.08
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.306102,
+     "reasoningSummary": "Competitor threat 0.31: price below the competitor average, marketing increased."
+    }
+   },
+   "stateAfter": {
+    "turn": 1,
+    "cash": 83867866,
+    "revenue": 4050882,
+    "expenses": {
+     "total": 20183016,
+     "variable": 819016,
+     "fixed": 3828000,
+     "marketing": 8000000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -16132134,
+    "customers": 82,
+    "newCustomers": 82,
+    "churnedCustomers": 0,
+    "price": 49900,
+    "marketingBudget": 8000000,
+    "employees": 3,
+    "productQuality": 0.597,
+    "marketShare": 0.000384,
+    "customerSatisfaction": 0.632686,
+    "brandAwareness": 0.139936,
+    "competitorPressure": 0.536884,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 53409,
+      "customers": 37,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005037,
+      "churnProbability": 0.082798
+     },
+     {
+      "type": "PREMIUM",
+      "population": 32046,
+      "customers": 11,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002248,
+      "churnProbability": 0.034773
+     },
+     {
+      "type": "LOYAL",
+      "population": 42727,
+      "customers": 16,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.002932,
+      "churnProbability": 0.017541
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 32046,
+      "customers": 11,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002338,
+      "churnProbability": 0.089126
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 53409,
+      "customers": 7,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001016,
+      "churnProbability": 0.020999
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 48466,
+      "marketingPower": 0.432885,
+      "marketShare": 0.108644,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450079,
+      "cashStrength": 0.538396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 88051,
+      "marketingPower": 0.52432,
+      "marketShare": 0.087418,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.746441,
+      "cashStrength": 0.660746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58611,
+      "marketingPower": 0.820661,
+      "marketShare": 0.089144,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.576229,
+      "cashStrength": 0.562723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 70606,
+      "marketingPower": 0.607506,
+      "marketShare": 0.079819,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.757642,
+      "cashStrength": 0.592014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "viral_exposure",
+       "polarity": "POSITIVE",
+       "title": "Viral exposure",
+       "description": "A post about the product spreads widely.",
+       "probability": 0.03,
+       "duration": 2,
+       "effects": {
+        "demand": 0.35,
+        "brandAwareness": 0.08
+       }
+      },
+      "startedTurn": 1,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "PRICE_CHANGE",
+     "change": -0.043648,
+     "reason": "Cut price in response to the founder"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 2,
+   "stateBefore": {
+    "turn": 1,
+    "cash": 83867866,
+    "revenue": 4050882,
+    "expenses": {
+     "total": 20183016,
+     "variable": 819016,
+     "fixed": 3828000,
+     "marketing": 8000000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -16132134,
+    "customers": 82,
+    "newCustomers": 82,
+    "churnedCustomers": 0,
+    "price": 49900,
+    "marketingBudget": 8000000,
+    "employees": 3,
+    "productQuality": 0.597,
+    "marketShare": 0.000384,
+    "customerSatisfaction": 0.632686,
+    "brandAwareness": 0.139936,
+    "competitorPressure": 0.536884,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 53409,
+      "customers": 37,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005037,
+      "churnProbability": 0.082798
+     },
+     {
+      "type": "PREMIUM",
+      "population": 32046,
+      "customers": 11,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002248,
+      "churnProbability": 0.034773
+     },
+     {
+      "type": "LOYAL",
+      "population": 42727,
+      "customers": 16,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.002932,
+      "churnProbability": 0.017541
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 32046,
+      "customers": 11,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002338,
+      "churnProbability": 0.089126
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 53409,
+      "customers": 7,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001016,
+      "churnProbability": 0.020999
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 48466,
+      "marketingPower": 0.432885,
+      "marketShare": 0.108644,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450079,
+      "cashStrength": 0.538396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 88051,
+      "marketingPower": 0.52432,
+      "marketShare": 0.087418,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.746441,
+      "cashStrength": 0.660746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58611,
+      "marketingPower": 0.820661,
+      "marketShare": 0.089144,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.576229,
+      "cashStrength": 0.562723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 70606,
+      "marketingPower": 0.607506,
+      "marketShare": 0.079819,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.757642,
+      "cashStrength": 0.592014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "viral_exposure",
+       "polarity": "POSITIVE",
+       "title": "Viral exposure",
+       "description": "A post about the product spreads widely.",
+       "probability": 0.03,
+       "duration": 2,
+       "effects": {
+        "demand": 0.35,
+        "brandAwareness": 0.08
+       }
+      },
+      "startedTurn": 1,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 6700000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1700000
+    }
+   ],
+   "events": [],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.010727,
+     "demandModifier": 0.005363,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.150561,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 2,
+    "cash": 71434684,
+    "revenue": 9188586,
+    "expenses": {
+     "total": 21621768,
+     "variable": 1857768,
+     "fixed": 3828000,
+     "marketing": 6700000,
+     "employees": 7536000,
+     "product": 1700000
+    },
+    "profit": -12433182,
+    "customers": 186,
+    "newCustomers": 107,
+    "churnedCustomers": 3,
+    "price": 49900,
+    "marketingBudget": 6700000,
+    "employees": 3,
+    "productQuality": 0.607408,
+    "marketShare": 0.000858,
+    "customerSatisfaction": 0.66309,
+    "brandAwareness": 0.22395,
+    "competitorPressure": 0.521823,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 54210,
+      "customers": 90,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005772,
+      "churnProbability": 0.076002
+     },
+     {
+      "type": "PREMIUM",
+      "population": 32527,
+      "customers": 25,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002657,
+      "churnProbability": 0.03187
+     },
+     {
+      "type": "LOYAL",
+      "population": 43368,
+      "customers": 36,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003404,
+      "churnProbability": 0.016456
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 32527,
+      "customers": 21,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002698,
+      "churnProbability": 0.081651
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 54210,
+      "customers": 14,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001194,
+      "churnProbability": 0.019426
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 48112,
+      "marketingPower": 0.429597,
+      "marketShare": 0.104496,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450075,
+      "cashStrength": 0.548396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 87632,
+      "marketingPower": 0.521888,
+      "marketShare": 0.085479,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.749119,
+      "cashStrength": 0.670746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58440,
+      "marketingPower": 0.823595,
+      "marketShare": 0.088215,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.574918,
+      "cashStrength": 0.572723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 70134,
+      "marketingPower": 0.606755,
+      "marketShare": 0.081021,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.75726,
+      "cashStrength": 0.602014
+     }
+    ],
+    "activeEvents": []
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 3,
+   "stateBefore": {
+    "turn": 2,
+    "cash": 71434684,
+    "revenue": 9188586,
+    "expenses": {
+     "total": 21621768,
+     "variable": 1857768,
+     "fixed": 3828000,
+     "marketing": 6700000,
+     "employees": 7536000,
+     "product": 1700000
+    },
+    "profit": -12433182,
+    "customers": 186,
+    "newCustomers": 107,
+    "churnedCustomers": 3,
+    "price": 49900,
+    "marketingBudget": 6700000,
+    "employees": 3,
+    "productQuality": 0.607408,
+    "marketShare": 0.000858,
+    "customerSatisfaction": 0.66309,
+    "brandAwareness": 0.22395,
+    "competitorPressure": 0.521823,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 54210,
+      "customers": 90,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005772,
+      "churnProbability": 0.076002
+     },
+     {
+      "type": "PREMIUM",
+      "population": 32527,
+      "customers": 25,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002657,
+      "churnProbability": 0.03187
+     },
+     {
+      "type": "LOYAL",
+      "population": 43368,
+      "customers": 36,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003404,
+      "churnProbability": 0.016456
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 32527,
+      "customers": 21,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002698,
+      "churnProbability": 0.081651
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 54210,
+      "customers": 14,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001194,
+      "churnProbability": 0.019426
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 48112,
+      "marketingPower": 0.429597,
+      "marketShare": 0.104496,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450075,
+      "cashStrength": 0.548396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 87632,
+      "marketingPower": 0.521888,
+      "marketShare": 0.085479,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.749119,
+      "cashStrength": 0.670746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58440,
+      "marketingPower": 0.823595,
+      "marketShare": 0.088215,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.574918,
+      "cashStrength": 0.572723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 70134,
+      "marketingPower": 0.606755,
+      "marketShare": 0.081021,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.75726,
+      "cashStrength": 0.602014
+     }
+    ],
+    "activeEvents": []
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 5700000
+    }
+   ],
+   "events": [],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.149783,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 3,
+    "cash": 64539238,
+    "revenue": 12745458,
+    "expenses": {
+     "total": 19640904,
+     "variable": 2576904,
+     "fixed": 3828000,
+     "marketing": 5700000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -6895446,
+    "customers": 258,
+    "newCustomers": 83,
+    "churnedCustomers": 11,
+    "price": 49900,
+    "marketingBudget": 5700000,
+    "employees": 3,
+    "productQuality": 0.604408,
+    "marketShare": 0.001172,
+    "customerSatisfaction": 0.67525,
+    "brandAwareness": 0.226394,
+    "competitorPressure": 0.522415,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 55023,
+      "customers": 125,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005747,
+      "churnProbability": 0.074029
+     },
+     {
+      "type": "PREMIUM",
+      "population": 33015,
+      "customers": 33,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002636,
+      "churnProbability": 0.031208
+     },
+     {
+      "type": "LOYAL",
+      "population": 44019,
+      "customers": 49,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003389,
+      "churnProbability": 0.016117
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 33015,
+      "customers": 28,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002687,
+      "churnProbability": 0.079582
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 55023,
+      "customers": 23,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001186,
+      "churnProbability": 0.019034
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47793,
+      "marketingPower": 0.426637,
+      "marketShare": 0.100776,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450071,
+      "cashStrength": 0.558396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 87255,
+      "marketingPower": 0.519699,
+      "marketShare": 0.083773,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.751663,
+      "cashStrength": 0.680746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58286,
+      "marketingPower": 0.826236,
+      "marketShare": 0.08735,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.573672,
+      "cashStrength": 0.582723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69710,
+      "marketingPower": 0.606079,
+      "marketShare": 0.082114,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.756897,
+      "cashStrength": 0.612014
+     }
+    ],
+    "activeEvents": []
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 4,
+   "stateBefore": {
+    "turn": 3,
+    "cash": 64539238,
+    "revenue": 12745458,
+    "expenses": {
+     "total": 19640904,
+     "variable": 2576904,
+     "fixed": 3828000,
+     "marketing": 5700000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -6895446,
+    "customers": 258,
+    "newCustomers": 83,
+    "churnedCustomers": 11,
+    "price": 49900,
+    "marketingBudget": 5700000,
+    "employees": 3,
+    "productQuality": 0.604408,
+    "marketShare": 0.001172,
+    "customerSatisfaction": 0.67525,
+    "brandAwareness": 0.226394,
+    "competitorPressure": 0.522415,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 55023,
+      "customers": 125,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005747,
+      "churnProbability": 0.074029
+     },
+     {
+      "type": "PREMIUM",
+      "population": 33015,
+      "customers": 33,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002636,
+      "churnProbability": 0.031208
+     },
+     {
+      "type": "LOYAL",
+      "population": 44019,
+      "customers": 49,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003389,
+      "churnProbability": 0.016117
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 33015,
+      "customers": 28,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002687,
+      "churnProbability": 0.079582
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 55023,
+      "customers": 23,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001186,
+      "churnProbability": 0.019034
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47793,
+      "marketingPower": 0.426637,
+      "marketShare": 0.100776,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450071,
+      "cashStrength": 0.558396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 87255,
+      "marketingPower": 0.519699,
+      "marketShare": 0.083773,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.751663,
+      "cashStrength": 0.680746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58286,
+      "marketingPower": 0.826236,
+      "marketShare": 0.08735,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.573672,
+      "cashStrength": 0.582723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69710,
+      "marketingPower": 0.606079,
+      "marketShare": 0.082114,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.756897,
+      "cashStrength": 0.612014
+     }
+    ],
+    "activeEvents": []
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 5200000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1300000
+    }
+   ],
+   "events": [
+    {
+     "type": "bad_review",
+     "polarity": "NEGATIVE",
+     "title": "Bad review",
+     "description": "A widely read review criticises the product.",
+     "probability": 0.05,
+     "duration": 2,
+     "effects": {
+      "demand": -0.1,
+      "churn": 0.1,
+      "customerSatisfaction": -0.04
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.008084,
+     "demandModifier": 0.004042,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.148785,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 4,
+    "cash": 58814442,
+    "revenue": 15215508,
+    "expenses": {
+     "total": 20940304,
+     "variable": 3076304,
+     "fixed": 3828000,
+     "marketing": 5200000,
+     "employees": 7536000,
+     "product": 1300000
+    },
+    "profit": -5724796,
+    "customers": 308,
+    "newCustomers": 66,
+    "churnedCustomers": 16,
+    "price": 49900,
+    "marketingBudget": 5200000,
+    "employees": 3,
+    "productQuality": 0.611513,
+    "marketShare": 0.001379,
+    "customerSatisfaction": 0.663901,
+    "brandAwareness": 0.228058,
+    "competitorPressure": 0.521163,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 55848,
+      "customers": 142,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005771,
+      "churnProbability": 0.083032
+     },
+     {
+      "type": "PREMIUM",
+      "population": 33510,
+      "customers": 40,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002692,
+      "churnProbability": 0.034727
+     },
+     {
+      "type": "LOYAL",
+      "population": 44679,
+      "customers": 65,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003427,
+      "churnProbability": 0.018025
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 33510,
+      "customers": 33,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002708,
+      "churnProbability": 0.08914
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 55848,
+      "customers": 28,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001207,
+      "churnProbability": 0.021207
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47506,
+      "marketingPower": 0.423973,
+      "marketShare": 0.097419,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450067,
+      "cashStrength": 0.568396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86916,
+      "marketingPower": 0.517729,
+      "marketShare": 0.08225,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.75408,
+      "cashStrength": 0.690746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58148,
+      "marketingPower": 0.828612,
+      "marketShare": 0.086518,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.572488,
+      "cashStrength": 0.592723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69328,
+      "marketingPower": 0.605471,
+      "marketShare": 0.083074,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.756552,
+      "cashStrength": 0.622014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "bad_review",
+       "polarity": "NEGATIVE",
+       "title": "Bad review",
+       "description": "A widely read review criticises the product.",
+       "probability": 0.05,
+       "duration": 2,
+       "effects": {
+        "demand": -0.1,
+        "churn": 0.1,
+        "customerSatisfaction": -0.04
+       }
+      },
+      "startedTurn": 4,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 5,
+   "stateBefore": {
+    "turn": 4,
+    "cash": 58814442,
+    "revenue": 15215508,
+    "expenses": {
+     "total": 20940304,
+     "variable": 3076304,
+     "fixed": 3828000,
+     "marketing": 5200000,
+     "employees": 7536000,
+     "product": 1300000
+    },
+    "profit": -5724796,
+    "customers": 308,
+    "newCustomers": 66,
+    "churnedCustomers": 16,
+    "price": 49900,
+    "marketingBudget": 5200000,
+    "employees": 3,
+    "productQuality": 0.611513,
+    "marketShare": 0.001379,
+    "customerSatisfaction": 0.663901,
+    "brandAwareness": 0.228058,
+    "competitorPressure": 0.521163,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 55848,
+      "customers": 142,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005771,
+      "churnProbability": 0.083032
+     },
+     {
+      "type": "PREMIUM",
+      "population": 33510,
+      "customers": 40,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002692,
+      "churnProbability": 0.034727
+     },
+     {
+      "type": "LOYAL",
+      "population": 44679,
+      "customers": 65,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003427,
+      "churnProbability": 0.018025
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 33510,
+      "customers": 33,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002708,
+      "churnProbability": 0.08914
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 55848,
+      "customers": 28,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001207,
+      "churnProbability": 0.021207
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47506,
+      "marketingPower": 0.423973,
+      "marketShare": 0.097419,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450067,
+      "cashStrength": 0.568396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86916,
+      "marketingPower": 0.517729,
+      "marketShare": 0.08225,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.75408,
+      "cashStrength": 0.690746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58148,
+      "marketingPower": 0.828612,
+      "marketShare": 0.086518,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.572488,
+      "cashStrength": 0.592723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69328,
+      "marketingPower": 0.605471,
+      "marketShare": 0.083074,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.756552,
+      "cashStrength": 0.622014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "bad_review",
+       "polarity": "NEGATIVE",
+       "title": "Bad review",
+       "description": "A widely read review criticises the product.",
+       "probability": 0.05,
+       "duration": 2,
+       "effects": {
+        "demand": -0.1,
+        "churn": 0.1,
+        "customerSatisfaction": -0.04
+       }
+      },
+      "startedTurn": 4,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 4700000
+    }
+   ],
+   "events": [
+    {
+     "type": "regulatory_cost",
+     "polarity": "NEGATIVE",
+     "title": "Regulatory cost",
+     "description": "New compliance requirements raise overheads.",
+     "probability": 0.02,
+     "duration": 3,
+     "effects": {
+      "fixedCosts": 0.15
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.147677,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 5,
+    "cash": 55694901,
+    "revenue": 16944543,
+    "expenses": {
+     "total": 20064084,
+     "variable": 3425884,
+     "fixed": 4402200,
+     "marketing": 4700000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -3119541,
+    "customers": 343,
+    "newCustomers": 54,
+    "churnedCustomers": 19,
+    "price": 49900,
+    "marketingBudget": 4700000,
+    "employees": 3,
+    "productQuality": 0.608513,
+    "marketShare": 0.001513,
+    "customerSatisfaction": 0.65064,
+    "brandAwareness": 0.228949,
+    "competitorPressure": 0.524498,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 56686,
+      "customers": 153,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005686,
+      "churnProbability": 0.085572
+     },
+     {
+      "type": "PREMIUM",
+      "population": 34013,
+      "customers": 46,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002544,
+      "churnProbability": 0.036354
+     },
+     {
+      "type": "LOYAL",
+      "population": 45349,
+      "customers": 77,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003338,
+      "churnProbability": 0.018682
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 34013,
+      "customers": 36,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002654,
+      "churnProbability": 0.092111
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 56686,
+      "customers": 31,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001151,
+      "churnProbability": 0.022147
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47248,
+      "marketingPower": 0.421576,
+      "marketShare": 0.09427,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450064,
+      "cashStrength": 0.578396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86610,
+      "marketingPower": 0.515956,
+      "marketShare": 0.080732,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.756376,
+      "cashStrength": 0.700746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58024,
+      "marketingPower": 0.830751,
+      "marketShare": 0.085564,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.571364,
+      "cashStrength": 0.602723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69328,
+      "marketingPower": 0.605471,
+      "marketShare": 0.084614,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.798315,
+      "cashStrength": 0.582014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "regulatory_cost",
+       "polarity": "NEGATIVE",
+       "title": "Regulatory cost",
+       "description": "New compliance requirements raise overheads.",
+       "probability": 0.02,
+       "duration": 3,
+       "effects": {
+        "fixedCosts": 0.15
+       }
+      },
+      "startedTurn": 5,
+      "remainingTurns": 2
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "PRODUCT_INVESTMENT",
+     "change": 0.041763,
+     "reason": "Invested in product to stay ahead"
+    }
+   ]
+  },
+  {
+   "turnNumber": 6,
+   "stateBefore": {
+    "turn": 5,
+    "cash": 55694901,
+    "revenue": 16944543,
+    "expenses": {
+     "total": 20064084,
+     "variable": 3425884,
+     "fixed": 4402200,
+     "marketing": 4700000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": -3119541,
+    "customers": 343,
+    "newCustomers": 54,
+    "churnedCustomers": 19,
+    "price": 49900,
+    "marketingBudget": 4700000,
+    "employees": 3,
+    "productQuality": 0.608513,
+    "marketShare": 0.001513,
+    "customerSatisfaction": 0.65064,
+    "brandAwareness": 0.228949,
+    "competitorPressure": 0.524498,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 56686,
+      "customers": 153,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005686,
+      "churnProbability": 0.085572
+     },
+     {
+      "type": "PREMIUM",
+      "population": 34013,
+      "customers": 46,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002544,
+      "churnProbability": 0.036354
+     },
+     {
+      "type": "LOYAL",
+      "population": 45349,
+      "customers": 77,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003338,
+      "churnProbability": 0.018682
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 34013,
+      "customers": 36,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002654,
+      "churnProbability": 0.092111
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 56686,
+      "customers": 31,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001151,
+      "churnProbability": 0.022147
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47248,
+      "marketingPower": 0.421576,
+      "marketShare": 0.09427,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450064,
+      "cashStrength": 0.578396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86610,
+      "marketingPower": 0.515956,
+      "marketShare": 0.080732,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.756376,
+      "cashStrength": 0.700746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 58024,
+      "marketingPower": 0.830751,
+      "marketShare": 0.085564,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.571364,
+      "cashStrength": 0.602723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 69328,
+      "marketingPower": 0.605471,
+      "marketShare": 0.084614,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.798315,
+      "cashStrength": 0.582014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "regulatory_cost",
+       "polarity": "NEGATIVE",
+       "title": "Regulatory cost",
+       "description": "New compliance requirements raise overheads.",
+       "probability": 0.02,
+       "duration": 3,
+       "effects": {
+        "fixedCosts": 0.15
+       }
+      },
+      "startedTurn": 5,
+      "remainingTurns": 2
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 4500000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1100000
+    }
+   ],
+   "events": [],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.006783,
+     "demandModifier": 0.003391,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.147136,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 6,
+    "cash": 53646010,
+    "revenue": 19414593,
+    "expenses": {
+     "total": 21463484,
+     "variable": 3925284,
+     "fixed": 4402200,
+     "marketing": 4500000,
+     "employees": 7536000,
+     "product": 1100000
+    },
+    "profit": -2048891,
+    "customers": 393,
+    "newCustomers": 66,
+    "churnedCustomers": 16,
+    "price": 49900,
+    "marketingBudget": 4500000,
+    "employees": 3,
+    "productQuality": 0.613991,
+    "marketShare": 0.001708,
+    "customerSatisfaction": 0.673579,
+    "brandAwareness": 0.229577,
+    "competitorPressure": 0.523584,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 57536,
+      "customers": 171,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005698,
+      "churnProbability": 0.074643
+     },
+     {
+      "type": "PREMIUM",
+      "population": 34523,
+      "customers": 54,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002588,
+      "churnProbability": 0.031494
+     },
+     {
+      "type": "LOYAL",
+      "population": 46029,
+      "customers": 90,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003364,
+      "churnProbability": 0.016244
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 34523,
+      "customers": 41,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002668,
+      "churnProbability": 0.080257
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 57536,
+      "customers": 37,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001168,
+      "churnProbability": 0.019201
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47016,
+      "marketingPower": 0.419418,
+      "marketShare": 0.091438,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450061,
+      "cashStrength": 0.588396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86335,
+      "marketingPower": 0.51436,
+      "marketShare": 0.079391,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.758557,
+      "cashStrength": 0.710746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57912,
+      "marketingPower": 0.832676,
+      "marketShare": 0.084674,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.570296,
+      "cashStrength": 0.612723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68984,
+      "marketingPower": 0.604924,
+      "marketShare": 0.085951,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.795899,
+      "cashStrength": 0.592014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "regulatory_cost",
+       "polarity": "NEGATIVE",
+       "title": "Regulatory cost",
+       "description": "New compliance requirements raise overheads.",
+       "probability": 0.02,
+       "duration": 3,
+       "effects": {
+        "fixedCosts": 0.15
+       }
+      },
+      "startedTurn": 5,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 7,
+   "stateBefore": {
+    "turn": 6,
+    "cash": 53646010,
+    "revenue": 19414593,
+    "expenses": {
+     "total": 21463484,
+     "variable": 3925284,
+     "fixed": 4402200,
+     "marketing": 4500000,
+     "employees": 7536000,
+     "product": 1100000
+    },
+    "profit": -2048891,
+    "customers": 393,
+    "newCustomers": 66,
+    "churnedCustomers": 16,
+    "price": 49900,
+    "marketingBudget": 4500000,
+    "employees": 3,
+    "productQuality": 0.613991,
+    "marketShare": 0.001708,
+    "customerSatisfaction": 0.673579,
+    "brandAwareness": 0.229577,
+    "competitorPressure": 0.523584,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 57536,
+      "customers": 171,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005698,
+      "churnProbability": 0.074643
+     },
+     {
+      "type": "PREMIUM",
+      "population": 34523,
+      "customers": 54,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002588,
+      "churnProbability": 0.031494
+     },
+     {
+      "type": "LOYAL",
+      "population": 46029,
+      "customers": 90,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003364,
+      "churnProbability": 0.016244
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 34523,
+      "customers": 41,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002668,
+      "churnProbability": 0.080257
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 57536,
+      "customers": 37,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001168,
+      "churnProbability": 0.019201
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 47016,
+      "marketingPower": 0.419418,
+      "marketShare": 0.091438,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450061,
+      "cashStrength": 0.588396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86335,
+      "marketingPower": 0.51436,
+      "marketShare": 0.079391,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.758557,
+      "cashStrength": 0.710746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57912,
+      "marketingPower": 0.832676,
+      "marketShare": 0.084674,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.570296,
+      "cashStrength": 0.612723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68984,
+      "marketingPower": 0.604924,
+      "marketShare": 0.085951,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.795899,
+      "cashStrength": 0.592014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "regulatory_cost",
+       "polarity": "NEGATIVE",
+       "title": "Regulatory cost",
+       "description": "New compliance requirements raise overheads.",
+       "probability": 0.02,
+       "duration": 3,
+       "effects": {
+        "fixedCosts": 0.15
+       }
+      },
+      "startedTurn": 5,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 4300000
+    }
+   ],
+   "events": [],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.14636,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 7,
+    "cash": 54867769,
+    "revenue": 21884643,
+    "expenses": {
+     "total": 20662884,
+     "variable": 4424684,
+     "fixed": 4402200,
+     "marketing": 4300000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": 1221759,
+    "customers": 443,
+    "newCustomers": 69,
+    "churnedCustomers": 19,
+    "price": 49900,
+    "marketingBudget": 4300000,
+    "employees": 3,
+    "productQuality": 0.610991,
+    "marketShare": 0.001896,
+    "customerSatisfaction": 0.683451,
+    "brandAwareness": 0.22995,
+    "competitorPressure": 0.524326,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 58399,
+      "customers": 193,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005664,
+      "churnProbability": 0.073305
+     },
+     {
+      "type": "PREMIUM",
+      "population": 35041,
+      "customers": 59,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002564,
+      "churnProbability": 0.031027
+     },
+     {
+      "type": "LOYAL",
+      "population": 46719,
+      "customers": 103,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003344,
+      "churnProbability": 0.015974
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 35041,
+      "customers": 46,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002652,
+      "churnProbability": 0.07886
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 58399,
+      "customers": 42,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001158,
+      "churnProbability": 0.018908
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46807,
+      "marketingPower": 0.417476,
+      "marketShare": 0.08891,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450058,
+      "cashStrength": 0.598396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86088,
+      "marketingPower": 0.512924,
+      "marketShare": 0.078231,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.760629,
+      "cashStrength": 0.720746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57811,
+      "marketingPower": 0.834408,
+      "marketShare": 0.083866,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.569281,
+      "cashStrength": 0.622723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68675,
+      "marketingPower": 0.604432,
+      "marketShare": 0.087138,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.793604,
+      "cashStrength": 0.602014
+     }
+    ],
+    "activeEvents": []
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 8,
+   "stateBefore": {
+    "turn": 7,
+    "cash": 54867769,
+    "revenue": 21884643,
+    "expenses": {
+     "total": 20662884,
+     "variable": 4424684,
+     "fixed": 4402200,
+     "marketing": 4300000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": 1221759,
+    "customers": 443,
+    "newCustomers": 69,
+    "churnedCustomers": 19,
+    "price": 49900,
+    "marketingBudget": 4300000,
+    "employees": 3,
+    "productQuality": 0.610991,
+    "marketShare": 0.001896,
+    "customerSatisfaction": 0.683451,
+    "brandAwareness": 0.22995,
+    "competitorPressure": 0.524326,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 58399,
+      "customers": 193,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005664,
+      "churnProbability": 0.073305
+     },
+     {
+      "type": "PREMIUM",
+      "population": 35041,
+      "customers": 59,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002564,
+      "churnProbability": 0.031027
+     },
+     {
+      "type": "LOYAL",
+      "population": 46719,
+      "customers": 103,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003344,
+      "churnProbability": 0.015974
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 35041,
+      "customers": 46,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002652,
+      "churnProbability": 0.07886
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 58399,
+      "customers": 42,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001158,
+      "churnProbability": 0.018908
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46807,
+      "marketingPower": 0.417476,
+      "marketShare": 0.08891,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450058,
+      "cashStrength": 0.598396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 86088,
+      "marketingPower": 0.512924,
+      "marketShare": 0.078231,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.760629,
+      "cashStrength": 0.720746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57811,
+      "marketingPower": 0.834408,
+      "marketShare": 0.083866,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.569281,
+      "cashStrength": 0.622723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68675,
+      "marketingPower": 0.604432,
+      "marketShare": 0.087138,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.793604,
+      "cashStrength": 0.602014
+     }
+    ],
+    "activeEvents": []
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 4400000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1100000
+    }
+   ],
+   "events": [],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.00674,
+     "demandModifier": 0.00337,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.145749,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 8,
+    "cash": 57473791,
+    "revenue": 24404094,
+    "expenses": {
+     "total": 21798072,
+     "variable": 4934072,
+     "fixed": 3828000,
+     "marketing": 4400000,
+     "employees": 7536000,
+     "product": 1100000
+    },
+    "profit": 2606022,
+    "customers": 494,
+    "newCustomers": 72,
+    "churnedCustomers": 21,
+    "price": 49900,
+    "marketingBudget": 4400000,
+    "employees": 3,
+    "productQuality": 0.616416,
+    "marketShare": 0.002083,
+    "customerSatisfaction": 0.695388,
+    "brandAwareness": 0.230532,
+    "competitorPressure": 0.52343,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 59275,
+      "customers": 213,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005677,
+      "churnProbability": 0.071607
+     },
+     {
+      "type": "PREMIUM",
+      "population": 35567,
+      "customers": 66,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002607,
+      "churnProbability": 0.030111
+     },
+     {
+      "type": "LOYAL",
+      "population": 47420,
+      "customers": 117,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.00337,
+      "churnProbability": 0.015566
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 35567,
+      "customers": 49,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002666,
+      "churnProbability": 0.076948
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 59275,
+      "customers": 49,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001174,
+      "churnProbability": 0.018368
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46619,
+      "marketingPower": 0.415728,
+      "marketShare": 0.086635,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450055,
+      "cashStrength": 0.608396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85865,
+      "marketingPower": 0.511632,
+      "marketShare": 0.077209,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.762598,
+      "cashStrength": 0.730746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57720,
+      "marketingPower": 0.835967,
+      "marketShare": 0.08311,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.568317,
+      "cashStrength": 0.632723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68396,
+      "marketingPower": 0.603989,
+      "marketShare": 0.088159,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.791424,
+      "cashStrength": 0.612014
+     }
+    ],
+    "activeEvents": []
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 9,
+   "stateBefore": {
+    "turn": 8,
+    "cash": 57473791,
+    "revenue": 24404094,
+    "expenses": {
+     "total": 21798072,
+     "variable": 4934072,
+     "fixed": 3828000,
+     "marketing": 4400000,
+     "employees": 7536000,
+     "product": 1100000
+    },
+    "profit": 2606022,
+    "customers": 494,
+    "newCustomers": 72,
+    "churnedCustomers": 21,
+    "price": 49900,
+    "marketingBudget": 4400000,
+    "employees": 3,
+    "productQuality": 0.616416,
+    "marketShare": 0.002083,
+    "customerSatisfaction": 0.695388,
+    "brandAwareness": 0.230532,
+    "competitorPressure": 0.52343,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 59275,
+      "customers": 213,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005677,
+      "churnProbability": 0.071607
+     },
+     {
+      "type": "PREMIUM",
+      "population": 35567,
+      "customers": 66,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002607,
+      "churnProbability": 0.030111
+     },
+     {
+      "type": "LOYAL",
+      "population": 47420,
+      "customers": 117,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.00337,
+      "churnProbability": 0.015566
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 35567,
+      "customers": 49,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002666,
+      "churnProbability": 0.076948
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 59275,
+      "customers": 49,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001174,
+      "churnProbability": 0.018368
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46619,
+      "marketingPower": 0.415728,
+      "marketShare": 0.086635,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450055,
+      "cashStrength": 0.608396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85865,
+      "marketingPower": 0.511632,
+      "marketShare": 0.077209,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.762598,
+      "cashStrength": 0.730746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57720,
+      "marketingPower": 0.835967,
+      "marketShare": 0.08311,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.568317,
+      "cashStrength": 0.632723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68396,
+      "marketingPower": 0.603989,
+      "marketShare": 0.088159,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.791424,
+      "cashStrength": 0.612014
+     }
+    ],
+    "activeEvents": []
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 4600000
+    }
+   ],
+   "events": [
+    {
+     "type": "bad_review",
+     "polarity": "NEGATIVE",
+     "title": "Bad review",
+     "description": "A widely read review criticises the product.",
+     "probability": 0.05,
+     "duration": 2,
+     "effects": {
+      "demand": -0.1,
+      "churn": 0.1,
+      "customerSatisfaction": -0.04
+     }
+    },
+    {
+     "type": "seasonality",
+     "polarity": "NEUTRAL",
+     "title": "Seasonal spike",
+     "description": "A seasonal surge lifts demand and ad prices together.",
+     "probability": 0.05,
+     "duration": 1,
+     "effects": {
+      "demand": 0.08,
+      "marketingCost": 0.05
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.145161,
+     "reasoningSummary": "Competitor threat 0.15: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 9,
+    "cash": 62792811,
+    "revenue": 26676540,
+    "expenses": {
+     "total": 21357520,
+     "variable": 5393520,
+     "fixed": 3828000,
+     "marketing": 4600000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": 5319020,
+    "customers": 540,
+    "newCustomers": 72,
+    "churnedCustomers": 26,
+    "price": 49900,
+    "marketingBudget": 4600000,
+    "employees": 3,
+    "productQuality": 0.613416,
+    "marketShare": 0.002244,
+    "customerSatisfaction": 0.672136,
+    "brandAwareness": 0.231454,
+    "competitorPressure": 0.524129,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 60164,
+      "customers": 230,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005646,
+      "churnProbability": 0.082261
+     },
+     {
+      "type": "PREMIUM",
+      "population": 36101,
+      "customers": 73,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002584,
+      "churnProbability": 0.034701
+     },
+     {
+      "type": "LOYAL",
+      "population": 48131,
+      "customers": 129,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.00335,
+      "churnProbability": 0.017906
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 36101,
+      "customers": 53,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002652,
+      "churnProbability": 0.088443
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 60164,
+      "customers": 55,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001165,
+      "churnProbability": 0.021159
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46450,
+      "marketingPower": 0.414155,
+      "marketShare": 0.084606,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450052,
+      "cashStrength": 0.618396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85664,
+      "marketingPower": 0.510469,
+      "marketShare": 0.076332,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.764468,
+      "cashStrength": 0.740746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57638,
+      "marketingPower": 0.83737,
+      "marketShare": 0.082424,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.567401,
+      "cashStrength": 0.642723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68145,
+      "marketingPower": 0.60359,
+      "marketShare": 0.089063,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.789353,
+      "cashStrength": 0.622014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "bad_review",
+       "polarity": "NEGATIVE",
+       "title": "Bad review",
+       "description": "A widely read review criticises the product.",
+       "probability": 0.05,
+       "duration": 2,
+       "effects": {
+        "demand": -0.1,
+        "churn": 0.1,
+        "customerSatisfaction": -0.04
+       }
+      },
+      "startedTurn": 9,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 10,
+   "stateBefore": {
+    "turn": 9,
+    "cash": 62792811,
+    "revenue": 26676540,
+    "expenses": {
+     "total": 21357520,
+     "variable": 5393520,
+     "fixed": 3828000,
+     "marketing": 4600000,
+     "employees": 7536000,
+     "product": 0
+    },
+    "profit": 5319020,
+    "customers": 540,
+    "newCustomers": 72,
+    "churnedCustomers": 26,
+    "price": 49900,
+    "marketingBudget": 4600000,
+    "employees": 3,
+    "productQuality": 0.613416,
+    "marketShare": 0.002244,
+    "customerSatisfaction": 0.672136,
+    "brandAwareness": 0.231454,
+    "competitorPressure": 0.524129,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 60164,
+      "customers": 230,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005646,
+      "churnProbability": 0.082261
+     },
+     {
+      "type": "PREMIUM",
+      "population": 36101,
+      "customers": 73,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002584,
+      "churnProbability": 0.034701
+     },
+     {
+      "type": "LOYAL",
+      "population": 48131,
+      "customers": 129,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.00335,
+      "churnProbability": 0.017906
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 36101,
+      "customers": 53,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002652,
+      "churnProbability": 0.088443
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 60164,
+      "customers": 55,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001165,
+      "churnProbability": 0.021159
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46450,
+      "marketingPower": 0.414155,
+      "marketShare": 0.084606,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450052,
+      "cashStrength": 0.618396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85664,
+      "marketingPower": 0.510469,
+      "marketShare": 0.076332,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.764468,
+      "cashStrength": 0.740746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57638,
+      "marketingPower": 0.83737,
+      "marketShare": 0.082424,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.567401,
+      "cashStrength": 0.642723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 68145,
+      "marketingPower": 0.60359,
+      "marketShare": 0.089063,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.789353,
+      "cashStrength": 0.622014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "bad_review",
+       "polarity": "NEGATIVE",
+       "title": "Bad review",
+       "description": "A widely read review criticises the product.",
+       "probability": 0.05,
+       "duration": 2,
+       "effects": {
+        "demand": -0.1,
+        "churn": 0.1,
+        "customerSatisfaction": -0.04
+       }
+      },
+      "startedTurn": 9,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 5000000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1300000
+    }
+   ],
+   "events": [
+    {
+     "type": "local_talent_war",
+     "polarity": "NEGATIVE",
+     "title": "Local talent war",
+     "description": "Well-funded startups nearby bid up salaries for the people you need.",
+     "probability": 0.05,
+     "duration": 3,
+     "effects": {
+      "salaries": 0.12
+     },
+     "conditions": {
+      "cities": [
+       "bengaluru",
+       "hyderabad",
+       "pune",
+       "delhi-ncr",
+       "mumbai",
+       "chennai"
+      ]
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0079,
+     "demandModifier": 0.00395,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.144447,
+     "reasoningSummary": "Competitor threat 0.14: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 10,
+    "cash": 67281096,
+    "revenue": 28899585,
+    "expenses": {
+     "total": 24411300,
+     "variable": 5842980,
+     "fixed": 3828000,
+     "marketing": 5000000,
+     "employees": 8440320,
+     "product": 1300000
+    },
+    "profit": 4488285,
+    "customers": 585,
+    "newCustomers": 74,
+    "churnedCustomers": 29,
+    "price": 49900,
+    "marketingBudget": 5000000,
+    "employees": 3,
+    "productQuality": 0.620291,
+    "marketShare": 0.002395,
+    "customerSatisfaction": 0.663601,
+    "brandAwareness": 0.233,
+    "competitorPressure": 0.522828,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 61066,
+      "customers": 250,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005675,
+      "churnProbability": 0.083422
+     },
+     {
+      "type": "PREMIUM",
+      "population": 36643,
+      "customers": 81,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002641,
+      "churnProbability": 0.034903
+     },
+     {
+      "type": "LOYAL",
+      "population": 48853,
+      "customers": 138,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003388,
+      "churnProbability": 0.018105
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 36643,
+      "customers": 56,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002673,
+      "churnProbability": 0.089568
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 61066,
+      "customers": 60,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001187,
+      "churnProbability": 0.02131
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46298,
+      "marketingPower": 0.412739,
+      "marketShare": 0.082775,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450049,
+      "cashStrength": 0.628396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85484,
+      "marketingPower": 0.509422,
+      "marketShare": 0.075557,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.766245,
+      "cashStrength": 0.750746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57565,
+      "marketingPower": 0.838633,
+      "marketShare": 0.081774,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.566531,
+      "cashStrength": 0.652723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 67920,
+      "marketingPower": 0.603231,
+      "marketShare": 0.089824,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.787385,
+      "cashStrength": 0.632014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "local_talent_war",
+       "polarity": "NEGATIVE",
+       "title": "Local talent war",
+       "description": "Well-funded startups nearby bid up salaries for the people you need.",
+       "probability": 0.05,
+       "duration": 3,
+       "effects": {
+        "salaries": 0.12
+       },
+       "conditions": {
+        "cities": [
+         "bengaluru",
+         "hyderabad",
+         "pune",
+         "delhi-ncr",
+         "mumbai",
+         "chennai"
+        ]
+       }
+      },
+      "startedTurn": 10,
+      "remainingTurns": 2
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 11,
+   "stateBefore": {
+    "turn": 10,
+    "cash": 67281096,
+    "revenue": 28899585,
+    "expenses": {
+     "total": 24411300,
+     "variable": 5842980,
+     "fixed": 3828000,
+     "marketing": 5000000,
+     "employees": 8440320,
+     "product": 1300000
+    },
+    "profit": 4488285,
+    "customers": 585,
+    "newCustomers": 74,
+    "churnedCustomers": 29,
+    "price": 49900,
+    "marketingBudget": 5000000,
+    "employees": 3,
+    "productQuality": 0.620291,
+    "marketShare": 0.002395,
+    "customerSatisfaction": 0.663601,
+    "brandAwareness": 0.233,
+    "competitorPressure": 0.522828,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 61066,
+      "customers": 250,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005675,
+      "churnProbability": 0.083422
+     },
+     {
+      "type": "PREMIUM",
+      "population": 36643,
+      "customers": 81,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002641,
+      "churnProbability": 0.034903
+     },
+     {
+      "type": "LOYAL",
+      "population": 48853,
+      "customers": 138,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003388,
+      "churnProbability": 0.018105
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 36643,
+      "customers": 56,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002673,
+      "churnProbability": 0.089568
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 61066,
+      "customers": 60,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001187,
+      "churnProbability": 0.02131
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46298,
+      "marketingPower": 0.412739,
+      "marketShare": 0.082775,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450049,
+      "cashStrength": 0.628396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85484,
+      "marketingPower": 0.509422,
+      "marketShare": 0.075557,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.766245,
+      "cashStrength": 0.750746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57565,
+      "marketingPower": 0.838633,
+      "marketShare": 0.081774,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.566531,
+      "cashStrength": 0.652723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 67920,
+      "marketingPower": 0.603231,
+      "marketShare": 0.089824,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.787385,
+      "cashStrength": 0.632014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "local_talent_war",
+       "polarity": "NEGATIVE",
+       "title": "Local talent war",
+       "description": "Well-funded startups nearby bid up salaries for the people you need.",
+       "probability": 0.05,
+       "duration": 3,
+       "effects": {
+        "salaries": 0.12
+       },
+       "conditions": {
+        "cities": [
+         "bengaluru",
+         "hyderabad",
+         "pune",
+         "delhi-ncr",
+         "mumbai",
+         "chennai"
+        ]
+       }
+      },
+      "startedTurn": 10,
+      "remainingTurns": 2
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 5400000
+    }
+   ],
+   "events": [
+    {
+     "type": "seasonality",
+     "polarity": "NEUTRAL",
+     "title": "Seasonal spike",
+     "description": "A seasonal surge lifts demand and ad prices together.",
+     "probability": 0.05,
+     "duration": 1,
+     "effects": {
+      "demand": 0.08,
+      "marketingCost": 0.05
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.143824,
+     "reasoningSummary": "Competitor threat 0.14: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 11,
+    "cash": 75073574,
+    "revenue": 31913046,
+    "expenses": {
+     "total": 24120568,
+     "variable": 6452248,
+     "fixed": 3828000,
+     "marketing": 5400000,
+     "employees": 8440320,
+     "product": 0
+    },
+    "profit": 7792478,
+    "customers": 646,
+    "newCustomers": 88,
+    "churnedCustomers": 27,
+    "price": 49900,
+    "marketingBudget": 5400000,
+    "employees": 3,
+    "productQuality": 0.617291,
+    "marketShare": 0.002606,
+    "customerSatisfaction": 0.678288,
+    "brandAwareness": 0.235165,
+    "competitorPressure": 0.52337,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 61982,
+      "customers": 276,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005654,
+      "churnProbability": 0.073849
+     },
+     {
+      "type": "PREMIUM",
+      "population": 37193,
+      "customers": 87,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002621,
+      "churnProbability": 0.030999
+     },
+     {
+      "type": "LOYAL",
+      "population": 49586,
+      "customers": 153,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003373,
+      "churnProbability": 0.01605
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 37193,
+      "customers": 63,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002663,
+      "churnProbability": 0.079331
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 61982,
+      "customers": 67,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001179,
+      "churnProbability": 0.018919
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46161,
+      "marketingPower": 0.411465,
+      "marketShare": 0.081142,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450047,
+      "cashStrength": 0.638396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85322,
+      "marketingPower": 0.50848,
+      "marketShare": 0.074898,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.767933,
+      "cashStrength": 0.760746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57499,
+      "marketingPower": 0.83977,
+      "marketShare": 0.081183,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.565704,
+      "cashStrength": 0.662723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 67717,
+      "marketingPower": 0.602908,
+      "marketShare": 0.090493,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.785516,
+      "cashStrength": 0.642014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "local_talent_war",
+       "polarity": "NEGATIVE",
+       "title": "Local talent war",
+       "description": "Well-funded startups nearby bid up salaries for the people you need.",
+       "probability": 0.05,
+       "duration": 3,
+       "effects": {
+        "salaries": 0.12
+       },
+       "conditions": {
+        "cities": [
+         "bengaluru",
+         "hyderabad",
+         "pune",
+         "delhi-ncr",
+         "mumbai",
+         "chennai"
+        ]
+       }
+      },
+      "startedTurn": 10,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  },
+  {
+   "turnNumber": 12,
+   "stateBefore": {
+    "turn": 11,
+    "cash": 75073574,
+    "revenue": 31913046,
+    "expenses": {
+     "total": 24120568,
+     "variable": 6452248,
+     "fixed": 3828000,
+     "marketing": 5400000,
+     "employees": 8440320,
+     "product": 0
+    },
+    "profit": 7792478,
+    "customers": 646,
+    "newCustomers": 88,
+    "churnedCustomers": 27,
+    "price": 49900,
+    "marketingBudget": 5400000,
+    "employees": 3,
+    "productQuality": 0.617291,
+    "marketShare": 0.002606,
+    "customerSatisfaction": 0.678288,
+    "brandAwareness": 0.235165,
+    "competitorPressure": 0.52337,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 61982,
+      "customers": 276,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005654,
+      "churnProbability": 0.073849
+     },
+     {
+      "type": "PREMIUM",
+      "population": 37193,
+      "customers": 87,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002621,
+      "churnProbability": 0.030999
+     },
+     {
+      "type": "LOYAL",
+      "population": 49586,
+      "customers": 153,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003373,
+      "churnProbability": 0.01605
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 37193,
+      "customers": 63,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002663,
+      "churnProbability": 0.079331
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 61982,
+      "customers": 67,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001179,
+      "churnProbability": 0.018919
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46161,
+      "marketingPower": 0.411465,
+      "marketShare": 0.081142,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450047,
+      "cashStrength": 0.638396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85322,
+      "marketingPower": 0.50848,
+      "marketShare": 0.074898,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.767933,
+      "cashStrength": 0.760746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57499,
+      "marketingPower": 0.83977,
+      "marketShare": 0.081183,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.565704,
+      "cashStrength": 0.662723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 67717,
+      "marketingPower": 0.602908,
+      "marketShare": 0.090493,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.785516,
+      "cashStrength": 0.642014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "local_talent_war",
+       "polarity": "NEGATIVE",
+       "title": "Local talent war",
+       "description": "Well-funded startups nearby bid up salaries for the people you need.",
+       "probability": 0.05,
+       "duration": 3,
+       "effects": {
+        "salaries": 0.12
+       },
+       "conditions": {
+        "cities": [
+         "bengaluru",
+         "hyderabad",
+         "pune",
+         "delhi-ncr",
+         "mumbai",
+         "chennai"
+        ]
+       }
+      },
+      "startedTurn": 10,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "decisions": [
+    {
+     "type": "MARKETING",
+     "value": 6000000
+    },
+    {
+     "type": "PRODUCT_QUALITY",
+     "value": 1500000
+    }
+   ],
+   "events": [
+    {
+     "type": "positive_review",
+     "polarity": "POSITIVE",
+     "title": "Positive review",
+     "description": "A respected publication reviews the product favourably.",
+     "probability": 0.06,
+     "duration": 2,
+     "effects": {
+      "demand": 0.1,
+      "customerSatisfaction": 0.03
+     }
+    }
+   ],
+   "agentEffects": {
+    "mode": "rules",
+    "customer": {
+     "source": "rules",
+     "sentimentChange": 0.009006,
+     "demandModifier": 0.004503,
+     "competitorThreat": 0.0,
+     "reasoningSummary": "Price unchanged. Product improvements are noticed."
+    },
+    "competitor": {
+     "source": "rules",
+     "sentimentChange": 0.0,
+     "demandModifier": 0.0,
+     "competitorThreat": 0.143541,
+     "reasoningSummary": "Competitor threat 0.14: price below the competitor average."
+    }
+   },
+   "stateAfter": {
+    "turn": 12,
+    "cash": 83485549,
+    "revenue": 35321715,
+    "expenses": {
+     "total": 26909740,
+     "variable": 7141420,
+     "fixed": 3828000,
+     "marketing": 6000000,
+     "employees": 8440320,
+     "product": 1500000
+    },
+    "profit": 8411975,
+    "customers": 715,
+    "newCustomers": 96,
+    "churnedCustomers": 27,
+    "price": 49900,
+    "marketingBudget": 6000000,
+    "employees": 3,
+    "productQuality": 0.625549,
+    "marketShare": 0.002841,
+    "customerSatisfaction": 0.714922,
+    "brandAwareness": 0.238227,
+    "competitorPressure": 0.521592,
+    "customerSegments": [
+     {
+      "type": "PRICE_SENSITIVE",
+      "population": 62912,
+      "customers": 295,
+      "priceSensitivity": 0.9,
+      "qualitySensitivity": 0.3,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.005701,
+      "churnProbability": 0.068773
+     },
+     {
+      "type": "PREMIUM",
+      "population": 37751,
+      "customers": 98,
+      "priceSensitivity": 0.2,
+      "qualitySensitivity": 0.9,
+      "brandLoyalty": 0.5,
+      "conversionRate": 0.002695,
+      "churnProbability": 0.028586
+     },
+     {
+      "type": "LOYAL",
+      "population": 50330,
+      "customers": 175,
+      "priceSensitivity": 0.4,
+      "qualitySensitivity": 0.5,
+      "brandLoyalty": 0.9,
+      "conversionRate": 0.003425,
+      "churnProbability": 0.014895
+     },
+     {
+      "type": "OCCASIONAL",
+      "population": 37751,
+      "customers": 72,
+      "priceSensitivity": 0.6,
+      "qualitySensitivity": 0.4,
+      "brandLoyalty": 0.2,
+      "conversionRate": 0.002695,
+      "churnProbability": 0.073756
+     },
+     {
+      "type": "ENTERPRISE",
+      "population": 62912,
+      "customers": 75,
+      "priceSensitivity": 0.3,
+      "qualitySensitivity": 0.8,
+      "brandLoyalty": 0.7,
+      "conversionRate": 0.001208,
+      "churnProbability": 0.017473
+     }
+    ],
+    "competitors": [
+     {
+      "id": "competitor-budget",
+      "name": "ValueMart",
+      "archetype": "BUDGET",
+      "pricingStrategy": "UNDERCUT",
+      "price": 46037,
+      "marketingPower": 0.410319,
+      "marketShare": 0.07966,
+      "reactionTendency": 0.548611,
+      "productQuality": 0.450045,
+      "cashStrength": 0.648396
+     },
+     {
+      "id": "competitor-premium",
+      "name": "Prestige Co",
+      "archetype": "PREMIUM",
+      "pricingStrategy": "PREMIUM",
+      "price": 85176,
+      "marketingPower": 0.507632,
+      "marketShare": 0.07431,
+      "reactionTendency": 0.323483,
+      "productQuality": 0.769536,
+      "cashStrength": 0.770746
+     },
+     {
+      "id": "competitor-aggressive",
+      "name": "Blitz Labs",
+      "archetype": "AGGRESSIVE",
+      "pricingStrategy": "PENETRATION",
+      "price": 57440,
+      "marketingPower": 0.840793,
+      "marketShare": 0.080614,
+      "reactionTendency": 0.988727,
+      "productQuality": 0.564919,
+      "cashStrength": 0.672723
+     },
+     {
+      "id": "competitor-innovative",
+      "name": "Novum",
+      "archetype": "INNOVATIVE",
+      "pricingStrategy": "MATCH",
+      "price": 67534,
+      "marketingPower": 0.602617,
+      "marketShare": 0.091036,
+      "reactionTendency": 0.528297,
+      "productQuality": 0.78374,
+      "cashStrength": 0.652014
+     }
+    ],
+    "activeEvents": [
+     {
+      "event": {
+       "type": "positive_review",
+       "polarity": "POSITIVE",
+       "title": "Positive review",
+       "description": "A respected publication reviews the product favourably.",
+       "probability": 0.06,
+       "duration": 2,
+       "effects": {
+        "demand": 0.1,
+        "customerSatisfaction": 0.03
+       }
+      },
+      "startedTurn": 12,
+      "remainingTurns": 1
+     }
+    ]
+   },
+   "engineVersion": "1.1.0",
+   "competitorActions": [
+    {
+     "competitorId": "competitor-budget",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-premium",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-aggressive",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    },
+    {
+     "competitorId": "competitor-innovative",
+     "action": "NONE",
+     "change": 0.0,
+     "reason": "No response"
+    }
+   ]
+  }
+ ]
+}

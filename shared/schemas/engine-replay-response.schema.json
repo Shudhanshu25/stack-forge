@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "engine-replay-response.schema.json",
+  "title": "EngineReplayResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["records", "mismatches"],
+  "properties": {
+    "records": {
+      "type": "array",
+      "items": {
+        "$ref": "simulation-turn.schema.json"
+      }
+    },
+    "mismatches": {
+      "type": "array",
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      },
+      "description": "Turn numbers whose recomputed stateAfter differs from the stored one."
+    }
+  }
+}

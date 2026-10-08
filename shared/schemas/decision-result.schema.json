@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "decision-result.schema.json",
+  "title": "DecisionResult",
+  "description": "Outcome of validating and applying one decision, with the estimated direction and size of its effects.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["decision", "status", "effects"],
+  "properties": {
+    "decision": {
+      "$ref": "decision.schema.json"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["ACCEPTED", "REJECTED"]
+    },
+    "rejection": {
+      "$ref": "decision-rejection.schema.json"
+    },
+    "effects": {
+      "type": "array",
+      "items": {
+        "$ref": "estimated-effect.schema.json"
+      }
+    }
+  }
+}

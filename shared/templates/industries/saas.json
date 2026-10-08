@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "SAAS",
+  "displayName": "SaaS",
+  "description": "Subscription software. High gross margin; growth is governed by churn and customer acquisition cost.",
+  "defaults": {
+    "businessModel": "SUBSCRIPTION",
+    "initialCapital": 100000000,
+    "initialPrice": 49900,
+    "marketSize": 200000
+  },
+  "parameters": {
+    "unitCostRate": 0.12,
+    "variableCostPerCustomer": 4000,
+    "logisticsCostPerOrder": 0,
+    "returnRate": 0.01,
+    "inventoryHoldingRate": 0.0,
+    "purchasesPerCustomerPerMonth": 1,
+    "fixedCostsMonthly": 3000000,
+    "salaryPerEmployeeMonthly": 2000000,
+    "initialEmployees": 3,
+    "customersPerEmployee": 300,
+    "baseChurnRate": 0.05,
+    "baseCac": 120000,
+    "baseConversionRate": 0.025,
+    "priceElasticity": 1.2,
+    "referencePrice": 59900,
+    "initialProductQuality": 0.6,
+    "initialBrandAwareness": 0.05,
+    "marketGrowthRateMonthly": 0.015,
+    "seasonality": [1.0, 1.0, 1.1, 0.95, 0.95, 1.0, 1.0, 1.0, 1.0, 0.95, 1.0, 1.05],
+    "competitorIntensity": 0.6,
+    "eventProbabilityMultiplier": 1.0,
+    "segmentMix": {
+      "priceSensitive": 0.25,
+      "premium": 0.15,
+      "loyal": 0.2,
+      "occasional": 0.15,
+      "enterprise": 0.25
+    },
+    "localDemandWeight": 0.1
+  }
+}

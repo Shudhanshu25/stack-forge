@@ -1,0 +1,43 @@
+{
+  "templateVersion": "1.2.0",
+  "industry": "CONSUMER_APP",
+  "displayName": "Consumer App",
+  "description": "Mass-market apps. Cheap to acquire and serve per user but low revenue per user, price-sensitive and prone to churn.",
+  "defaults": {
+    "businessModel": "FREEMIUM",
+    "initialCapital": 60000000,
+    "initialPrice": 9900,
+    "marketSize": 10000000
+  },
+  "parameters": {
+    "unitCostRate": 0.1,
+    "variableCostPerCustomer": 200,
+    "logisticsCostPerOrder": 0,
+    "returnRate": 0.01,
+    "inventoryHoldingRate": 0.0,
+    "purchasesPerCustomerPerMonth": 1,
+    "fixedCostsMonthly": 2000000,
+    "salaryPerEmployeeMonthly": 1500000,
+    "initialEmployees": 4,
+    "customersPerEmployee": 30000,
+    "baseChurnRate": 0.09,
+    "baseCac": 15000,
+    "baseConversionRate": 0.02,
+    "priceElasticity": 2.0,
+    "referencePrice": 9900,
+    "initialProductQuality": 0.5,
+    "initialBrandAwareness": 0.01,
+    "marketGrowthRateMonthly": 0.025,
+    "seasonality": [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+    "competitorIntensity": 0.8,
+    "eventProbabilityMultiplier": 1.3,
+    "segmentMix": {
+      "priceSensitive": 0.45,
+      "premium": 0.1,
+      "loyal": 0.15,
+      "occasional": 0.27,
+      "enterprise": 0.03
+    },
+    "localDemandWeight": 0.2
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "EASY": {
+    "cacMultiplier": 0.8,
+    "churnMultiplier": 0.8,
+    "conversionMultiplier": 1.2,
+    "competitorIntensityMultiplier": 0.75,
+    "eventProbabilityMultiplier": 0.8,
+    "negativeEventWeight": 0.6
+  },
+  "NORMAL": {
+    "cacMultiplier": 1.0,
+    "churnMultiplier": 1.0,
+    "conversionMultiplier": 1.0,
+    "competitorIntensityMultiplier": 1.0,
+    "eventProbabilityMultiplier": 1.0,
+    "negativeEventWeight": 1.0
+  },
+  "HARD": {
+    "cacMultiplier": 1.3,
+    "churnMultiplier": 1.25,
+    "conversionMultiplier": 0.8,
+    "competitorIntensityMultiplier": 1.3,
+    "eventProbabilityMultiplier": 1.25,
+    "negativeEventWeight": 1.5
+  }
+}

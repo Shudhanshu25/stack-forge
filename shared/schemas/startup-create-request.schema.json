@@ -1,0 +1,58 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup-create-request.schema.json",
+  "title": "StartupCreateRequest",
+  "description": "The creation wizard's fields. Money in paise.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "name",
+    "industry",
+    "businessModel",
+    "initialCapital",
+    "product",
+    "initialPrice",
+    "marketSize",
+    "difficulty",
+    "location"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "industry": {
+      "$ref": "enums.schema.json#/definitions/Industry"
+    },
+    "businessModel": {
+      "$ref": "enums.schema.json#/definitions/BusinessModel"
+    },
+    "initialCapital": {
+      "type": "integer",
+      "minimum": 10000000,
+      "maximum": 100000000000,
+      "description": "Paise; between 1 lakh and 1,000 crore rupees."
+    },
+    "product": {
+      "$ref": "product.schema.json"
+    },
+    "initialPrice": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 1000000000,
+      "description": "Paise; at least 1 rupee."
+    },
+    "marketSize": {
+      "type": "integer",
+      "minimum": 100,
+      "maximum": 2000000000
+    },
+    "difficulty": {
+      "$ref": "enums.schema.json#/definitions/Difficulty"
+    },
+    "location": {
+      "$ref": "location.schema.json"
+    }
+  }
+}

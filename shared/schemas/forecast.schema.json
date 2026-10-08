@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "forecast.schema.json",
+  "title": "Forecast",
+  "description": "ML prediction for the next turn. Shown to the user and passed to the advisor; never fed back into simulation state.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["available", "targetTurn"],
+  "properties": {
+    "available": { "type": "boolean" },
+    "targetTurn": { "type": "integer", "minimum": 1 },
+    "modelVersion": { "type": "string" },
+    "trainingDatasetVersion": { "type": "string" },
+    "revenue": { "type": "integer", "minimum": 0, "description": "Paise." },
+    "customers": { "type": "integer", "minimum": 0 },
+    "churnRate": { "$ref": "enums.schema.json#/definitions/UnitInterval" },
+    "unavailableReason": { "type": "string" }
+  }
+}

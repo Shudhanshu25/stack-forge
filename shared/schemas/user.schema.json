@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "user.schema.json",
+  "title": "User",
+  "description": "Public view of a user. The password hash never leaves the backend.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "email",
+    "name",
+    "role",
+    "createdAt",
+    "onboardingCompleted",
+    "emailVerified",
+    "hasPassword",
+    "googleLinked"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string",
+      "format": "email"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 100
+    },
+    "role": {
+      "$ref": "enums.schema.json#/definitions/UserRole"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "onboardingCompleted": {
+      "type": "boolean",
+      "description": "Whether the first-launch walkthrough was finished or dismissed."
+    },
+    "emailVerified": {
+      "type": "boolean",
+      "description": "Whether the email address was confirmed (verification link, password reset or Google). Unverified accounts cannot start simulations."
+    },
+    "hasPassword": {
+      "type": "boolean",
+      "description": "False for accounts created with Google sign-in until a password is set through a reset."
+    },
+    "googleLinked": {
+      "type": "boolean",
+      "description": "Whether Google sign-in is linked to the account."
+    }
+  }
+}

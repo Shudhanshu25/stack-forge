@@ -1,0 +1,73 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "turn-summary.schema.json",
+  "title": "TurnSummary",
+  "description": "One past turn, condensed. Node sends the most recent few as the agents' bounded memory and the advisor's recent history.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "turnNumber",
+    "decisions",
+    "revenue",
+    "profit",
+    "cash",
+    "customers",
+    "newCustomers",
+    "churnedCustomers",
+    "customerSatisfaction",
+    "marketShare",
+    "events"
+  ],
+  "properties": {
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 9,
+      "items": {
+        "$ref": "decision.schema.json"
+      }
+    },
+    "revenue": {
+      "type": "integer"
+    },
+    "profit": {
+      "type": "integer"
+    },
+    "cash": {
+      "type": "integer"
+    },
+    "customers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "newCustomers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "churnedCustomers": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "customerSatisfaction": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "marketShare": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 10,
+      "items": {
+        "$ref": "enums.schema.json#/definitions/EventType"
+      }
+    },
+    "agentSummary": {
+      "type": "string",
+      "maxLength": 600,
+      "description": "Reasoning summaries of the turn's agents, if any."
+    }
+  }
+}

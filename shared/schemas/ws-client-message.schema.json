@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ws-client-message.schema.json",
+  "title": "WsClientMessage",
+  "description": "Messages the browser sends on /api/v1/ws. The first must be auth with an access token.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["type"],
+  "properties": {
+    "type": {
+      "type": "string",
+      "enum": ["auth", "subscribe", "unsubscribe", "ping"]
+    },
+    "token": {
+      "type": "string",
+      "maxLength": 4096
+    },
+    "simulationId": {
+      "type": "string",
+      "maxLength": 64
+    }
+  }
+}

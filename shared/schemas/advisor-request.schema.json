@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "advisor-request.schema.json",
+  "title": "AdvisorRequest",
+  "description": "Node -> FastAPI: everything the advisor may cite. The forecast travels inside the turn record.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mode", "industry", "businessModel", "turn", "history"],
+  "properties": {
+    "mode": {
+      "$ref": "enums.schema.json#/definitions/AdviceMode"
+    },
+    "question": {
+      "type": "string",
+      "maxLength": 500
+    },
+    "industry": {
+      "$ref": "enums.schema.json#/definitions/Industry"
+    },
+    "businessModel": {
+      "$ref": "enums.schema.json#/definitions/BusinessModel"
+    },
+    "turn": {
+      "$ref": "simulation-turn.schema.json"
+    },
+    "history": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "$ref": "turn-summary.schema.json"
+      }
+    },
+    "startupProfile": {
+      "$ref": "startup-profile.schema.json"
+    },
+    "tokenAllowance": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "LLM tokens the user may still spend today (null: no daily limit). 0 means the daily quota is exhausted: no LLM call is made."
+    }
+  }
+}

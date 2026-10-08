@@ -1,0 +1,20 @@
+[project]
+name = "stackforge-simulation"
+version = "0.1.0"
+description = "Stack Forge simulation service: engine, forecasting and agents behind FastAPI."
+requires-python = ">=3.12"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "RUF"]
+
+[tool.ruff.lint.per-file-ignores]
+"ml/*" = ["N806"]  # X / X_train are the convention for feature matrices
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

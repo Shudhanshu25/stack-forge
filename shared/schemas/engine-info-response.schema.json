@@ -1,0 +1,35 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "engine-info-response.schema.json",
+  "title": "EngineInfoResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "engineVersion",
+    "modelVersion",
+    "trainingDatasetVersion",
+    "llmConfigured",
+    "agentModel",
+    "advisorModel"
+  ],
+  "properties": {
+    "engineVersion": {
+      "type": "string"
+    },
+    "modelVersion": {
+      "type": ["string", "null"]
+    },
+    "trainingDatasetVersion": {
+      "type": ["string", "null"]
+    },
+    "llmConfigured": {
+      "type": "boolean"
+    },
+    "agentModel": {
+      "type": "string"
+    },
+    "advisorModel": {
+      "type": "string"
+    }
+  }
+}

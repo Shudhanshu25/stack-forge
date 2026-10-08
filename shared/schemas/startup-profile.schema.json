@@ -1,0 +1,23 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup-profile.schema.json",
+  "title": "StartupProfile",
+  "description": "User-written text about the startup that the agents and the advisor may read. It is untrusted: the prompts pass it as delimited data, never as instructions.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["name", "productName"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "productName": {
+      "type": "string",
+      "maxLength": 80
+    },
+    "productDescription": {
+      "type": "string",
+      "maxLength": 1000
+    }
+  }
+}

@@ -1,0 +1,235 @@
+# Production stack. Only the reverse proxy publishes public ports (80, 443); Grafana is bound to
+# the server's localhost (reach it through an SSH tunnel). Everything else is internal.
+#
+#   cp infrastructure/.env.prod.example infrastructure/.env.prod   # then fill in the secrets
+#   docker compose -f infrastructure/docker-compose.prod.yml --env-file infrastructure/.env.prod up -d --build
+#
+# Images: built locally by default; the deploy workflow sets IMAGE_PREFIX (ghcr.io/<owner>/stackforge)
+# and IMAGE_TAG (the commit SHA) and pulls instead (infrastructure/deploy/deploy.sh).
+name: stackforge
+
+x-node-env: &node-env
+  NODE_ENV: production
+  LOG_LEVEL: info
+  MONGODB_URI: mongodb://${MONGO_USER:?set MONGO_USER}:${MONGO_PASSWORD:?set MONGO_PASSWORD}@mongodb:27017/stackforge?authSource=admin
+  REDIS_URL: redis://:${REDIS_PASSWORD:?set REDIS_PASSWORD}@redis:6379
+  SIMULATION_URL: http://simulation:8000
+  JWT_ACCESS_SECRET: ${JWT_ACCESS_SECRET:?set JWT_ACCESS_SECRET}
+  ENGINE_TIMEOUT_MS: 15000
+  PIPELINE_TIMEOUT_MS: 60000
+  OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
+  SENTRY_DSN: ${SENTRY_DSN:-}
+  RELEASE_SHA: ${IMAGE_TAG:-local}
+  APP_URL: https://${SITE_ADDRESS:-localhost}
+  LLM_USER_DAILY_TOKEN_QUOTA: ${LLM_USER_DAILY_TOKEN_QUOTA:-200000}
+  # Email (verification and password reset): resend, smtp (e.g. Gmail), or none.
+  EMAIL_PROVIDER: ${EMAIL_PROVIDER:-resend}
+  EMAIL_API_KEY: ${EMAIL_API_KEY:-}
+  EMAIL_FROM: ${EMAIL_FROM:-Stack Forge <no-reply@localhost>}
+  SMTP_HOST: ${SMTP_HOST:-smtp.gmail.com}
+  SMTP_PORT: ${SMTP_PORT:-465}
+  SMTP_USER: ${SMTP_USER:-}
+  SMTP_PASSWORD: ${SMTP_PASSWORD:-}
+  # Google sign-in (off when the client id is empty).
+  GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+  GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+  GOOGLE_REDIRECT_URI: https://${SITE_ADDRESS:-localhost}/api/v1/auth/google/callback
+
+services:
+  proxy:
+    image: caddy:2.8-alpine
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+      - '443:443/udp'
+    environment:
+      SITE_ADDRESS: ${SITE_ADDRESS:-localhost}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      frontend:
+        condition: service_started
+      api:
+        condition: service_healthy
+    networks: [edge]
+
+  frontend:
+    image: ${IMAGE_PREFIX:-stackforge}-frontend:${IMAGE_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: frontend/Dockerfile
+      args:
+        VITE_SENTRY_DSN: ${VITE_SENTRY_DSN:-}
+        VITE_RELEASE_SHA: ${IMAGE_TAG:-local}
+    restart: unless-stopped
+    networks: [edge]
+
+  api:
+    image: ${IMAGE_PREFIX:-stackforge}-api:${IMAGE_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+      target: api
+    restart: unless-stopped
+    environment:
+      <<: *node-env
+      PORT: 4000
+      CORS_ORIGIN: https://${SITE_ADDRESS:-localhost}
+      COOKIE_SECURE: 'true'
+      TRUST_PROXY: 1
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      simulation:
+        condition: service_healthy
+    networks: [edge, internal]
+
+  worker:
+    image: ${IMAGE_PREFIX:-stackforge}-worker:${IMAGE_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: backend/Dockerfile
+      target: worker
+    restart: unless-stopped
+    environment:
+      <<: *node-env
+      WORKER_CONCURRENCY: 4
+      WORKER_METRICS_PORT: 9464
+    depends_on:
+      mongodb:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+      simulation:
+        condition: service_healthy
+    networks: [internal]
+
+  simulation:
+    image: ${IMAGE_PREFIX:-stackforge}-simulation:${IMAGE_TAG:-latest}
+    build:
+      context: ..
+      dockerfile: simulation/Dockerfile
+    restart: unless-stopped
+    environment:
+      APP_ENV: production
+      LOG_LEVEL: INFO
+      LLM_PROVIDER: gemini
+      LLM_API_KEY: ${LLM_API_KEY:-}
+      LLM_AGENT_MODEL: ${LLM_AGENT_MODEL:-gemini-3.5-flash-lite}
+      LLM_ADVISOR_MODEL: ${LLM_ADVISOR_MODEL:-gemini-3.8-flash}
+      OTEL_EXPORTER_OTLP_ENDPOINT: http://tempo:4318
+      SENTRY_DSN: ${SENTRY_DSN:-}
+      RELEASE_SHA: ${IMAGE_TAG:-local}
+      # Agent cache (Redis db 1, separate from the job queue) and the per-turn token budget.
+      REDIS_URL: redis://:${REDIS_PASSWORD}@redis:6379/1
+      LLM_TURN_TOKEN_BUDGET: ${LLM_TURN_TOKEN_BUDGET:-12000}
+    networks: [internal]
+
+  mongodb:
+    image: mongo:7.0
+    restart: unless-stopped
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_USER}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_PASSWORD}
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.adminCommand("ping").ok']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    networks: [internal]
+
+  redis:
+    image: redis:7.4-alpine
+    restart: unless-stopped
+    # Append-only file so queued turn jobs survive a restart.
+    command: ['redis-server', '--appendonly', 'yes', '--requirepass', '${REDIS_PASSWORD}']
+    environment:
+      REDISCLI_AUTH: ${REDIS_PASSWORD}
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    networks: [internal]
+
+  # Scheduled MongoDB dumps to BACKUP_DIR on the host, pruned after BACKUP_RETENTION_DAYS.
+  # Restore: infrastructure/backup/restore.sh (docs/deployment.md).
+  backup:
+    image: mongo:7.0
+    restart: unless-stopped
+    entrypoint: ['bash', '/scripts/backup-loop.sh']
+    environment:
+      MONGODB_URI: mongodb://${MONGO_USER}:${MONGO_PASSWORD}@mongodb:27017/stackforge?authSource=admin
+      BACKUP_INTERVAL_HOURS: ${BACKUP_INTERVAL_HOURS:-24}
+      BACKUP_RETENTION_DAYS: ${BACKUP_RETENTION_DAYS:-14}
+    volumes:
+      - ./backup:/scripts:ro
+      - ${BACKUP_DIR:-./backups}:/backups
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks: [internal]
+
+  prometheus:
+    image: prom/prometheus:v3.5.0
+    restart: unless-stopped
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.retention.time=30d
+    volumes:
+      - ./observability/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+    networks: [internal]
+
+  tempo:
+    image: grafana/tempo:2.6.1
+    restart: unless-stopped
+    user: '0' # writes traces to the named volume
+    command: ['-config.file=/etc/tempo.yml']
+    volumes:
+      - ./observability/tempo/tempo.yml:/etc/tempo.yml:ro
+      - tempo-data:/var/tempo
+    networks: [internal]
+
+  grafana:
+    image: grafana/grafana:11.6.0
+    restart: unless-stopped
+    ports:
+      - '127.0.0.1:3000:3000' # not public: ssh -L 3000:localhost:3000 <server>
+    environment:
+      GF_SECURITY_ADMIN_PASSWORD: ${GRAFANA_ADMIN_PASSWORD:?set GRAFANA_ADMIN_PASSWORD}
+      GF_USERS_ALLOW_SIGN_UP: 'false'
+      GF_ANALYTICS_REPORTING_ENABLED: 'false'
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/stackforge.json
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+      - grafana-data:/var/lib/grafana
+    depends_on: [prometheus, tempo]
+    networks: [internal]
+
+networks:
+  # edge: the proxy and what it routes to. internal: the API, worker, simulation service, data
+  # stores and monitoring. Not marked "internal: true" because the simulation service calls the
+  # LLM API.
+  edge:
+  internal:
+
+volumes:
+  mongo-data:
+  redis-data:
+  caddy-data:
+  caddy-config:
+  prometheus-data:
+  tempo-data:
+  grafana-data:

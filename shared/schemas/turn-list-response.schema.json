@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "turn-list-response.schema.json",
+  "title": "TurnListResponse",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["turns"],
+  "properties": {
+    "turns": {
+      "type": "array",
+      "items": {
+        "$ref": "simulation-turn.schema.json"
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "startup.schema.json",
+  "title": "Startup",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "ownerId",
+    "name",
+    "product",
+    "location",
+    "configuration",
+    "createdAt",
+    "updatedAt"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "ownerId": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "product": {
+      "$ref": "product.schema.json"
+    },
+    "configuration": {
+      "$ref": "startup-configuration.schema.json"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "location": {
+      "oneOf": [
+        {
+          "$ref": "location.schema.json"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "description": "Null for startups created before locations existed (they use the neutral profile)."
+    }
+  }
+}

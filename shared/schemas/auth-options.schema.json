@@ -1,0 +1,15 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "auth-options.schema.json",
+  "title": "AuthOptions",
+  "description": "Sign-in methods this deployment offers.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["google"],
+  "properties": {
+    "google": {
+      "type": "boolean",
+      "description": "Whether Google sign-in is configured."
+    }
+  }
+}

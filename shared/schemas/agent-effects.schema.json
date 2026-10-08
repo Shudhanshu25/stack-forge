@@ -1,0 +1,65 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "agent-effects.schema.json",
+  "title": "AgentEffects",
+  "description": "Bounded modifiers from the customer and competitor agents, stored in the turn record so replay never calls an LLM.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["mode", "customer", "competitor"],
+  "properties": {
+    "mode": {
+      "$ref": "enums.schema.json#/definitions/AgentMode"
+    },
+    "customer": {
+      "$ref": "#/definitions/AgentOutput"
+    },
+    "competitor": {
+      "$ref": "#/definitions/AgentOutput"
+    }
+  },
+  "definitions": {
+    "AgentOutput": {
+      "title": "AgentOutput",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source",
+        "sentimentChange",
+        "demandModifier",
+        "competitorThreat",
+        "reasoningSummary"
+      ],
+      "properties": {
+        "source": {
+          "type": "string",
+          "enum": ["rules", "llm", "rules_fallback"],
+          "description": "rules_fallback means the LLM was attempted and rule-based effects were used instead."
+        },
+        "sentimentChange": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "demandModifier": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "competitorThreat": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "reasoningSummary": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "fallbackReason": {
+          "type": ["string", "null"]
+        },
+        "cached": {
+          "type": "boolean",
+          "description": "Served from the agent cache (same prompt version and input as an earlier call)."
+        }
+      }
+    }
+  }
+}

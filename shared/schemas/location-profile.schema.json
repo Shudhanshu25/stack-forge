@@ -1,0 +1,139 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "location-profile.schema.json",
+  "title": "LocationProfile",
+  "description": "The resolved location indices the engine uses, each relative to a national baseline of 1.0, with its source and whether it is an estimate. Snapshotted into the startup configuration.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["dataVersion", "basis", "country", "indices"],
+  "properties": {
+    "dataVersion": {
+      "type": "string"
+    },
+    "basis": {
+      "$ref": "enums.schema.json#/definitions/LocationBasis"
+    },
+    "country": {
+      "type": "string",
+      "const": "IN"
+    },
+    "state": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[A-Z]{2}$",
+          "description": "ISO 3166-2:IN state or union territory code, e.g. KA."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "stateName": {
+      "type": ["string", "null"]
+    },
+    "city": {
+      "type": ["string", "null"]
+    },
+    "cityId": {
+      "oneOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9-]{2,40}$",
+          "description": "Id of a listed city, e.g. bengaluru."
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "tier": {
+      "oneOf": [
+        {
+          "$ref": "enums.schema.json#/definitions/LocationTier"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "indices": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "salaryIndex",
+        "operatingCostIndex",
+        "purchasingPower",
+        "localMarketSize",
+        "talentAvailability",
+        "competitionDensity",
+        "fundingAccess",
+        "infrastructure",
+        "regulatoryBurden"
+      ],
+      "properties": {
+        "salaryIndex": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Cost per employee."
+        },
+        "operatingCostIndex": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Rent and fixed overheads."
+        },
+        "purchasingPower": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "How much local customers can spend; higher means less price sensitive."
+        },
+        "localMarketSize": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Addressable customers nearby."
+        },
+        "talentAvailability": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "How easily and quickly hires are made."
+        },
+        "competitionDensity": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Strength and number of local competitors."
+        },
+        "fundingAccess": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Reserved for the funding decision; stored, unused until that decision exists."
+        },
+        "infrastructure": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "Logistics and connectivity quality."
+        },
+        "regulatoryBurden": {
+          "$ref": "#/definitions/LocationIndex",
+          "description": "State-level compliance cost."
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LocationIndex": {
+      "title": "LocationIndex",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "isEstimate", "source"],
+      "properties": {
+        "value": {
+          "type": "number",
+          "minimum": 0.2,
+          "maximum": 3.0,
+          "description": "Relative to the national baseline (1.0)."
+        },
+        "isEstimate": {
+          "type": "boolean",
+          "description": "True when no published figure exists and the value is a reasoned estimate."
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 400
+        }
+      }
+    }
+  }
+}

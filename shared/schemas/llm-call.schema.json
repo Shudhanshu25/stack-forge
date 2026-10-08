@@ -1,0 +1,50 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "llm-call.schema.json",
+  "title": "LlmCall",
+  "description": "One LLM call (or cache hit) made while computing a turn or advice.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "purpose",
+    "model",
+    "promptVersion",
+    "promptTokens",
+    "completionTokens",
+    "cached",
+    "outcome"
+  ],
+  "properties": {
+    "purpose": {
+      "type": "string",
+      "enum": ["customer_agent", "competitor_agent", "advisor"]
+    },
+    "model": {
+      "type": "string"
+    },
+    "promptVersion": {
+      "type": "string",
+      "description": "e.g. customer_agent@v1"
+    },
+    "promptTokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "completionTokens": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "cached": {
+      "type": "boolean",
+      "description": "Served from the agent cache: no provider call, no tokens."
+    },
+    "outcome": {
+      "type": "string",
+      "description": "ok, or the failure kind (timeout, provider_error, invalid_output, ...)."
+    },
+    "latencyMs": {
+      "type": "number",
+      "minimum": 0
+    }
+  }
+}

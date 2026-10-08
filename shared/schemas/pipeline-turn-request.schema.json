@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "pipeline-turn-request.schema.json",
+  "title": "PipelineTurnRequest",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["state", "decisions", "configuration", "seed", "turnNumber", "agentMode"],
+  "properties": {
+    "state": {
+      "$ref": "simulation-state.schema.json"
+    },
+    "decisions": {
+      "type": "array",
+      "maxItems": 9,
+      "items": {
+        "$ref": "decision.schema.json"
+      }
+    },
+    "configuration": {
+      "$ref": "startup-configuration.schema.json"
+    },
+    "seed": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991,
+      "description": "Seed for every random draw in the simulation. Stays within JavaScript's safe integer range."
+    },
+    "turnNumber": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "agentMode": {
+      "$ref": "enums.schema.json#/definitions/AgentMode"
+    },
+    "memory": {
+      "type": "array",
+      "maxItems": 6,
+      "items": {
+        "$ref": "turn-summary.schema.json"
+      },
+      "description": "Recent turns of this simulation, oldest first (bounded agent memory)."
+    },
+    "engineVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+      "description": "Engine version the simulation was created with; it is computed by that version. Defaults to the current version."
+    },
+    "startupProfile": {
+      "$ref": "startup-profile.schema.json"
+    },
+    "tokenAllowance": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "LLM tokens the user may still spend today (null: no daily limit). 0 means the daily quota is exhausted: no LLM call is made."
+    }
+  }
+}

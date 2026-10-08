@@ -1,0 +1,584 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-analytics.schema.json",
+  "title": "SimulationAnalytics",
+  "description": "Everything the dashboard and analytics views show, computed by the simulation service from stored turn records. Money in paise.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "currentTurn",
+    "kpis",
+    "market",
+    "series",
+    "segments",
+    "competitors",
+    "forecasts",
+    "forecastAccuracy",
+    "decisions"
+  ],
+  "properties": {
+    "currentTurn": {
+      "type": "integer"
+    },
+    "kpis": {
+      "title": "Kpis",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["cash", "revenue", "profit", "customers", "churnRate", "marketShare"],
+      "properties": {
+        "cash": {
+          "$ref": "#/definitions/Kpi"
+        },
+        "revenue": {
+          "$ref": "#/definitions/Kpi"
+        },
+        "profit": {
+          "$ref": "#/definitions/Kpi"
+        },
+        "customers": {
+          "$ref": "#/definitions/Kpi"
+        },
+        "churnRate": {
+          "$ref": "#/definitions/Kpi"
+        },
+        "marketShare": {
+          "$ref": "#/definitions/Kpi"
+        }
+      }
+    },
+    "market": {
+      "$ref": "#/definitions/MarketSnapshot"
+    },
+    "series": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/TurnMetrics"
+      },
+      "description": "One entry per turn, starting at turn 0."
+    },
+    "segments": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/SegmentPoint"
+      }
+    },
+    "competitors": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/CompetitorPoint"
+      }
+    },
+    "forecasts": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/ForecastPoint"
+      }
+    },
+    "forecastAccuracy": {
+      "$ref": "#/definitions/ForecastAccuracy"
+    },
+    "decisions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/DecisionAnalysis"
+      }
+    },
+    "location": {
+      "$ref": "#/definitions/LocationImpact"
+    }
+  },
+  "definitions": {
+    "Kpi": {
+      "title": "Kpi",
+      "description": "A headline figure with its value one turn earlier (null at turn 0).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "previous", "change"],
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "previous": {
+          "type": ["number", "null"]
+        },
+        "change": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "TurnMetrics": {
+      "title": "TurnMetrics",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "turn",
+        "revenue",
+        "expensesTotal",
+        "variableCosts",
+        "fixedCosts",
+        "marketingCosts",
+        "employeeCosts",
+        "productCosts",
+        "profit",
+        "cash",
+        "customers",
+        "newCustomers",
+        "churnedCustomers",
+        "churnRate",
+        "marketShare",
+        "customerSatisfaction",
+        "competitorPressure",
+        "brandAwareness",
+        "productQuality",
+        "price",
+        "marketingBudget",
+        "employees",
+        "grossMargin",
+        "burnRate",
+        "runwayMonths",
+        "cac",
+        "ltv",
+        "arpu",
+        "demandIndex"
+      ],
+      "properties": {
+        "turn": {
+          "type": "integer"
+        },
+        "revenue": {
+          "type": "integer"
+        },
+        "expensesTotal": {
+          "type": "integer"
+        },
+        "variableCosts": {
+          "type": "integer"
+        },
+        "fixedCosts": {
+          "type": "integer"
+        },
+        "marketingCosts": {
+          "type": "integer"
+        },
+        "employeeCosts": {
+          "type": "integer"
+        },
+        "productCosts": {
+          "type": "integer"
+        },
+        "profit": {
+          "type": "integer"
+        },
+        "cash": {
+          "type": "integer"
+        },
+        "customers": {
+          "type": "integer"
+        },
+        "newCustomers": {
+          "type": "integer"
+        },
+        "churnedCustomers": {
+          "type": "integer"
+        },
+        "churnRate": {
+          "type": "number"
+        },
+        "marketShare": {
+          "type": "number"
+        },
+        "customerSatisfaction": {
+          "type": "number"
+        },
+        "competitorPressure": {
+          "type": "number"
+        },
+        "brandAwareness": {
+          "type": "number"
+        },
+        "productQuality": {
+          "type": "number"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "marketingBudget": {
+          "type": "integer"
+        },
+        "employees": {
+          "type": "integer"
+        },
+        "grossMargin": {
+          "type": ["number", "null"],
+          "description": "(revenue - variable costs) / revenue; null without revenue."
+        },
+        "burnRate": {
+          "type": "integer",
+          "description": "Paise lost this turn (0 when profitable)."
+        },
+        "runwayMonths": {
+          "type": ["number", "null"],
+          "description": "cash / burnRate; null when not burning cash."
+        },
+        "cac": {
+          "type": ["integer", "null"],
+          "description": "Marketing spend / new customers, paise; null without new customers."
+        },
+        "ltv": {
+          "type": ["integer", "null"],
+          "description": "ARPU x gross margin / churn rate, paise; null when undefined."
+        },
+        "arpu": {
+          "type": ["integer", "null"],
+          "description": "Revenue per customer this turn, paise; null without customers."
+        },
+        "demandIndex": {
+          "type": "number",
+          "description": "Seasonality x active event demand effects during the turn (1 = normal)."
+        }
+      }
+    },
+    "SegmentPoint": {
+      "title": "SegmentPoint",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "turn",
+        "segment",
+        "customers",
+        "population",
+        "churnProbability",
+        "conversionRate"
+      ],
+      "properties": {
+        "turn": {
+          "type": "integer"
+        },
+        "segment": {
+          "$ref": "enums.schema.json#/definitions/CustomerSegmentType"
+        },
+        "customers": {
+          "type": "integer"
+        },
+        "population": {
+          "type": "integer"
+        },
+        "churnProbability": {
+          "type": "number"
+        },
+        "conversionRate": {
+          "type": "number"
+        }
+      }
+    },
+    "CompetitorPoint": {
+      "title": "CompetitorPoint",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "turn",
+        "id",
+        "name",
+        "archetype",
+        "price",
+        "marketShare",
+        "productQuality",
+        "marketingPower"
+      ],
+      "properties": {
+        "turn": {
+          "type": "integer"
+        },
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "archetype": {
+          "$ref": "enums.schema.json#/definitions/CompetitorArchetype"
+        },
+        "price": {
+          "type": "integer"
+        },
+        "marketShare": {
+          "type": "number"
+        },
+        "productQuality": {
+          "type": "number"
+        },
+        "marketingPower": {
+          "type": "number"
+        }
+      }
+    },
+    "ForecastValues": {
+      "title": "ForecastValues",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["revenue", "customers", "churnRate"],
+      "properties": {
+        "revenue": {
+          "type": "integer"
+        },
+        "customers": {
+          "type": "integer"
+        },
+        "churnRate": {
+          "type": "number"
+        }
+      }
+    },
+    "ForecastPoint": {
+      "title": "ForecastPoint",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "targetTurn",
+        "modelVersion",
+        "predicted",
+        "actual",
+        "revenueErrorPercent",
+        "customersErrorPercent",
+        "churnRateError"
+      ],
+      "properties": {
+        "targetTurn": {
+          "type": "integer"
+        },
+        "modelVersion": {
+          "type": ["string", "null"]
+        },
+        "predicted": {
+          "$ref": "#/definitions/ForecastValues"
+        },
+        "actual": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/ForecastValues"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "description": "Null until the target turn is played."
+        },
+        "revenueErrorPercent": {
+          "type": ["number", "null"]
+        },
+        "customersErrorPercent": {
+          "type": ["number", "null"]
+        },
+        "churnRateError": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "ForecastAccuracy": {
+      "title": "ForecastAccuracy",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pairs", "revenueMape", "customersMape", "churnRateMae"],
+      "properties": {
+        "pairs": {
+          "type": "integer"
+        },
+        "revenueMape": {
+          "type": ["number", "null"]
+        },
+        "customersMape": {
+          "type": ["number", "null"]
+        },
+        "churnRateMae": {
+          "type": ["number", "null"]
+        }
+      }
+    },
+    "DecisionAnalysis": {
+      "title": "DecisionAnalysis",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["turn", "decisions", "combinedPreview", "actual", "directionAgreement"],
+      "properties": {
+        "turn": {
+          "type": "integer"
+        },
+        "decisions": {
+          "type": "array",
+          "items": {
+            "title": "PreviewedDecision",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["decision", "previewed"],
+            "properties": {
+              "decision": {
+                "$ref": "decision.schema.json"
+              },
+              "previewed": {
+                "type": "array",
+                "items": {
+                  "$ref": "estimated-effect.schema.json"
+                }
+              }
+            }
+          }
+        },
+        "combinedPreview": {
+          "type": "array",
+          "items": {
+            "$ref": "estimated-effect.schema.json"
+          },
+          "description": "All decisions together against changing nothing, as the preview estimated."
+        },
+        "actual": {
+          "type": "array",
+          "items": {
+            "$ref": "estimated-effect.schema.json"
+          },
+          "description": "How each metric actually moved over the turn (stateBefore to stateAfter)."
+        },
+        "directionAgreement": {
+          "type": ["number", "null"],
+          "description": "Share of metrics the preview expected to move whose actual movement went the same way."
+        }
+      }
+    },
+    "MarketSnapshot": {
+      "title": "MarketSnapshot",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "customerSentiment",
+        "sentimentChange",
+        "competitorPressure",
+        "pressureChange",
+        "demandIndex",
+        "demandIndexNext",
+        "activeEvents"
+      ],
+      "properties": {
+        "customerSentiment": {
+          "type": "number"
+        },
+        "sentimentChange": {
+          "type": ["number", "null"]
+        },
+        "competitorPressure": {
+          "type": "number"
+        },
+        "pressureChange": {
+          "type": ["number", "null"]
+        },
+        "demandIndex": {
+          "type": "number"
+        },
+        "demandIndexNext": {
+          "type": "number",
+          "description": "Demand index the next turn starts with (seasonality and events still active)."
+        },
+        "activeEvents": {
+          "type": "array",
+          "items": {
+            "title": "ActiveEventSummary",
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["type", "title", "polarity", "turnsLeft"],
+            "properties": {
+              "type": {
+                "$ref": "enums.schema.json#/definitions/EventType"
+              },
+              "title": {
+                "type": "string"
+              },
+              "polarity": {
+                "$ref": "enums.schema.json#/definitions/EventPolarity"
+              },
+              "turnsLeft": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      }
+    },
+    "LocationImpact": {
+      "title": "LocationImpact",
+      "description": "How much of the cost base and demand the location accounts for, against the neutral baseline (every index 1.0).",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "profile",
+        "localDemandWeight",
+        "costs",
+        "monthlyCostBase",
+        "monthlyLocationCost",
+        "demand"
+      ],
+      "properties": {
+        "profile": {
+          "$ref": "location-profile.schema.json"
+        },
+        "localDemandWeight": {
+          "type": "number"
+        },
+        "costs": {
+          "type": "array",
+          "description": "Latest turn, per cost line: the amount and what it would be at the national baseline (paise).",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "label", "factor", "actual", "baseline"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["salaries", "recruiting", "fixed", "compliance", "logistics"]
+              },
+              "label": {
+                "type": "string"
+              },
+              "factor": {
+                "type": "number",
+                "description": "Multiplier the location applies to this line."
+              },
+              "actual": {
+                "type": "integer"
+              },
+              "baseline": {
+                "type": "integer"
+              }
+            }
+          }
+        },
+        "monthlyCostBase": {
+          "type": "integer",
+          "description": "Latest turn's total expenses (paise)."
+        },
+        "monthlyLocationCost": {
+          "type": "integer",
+          "description": "Latest turn's expenses minus what they would be at the baseline (negative: the location saves money)."
+        },
+        "demand": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["key", "label", "factor"],
+            "properties": {
+              "key": {
+                "type": "string",
+                "enum": ["marketSize", "priceElasticity", "competition", "maxHires"]
+              },
+              "label": {
+                "type": "string"
+              },
+              "factor": {
+                "type": "number",
+                "description": "Multiplier after local demand weighting (1.0 = no effect)."
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

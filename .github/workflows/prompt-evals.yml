@@ -1,0 +1,37 @@
+# Manual: run the prompt eval set (evaluation/prompts/cases.json) against the real LLM provider.
+# Needs the LLM_API_KEY repository secret. Results are uploaded as an artifact.
+name: Prompt evals (real provider)
+
+on:
+  workflow_dispatch:
+    inputs:
+      rpm:
+        description: Max requests per minute (free Gemini tier allows 15 for agents, fewer for the advisor)
+        default: '4'
+
+permissions:
+  contents: read
+
+jobs:
+  evals:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: simulation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: simulation/requirements*.txt
+      - run: python -m pip install -r requirements.txt
+      - name: Run the eval set against Gemini
+        env:
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+          LLM_PROVIDER: gemini
+        run: python ../evaluation/prompts/run_evals.py --provider gemini --rpm "${{ inputs.rpm }}"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: prompt-evals
+          path: evaluation/results/prompt-evals-gemini.*

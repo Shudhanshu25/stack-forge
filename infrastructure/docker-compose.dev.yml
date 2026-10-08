@@ -1,0 +1,76 @@
+# Development dependencies: MongoDB and Redis. The services run on the host (npm / uvicorn).
+# Start:  docker compose -f infrastructure/docker-compose.dev.yml up -d
+# Stop:   docker compose -f infrastructure/docker-compose.dev.yml down
+# With monitoring (Prometheus :9090, Grafana :3000, Tempo OTLP :4318); then set
+# OTEL_EXPORTER_OTLP_ENDPOINT=http://localhost:4318 for the API, worker and simulation service:
+#         docker compose -f infrastructure/docker-compose.dev.yml --profile observability up -d
+name: stackforge-dev
+
+services:
+  mongodb:
+    image: mongo:7.0
+    ports:
+      - '127.0.0.1:27017:27017'
+    volumes:
+      - mongo-data:/data/db
+    healthcheck:
+      test: ['CMD', 'mongosh', '--quiet', '--eval', 'db.adminCommand("ping").ok']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7.4-alpine
+    command: ['redis-server', '--appendonly', 'yes']
+    ports:
+      - '127.0.0.1:6379:6379'
+    volumes:
+      - redis-data:/data
+    healthcheck:
+      test: ['CMD', 'redis-cli', 'ping']
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  prometheus:
+    profiles: [observability]
+    image: prom/prometheus:v3.5.0
+    command: ['--config.file=/etc/prometheus/prometheus.yml']
+    ports:
+      - '127.0.0.1:9090:9090'
+    volumes:
+      - ./observability/prometheus/prometheus.dev.yml:/etc/prometheus/prometheus.yml:ro
+    extra_hosts:
+      - 'host.docker.internal:host-gateway' # the services run on the host
+
+  tempo:
+    profiles: [observability]
+    image: grafana/tempo:2.6.1
+    user: '0'
+    command: ['-config.file=/etc/tempo.yml']
+    ports:
+      - '127.0.0.1:4318:4318'
+    volumes:
+      - ./observability/tempo/tempo.yml:/etc/tempo.yml:ro
+      - tempo-data:/var/tempo
+
+  grafana:
+    profiles: [observability]
+    image: grafana/grafana:11.6.0
+    ports:
+      - '127.0.0.1:3000:3000'
+    environment:
+      # Development only: no login.
+      GF_AUTH_ANONYMOUS_ENABLED: 'true'
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_AUTH_DISABLE_LOGIN_FORM: 'true'
+      GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH: /var/lib/grafana/dashboards/stackforge.json
+    volumes:
+      - ./observability/grafana/provisioning:/etc/grafana/provisioning:ro
+      - ./observability/grafana/dashboards:/var/lib/grafana/dashboards:ro
+    depends_on: [prometheus, tempo]
+
+volumes:
+  mongo-data:
+  redis-data:
+  tempo-data:

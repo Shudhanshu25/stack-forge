@@ -1,0 +1,179 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "simulation-parameters.schema.json",
+  "title": "SimulationParameters",
+  "description": "Default economic parameters of an industry, consumed by the simulation engine. Money in paise; rates in [0, 1] and monthly unless stated.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "unitCostRate",
+    "variableCostPerCustomer",
+    "logisticsCostPerOrder",
+    "returnRate",
+    "inventoryHoldingRate",
+    "purchasesPerCustomerPerMonth",
+    "fixedCostsMonthly",
+    "salaryPerEmployeeMonthly",
+    "initialEmployees",
+    "customersPerEmployee",
+    "baseChurnRate",
+    "baseCac",
+    "baseConversionRate",
+    "priceElasticity",
+    "referencePrice",
+    "initialProductQuality",
+    "initialBrandAwareness",
+    "marketGrowthRateMonthly",
+    "seasonality",
+    "competitorIntensity",
+    "eventProbabilityMultiplier",
+    "segmentMix"
+  ],
+  "properties": {
+    "unitCostRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "COGS as a share of revenue."
+    },
+    "variableCostPerCustomer": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise per active customer per month (hosting, support, servicing)."
+    },
+    "logisticsCostPerOrder": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise per order for shipping and fulfilment."
+    },
+    "returnRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Share of orders refunded."
+    },
+    "inventoryHoldingRate": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Monthly inventory holding cost as a share of COGS."
+    },
+    "purchasesPerCustomerPerMonth": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100
+    },
+    "fixedCostsMonthly": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise per month: rent, tools, overheads."
+    },
+    "salaryPerEmployeeMonthly": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "initialEmployees": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 10000
+    },
+    "baseChurnRate": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "baseCac": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Paise of marketing spend per acquired customer at reference conditions."
+    },
+    "baseConversionRate": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "priceElasticity": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 10,
+      "description": "Magnitude of demand response to price relative to referencePrice."
+    },
+    "referencePrice": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Typical market price in paise."
+    },
+    "initialProductQuality": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "initialBrandAwareness": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "marketGrowthRateMonthly": {
+      "type": "number",
+      "minimum": -0.5,
+      "maximum": 0.5
+    },
+    "seasonality": {
+      "type": "array",
+      "description": "Twelve monthly demand multipliers, January first.",
+      "items": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 3
+      },
+      "minItems": 12,
+      "maxItems": 12
+    },
+    "competitorIntensity": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "eventProbabilityMultiplier": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "segmentMix": {
+      "title": "SegmentMix",
+      "description": "Share of the addressable market in each customer segment. Weights sum to 1.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["priceSensitive", "premium", "loyal", "occasional", "enterprise"],
+      "properties": {
+        "priceSensitive": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "premium": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "loyal": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "occasional": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        },
+        "enterprise": {
+          "$ref": "enums.schema.json#/definitions/UnitInterval"
+        }
+      }
+    },
+    "customersPerEmployee": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Customers one employee can serve before service quality suffers."
+    },
+    "localDemandWeight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "How local the industry's customers are: scales the demand-side location effects (purchasing power, local market size, competition). 0 or absent: none."
+    },
+    "recruitingCostSalaryShare": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2,
+      "description": "Cost per hire as a share of a monthly salary. Absent: the engine default (0.25). Set by location (talent availability)."
+    },
+    "maxHiresPerTurn": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Most hires allowed in one turn. Absent: no limit. Set by location when talent is scarce."
+    }
+  }
+}

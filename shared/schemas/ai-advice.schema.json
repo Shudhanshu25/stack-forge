@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "ai-advice.schema.json",
+  "title": "AIAdvice",
+  "description": "AI CEO advisor output. May only cite figures present in its input. When available is false the other fields may be empty.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "available",
+    "mode",
+    "summary",
+    "positiveFactors",
+    "negativeFactors",
+    "keyRisk",
+    "keyOpportunity",
+    "recommendation",
+    "reasoning",
+    "confidence"
+  ],
+  "properties": {
+    "available": {
+      "type": "boolean"
+    },
+    "mode": {
+      "$ref": "enums.schema.json#/definitions/AdviceMode"
+    },
+    "question": {
+      "type": "string",
+      "maxLength": 1000
+    },
+    "summary": {
+      "type": "string"
+    },
+    "positiveFactors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "negativeFactors": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "keyRisk": {
+      "type": "string"
+    },
+    "keyOpportunity": {
+      "type": "string"
+    },
+    "recommendation": {
+      "type": "string"
+    },
+    "reasoning": {
+      "type": "string"
+    },
+    "confidence": {
+      "$ref": "enums.schema.json#/definitions/UnitInterval"
+    },
+    "modelVersion": {
+      "type": "string"
+    },
+    "unavailableReason": {
+      "type": "string"
+    },
+    "promptVersion": {
+      "type": "string",
+      "description": "Advisor prompt version, e.g. advisor@v1."
+    },
+    "llmCalls": {
+      "type": "array",
+      "items": {
+        "$ref": "llm-call.schema.json"
+      }
+    }
+  }
+}
