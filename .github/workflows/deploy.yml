@@ -65,9 +65,29 @@ jobs:
           cache-from: type=gha,scope=${{ matrix.image }}
           cache-to: type=gha,mode=max,scope=${{ matrix.image }}
 
+  # Job conditions cannot read secrets, so this job reports whether a server is configured.
+  # Until DEPLOY_HOST is set, the deploy job is skipped (not failed); builds and tests still run.
+  deploy-target:
+    name: Deploy target configured?
+    runs-on: ubuntu-latest
+    outputs:
+      configured: ${{ steps.check.outputs.configured }}
+    steps:
+      - id: check
+        env:
+          DEPLOY_HOST: ${{ secrets.DEPLOY_HOST }}
+        run: |
+          if [ -n "$DEPLOY_HOST" ]; then
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "::notice title=Deploy skipped::No DEPLOY_HOST secret yet; see docs/deployment.md to set up a server."
+          fi
+
   deploy:
     name: Deploy, smoke test, roll back on failure
-    needs: images
+    needs: [images, deploy-target]
+    if: needs.deploy-target.outputs.configured == 'true'
     runs-on: ubuntu-latest
     environment: production
     permissions:

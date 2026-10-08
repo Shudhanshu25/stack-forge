@@ -31,7 +31,7 @@ Only Caddy publishes public ports (80, 443). Grafana is bound to the server's `1
 | Workflow | Trigger | Does |
 | --- | --- | --- |
 | `.github/workflows/ci.yml` | every pull request (and as the first step of every deploy) | **node**: ESLint + Prettier, type checks, shared contract tests, backend tests (in-memory MongoDB, a Redis service container, the real FastAPI service for the contract and end-to-end tests), frontend tests, production build. **python**: Ruff on `simulation/` and `evaluation/`, a small model training run, the full pytest suite (fake LLM client, no keys). **contracts**: `npm run generate`, then fails if `shared/generated` or `shared/python` changed (stale types). **determinism**: the determinism and replay tests, replay of every retained engine version's fixture, and a CI-sized consistency evaluation. |
-| `.github/workflows/deploy.yml` | push to `main`, or run manually | Runs CI, builds the four images and pushes them to `ghcr.io/<owner>/stackforge-{frontend,api,worker,simulation}:<commit sha>`, copies `infrastructure/` to the server, then runs `infrastructure/deploy/deploy.sh <sha>` there. |
+| `.github/workflows/deploy.yml` | push to `main`, or run manually | Runs CI, builds the four images and pushes them to `ghcr.io/<owner>/stackforge-{frontend,api,worker,simulation}:<commit sha>`, copies `infrastructure/` to the server, then runs `infrastructure/deploy/deploy.sh <sha>` there. Until the `DEPLOY_HOST` secret is set, the deploy job is skipped (shown as skipped, not failed); CI and the image builds still run. |
 
 `deploy.sh` (run on the server; also runnable by hand) does, in order:
 
