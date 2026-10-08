@@ -35,7 +35,7 @@ Needs Node 22+, Python 3.12 and Docker.
 ```bash
 npm install
 python -m venv simulation/.venv
-simulation/.venv/Scripts/python -m pip install -r simulation/requirements-dev.txt   # macOS/Linux: .venv/bin/python
+cd simulation && .venv/Scripts/python -m pip install -r requirements-dev.txt   # from simulation/; macOS/Linux: .venv/bin/python
 cp backend/.env.example backend/.env        # set JWT_ACCESS_SECRET
 cp frontend/.env.example frontend/.env
 cp simulation/.env.example simulation/.env  # optional: LLM_API_KEY (Google Gemini)

@@ -41,7 +41,7 @@ jobs:
       - name: Simulation venv (FastAPI for the contract and end-to-end tests)
         run: |
           python -m venv simulation/.venv
-          simulation/.venv/bin/python -m pip install -r simulation/requirements.txt
+          cd simulation && .venv/bin/python -m pip install -r requirements.txt
       - run: npm ci
       - name: Lint (ESLint + Prettier)
         run: npm run lint
@@ -103,7 +103,7 @@ jobs:
           cache-dependency-path: simulation/requirements*.txt
       - run: |
           python -m venv simulation/.venv
-          simulation/.venv/bin/python -m pip install -r simulation/requirements-dev.txt
+          cd simulation && .venv/bin/python -m pip install -r requirements-dev.txt
       - run: npm ci
       - run: npm run generate
       - name: Fail if regenerating changed anything

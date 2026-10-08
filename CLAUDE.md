@@ -45,7 +45,7 @@ Prerequisites: Node 22+, Python 3.12, and Docker (for MongoDB and Redis). Run co
 # Install
 npm install                                            # all Node workspaces: shared, backend, frontend
 python -m venv simulation/.venv
-simulation/.venv/Scripts/python -m pip install -r simulation/requirements-dev.txt   # macOS/Linux: simulation/.venv/bin/python
+cd simulation && .venv/Scripts/python -m pip install -r requirements-dev.txt   # from simulation/ (the shared package path is relative); macOS/Linux: .venv/bin/python
 cp backend/.env.example backend/.env                   # then set JWT_ACCESS_SECRET (32+ chars)
 cp frontend/.env.example frontend/.env
 cp simulation/.env.example simulation/.env
