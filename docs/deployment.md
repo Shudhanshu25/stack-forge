@@ -177,3 +177,38 @@ Verified on this project's development machine (Docker Desktop 29.8.1, WSL 2, Wi
 Not verifiable here: the GitHub workflows themselves (they need the repository on GitHub; both pass `actionlint`, and every command they run was run locally) and deployment to a real server.
 
 On Windows, Docker Desktop needs the current WSL package (`wsl --version` must work) and may need a restart after updating it.
+
+## Alternative: Vercel and Render
+
+A managed alternative to the single server: the React app on **Vercel** (`vercel.json`), the API, worker and simulation service on **Render** (`render.yaml`, a Blueprint), MongoDB on **Atlas** and Redis on **Upstash**. Vercel cannot host the rest: the worker and the WebSocket server are long-running processes, and the simulation service exceeds a serverless function's size.
+
+```mermaid
+flowchart LR
+  B[Browser] -- "/*" --> V[Vercel<br/>static app]
+  V -- "rewrite /api/v1/*" --> API[stackforge-api<br/>Render web]
+  B -- "wss /api/v1/ws (direct)" --> API
+  API --> S[stackforge-simulation<br/>Render private service]
+  W[stackforge-worker<br/>Render worker] --> S
+  API & W --> M[(MongoDB Atlas)]
+  API & W & S --> R[(Upstash Redis)]
+  S -. HTTPS .-> G[Gemini API]
+```
+
+**Why it is shaped this way.** Vercel forwards `/api/v1/*` to the API, so to the browser the API is on the app's own origin: the `SameSite=strict` refresh cookie keeps working and no CORS is involved. Vercel rewrites cannot carry WebSockets, so the frontend build sets `VITE_WS_URL` to the API's `onrender.com` address; the socket authenticates with the access token, not the cookie, and its origin check uses `CORS_ORIGIN`. If the socket cannot connect the app falls back to polling. The simulation service has no authentication of its own, so it is a Render *private service*, reachable only from the API and worker (`SIMULATION_URL` is filled in by Render as `host:port`; the API adds `http://`). The API's own `onrender.com` address is public, so the Blueprint turns `/metrics` off (`METRICS_ENABLED=false`).
+
+**Memory.** Render's Starter plan has 512 MB. With the full forecasting models loaded the simulation service uses about 570 MB, so the Blueprint builds it with `TRAIN_ARGS=--quick` (60 instead of 200 trees): about 25 MB of models instead of 81 MB at nearly the same accuracy on the same test set (revenue R² 0.9904 against 0.9905, customers 0.9926 against 0.9926, churn 0.9614 against 0.9625).
+
+**Cost.** The API is on Render's free plan (it sleeps after 15 minutes without requests; the first request then takes about a minute). Background workers and private services have no free plan, so the worker and the simulation service are Starter (about $7 a month each). Atlas M0 and Upstash's free tier cost nothing; a BullMQ worker polls Redis continuously, so watch Upstash's monthly command count (Render Key Value, a Redis-compatible store on Render's private network, avoids that limit).
+
+### Setting it up
+
+1. **MongoDB Atlas.** Create a free M0 cluster (region Mumbai or Singapore), a database user, and allow access from anywhere (`0.0.0.0/0`; Render's outbound addresses are not fixed on these plans). Copy the `mongodb+srv://` connection string and add the database name: `.../stackforge?retryWrites=true&w=majority`.
+2. **Upstash Redis.** Create a database (region Mumbai or Singapore, eviction off) and copy its `rediss://` URL.
+3. **Render.** New → Blueprint → this repository. Render reads `render.yaml` and asks for each `sync: false` value: `MONGODB_URI` and `REDIS_URL` (for the API, worker and, for `REDIS_URL`, the simulation service), `LLM_API_KEY`, `EMAIL_FROM`, `SMTP_USER` and `SMTP_PASSWORD` (a Gmail App Password), and `APP_URL` and `CORS_ORIGIN` (the Vercel address from step 4; enter the expected one, e.g. `https://stack-forge.vercel.app`, and correct it afterwards if Vercel assigns another). `JWT_ACCESS_SECRET` is generated. The API runs the migrations each time it starts.
+4. **Vercel.** Add New → Project → this repository, root directory the repository root (`vercel.json` sets the build). Environment variables: `VITE_API_URL=/api/v1` and `VITE_WS_URL=wss://stackforge-api.onrender.com/api/v1/ws`. If Render gave the API another address than `stackforge-api.onrender.com`, change it in both `VITE_WS_URL` and the rewrite in `vercel.json`.
+5. **Google sign-in (optional).** Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET` and `GOOGLE_REDIRECT_URI=https://<vercel address>/api/v1/auth/google/callback` to the API and the worker.
+6. **Check.** `https://<vercel address>/api/v1/health/services` should report every dependency `ok`; then register, confirm the email and play a turn.
+
+Pushes to `main` then redeploy both sides automatically (Vercel and Render each watch the repository); the GitHub deploy workflow stays skipped while no server is configured. Vercel preview deployments get their own addresses, which the API's `CORS_ORIGIN` does not allow, so live updates there fall back to polling.
+
+**Not verified here.** These files were checked locally (the Vercel build with these settings embeds the socket address; the configuration and route changes are tested), but a deployment needs your Render, Vercel, Atlas and Upstash accounts. Two settings rest on the providers' documented behaviour rather than a test: `TRUST_PROXY=2` (the client address two proxies back, used by the rate limits) and Render passing `TRAIN_ARGS` to the Docker build.

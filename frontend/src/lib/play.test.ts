@@ -65,6 +65,9 @@ describe('play helpers', () => {
     expect(socketUrl('/api/v1', 'https://stackforge.example')).toBe(
       'wss://stackforge.example/api/v1/ws',
     );
+    expect(socketUrl('/api/v1', 'https://app.example', 'wss://api.example/api/v1/ws')).toBe(
+      'wss://api.example/api/v1/ws',
+    );
   });
 });
 

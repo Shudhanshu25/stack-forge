@@ -2,6 +2,7 @@ import { createServer, type Server } from 'node:http';
 import type { AddressInfo } from 'node:net';
 import { afterEach, describe, expect, it } from 'vitest';
 import { EngineError, HttpEngineClient, ndjson } from '../src/engine/engine-client.js';
+import { withScheme } from '../src/config.js';
 import { fixture } from './helpers.js';
 
 async function* chunks(...parts: string[]) {
@@ -107,5 +108,15 @@ describe('HttpEngineClient', () => {
     await expect(
       client.start({ configuration: fixture.configuration, seed: -1 }),
     ).rejects.toMatchObject({ code: 'ENGINE_CONTRACT_VIOLATION' });
+  });
+});
+
+describe('simulation service address', () => {
+  it('accepts a URL or the host:port Render gives a private service', () => {
+    expect(withScheme('http://127.0.0.1:8000')).toBe('http://127.0.0.1:8000');
+    expect(withScheme('https://sim.example')).toBe('https://sim.example');
+    expect(withScheme('stackforge-simulation-x1y2:8000')).toBe(
+      'http://stackforge-simulation-x1y2:8000',
+    );
   });
 });

@@ -132,8 +132,9 @@ export function createApp({
   app.use(express.json({ limit: config.bodyLimit }));
   app.use(rejectMongoOperators);
 
-  // Prometheus scrape endpoint: internal only (the proxy routes nothing but /api/* here).
-  app.get('/metrics', metricsHandler);
+  // Prometheus scrape endpoint: internal only (the proxy routes nothing but /api/* here). Turned
+  // off where the API's own port is public.
+  if (config.metricsEnabled) app.get('/metrics', metricsHandler);
 
   const health = healthRoutes(new HealthService(healthChecks));
   // Also at the root: container health checks and the deploy smoke test probe it there.

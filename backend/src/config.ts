@@ -17,6 +17,8 @@ export interface Config {
   authRateLimitMax: number;
   bodyLimit: string;
   trustProxy: number;
+  /** Serve /metrics on the API port. Off where that port is public (Render). */
+  metricsEnabled: boolean;
   engineTimeoutMs: number;
   pipelineTimeoutMs: number;
   workerConcurrency: number;
@@ -60,6 +62,11 @@ function int(name: string, fallback: number): number {
   return value;
 }
 
+/** Render gives a private service's address as host:port; the client needs a URL. */
+export function withScheme(url: string): string {
+  return /^https?:\/\//.test(url) ? url : `http://${url}`;
+}
+
 function bool(name: string, fallback: boolean): boolean {
   const raw = process.env[name];
   if (raw === undefined || raw === '') return fallback;
@@ -77,7 +84,7 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
     logLevel: process.env.LOG_LEVEL ?? (env === 'test' ? 'silent' : 'info'),
     mongodbUri: process.env.MONGODB_URI ?? 'mongodb://localhost:27017/stackforge',
     redisUrl: process.env.REDIS_URL ?? 'redis://localhost:6379',
-    simulationUrl: process.env.SIMULATION_URL ?? 'http://127.0.0.1:8000',
+    simulationUrl: withScheme(process.env.SIMULATION_URL ?? 'http://127.0.0.1:8000'),
     corsOrigin: process.env.CORS_ORIGIN ?? 'http://localhost:5173',
     jwtAccessSecret: process.env.JWT_ACCESS_SECRET ?? '',
     accessTokenTtlSeconds: int('ACCESS_TOKEN_TTL_SECONDS', 900),
@@ -87,6 +94,7 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
     authRateLimitMax: int('AUTH_RATE_LIMIT_MAX', 20),
     bodyLimit: process.env.BODY_LIMIT ?? '100kb',
     trustProxy: int('TRUST_PROXY', 0),
+    metricsEnabled: bool('METRICS_ENABLED', true),
     engineTimeoutMs: int('ENGINE_TIMEOUT_MS', 15_000),
     pipelineTimeoutMs: int('PIPELINE_TIMEOUT_MS', 60_000),
     workerConcurrency: int('WORKER_CONCURRENCY', 4),

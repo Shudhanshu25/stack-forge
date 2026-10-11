@@ -1,0 +1,123 @@
+# Render Blueprint: the API, the turn worker and the simulation service. The React app is on
+# Vercel (vercel.json), MongoDB on Atlas and Redis on Upstash. Setup: docs/deployment.md, "Vercel and Render".
+#
+# Values marked sync: false are asked for once per service when the Blueprint is created in the
+# Render dashboard (the API and the worker need the same MONGODB_URI, REDIS_URL and email values).
+# Cost: the API runs on the free plan (sleeps after 15 minutes idle); background workers and
+# private services have no free plan, so the worker and the simulation service are Starter.
+
+envVarGroups:
+  - name: stackforge-node
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+      - key: JWT_ACCESS_SECRET
+        generateValue: true
+      - key: ENGINE_TIMEOUT_MS
+        value: '15000'
+      - key: PIPELINE_TIMEOUT_MS
+        value: '60000'
+      - key: LLM_USER_DAILY_TOKEN_QUOTA
+        value: '200000'
+      # Email for verification and password reset: smtp (Gmail App Password), resend, or none.
+      - key: EMAIL_PROVIDER
+        value: smtp
+
+services:
+  - type: web
+    name: stackforge-api
+    runtime: docker
+    plan: free
+    region: singapore
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    # Migrations are locked and idempotent, so running them on every start is safe.
+    dockerCommand: sh -c "node dist/migrate.js && node dist/server.js"
+    healthCheckPath: /health
+    envVars:
+      - fromGroup: stackforge-node
+      - key: SIMULATION_URL
+        fromService:
+          type: pserv
+          name: stackforge-simulation
+          property: hostport
+      - key: MONGODB_URI # Atlas: mongodb+srv://<user>:<password>@<cluster>/stackforge?retryWrites=true&w=majority
+        sync: false
+      - key: REDIS_URL # Upstash: rediss://default:<password>@<host>:6379
+        sync: false
+      - key: APP_URL # the Vercel address, e.g. https://stack-forge.vercel.app
+        sync: false
+      - key: CORS_ORIGIN # the same Vercel address
+        sync: false
+      - key: EMAIL_FROM # e.g. Stack Forge <you@gmail.com>
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: COOKIE_SECURE
+        value: 'true'
+      # Browser -> Vercel rewrite -> Render's proxy -> API: the client address is two hops back.
+      - key: TRUST_PROXY
+        value: '2'
+      # The API's onrender.com address is public and there is no Prometheus here.
+      - key: METRICS_ENABLED
+        value: 'false'
+
+  - type: worker
+    name: stackforge-worker
+    runtime: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    dockerCommand: node dist/worker.js
+    envVars:
+      - fromGroup: stackforge-node
+      - key: SIMULATION_URL
+        fromService:
+          type: pserv
+          name: stackforge-simulation
+          property: hostport
+      - key: MONGODB_URI
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: APP_URL
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: SMTP_USER
+        sync: false
+      - key: SMTP_PASSWORD
+        sync: false
+      - key: WORKER_CONCURRENCY
+        value: '2'
+
+  - type: pserv
+    name: stackforge-simulation
+    runtime: docker
+    plan: starter
+    region: singapore
+    dockerfilePath: ./simulation/Dockerfile
+    dockerContext: .
+    envVars:
+      # Build argument: fewer trees keep the forecasting models within 512 MB of memory at about
+      # the same accuracy (docs/deployment.md).
+      - key: TRAIN_ARGS
+        value: --quick
+      - key: APP_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: LLM_API_KEY
+        sync: false
+      - key: LLM_TURN_TOKEN_BUDGET
+        value: '12000'
+      # Agent response cache (fails open). Upstash has only database 0, shared with the job queue.
+      - key: REDIS_URL
+        sync: false

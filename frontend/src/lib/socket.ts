@@ -5,12 +5,15 @@ export type SocketStatus = 'connecting' | 'live' | 'offline';
 
 /**
  * The socket lives at <API base>/ws. The base may be absolute (development) or a path such as
- * /api/v1 behind the proxy.
+ * /api/v1 behind the proxy. VITE_WS_URL overrides it when the proxy in front of the app cannot
+ * carry WebSockets (Vercel rewrites to the API on Render).
  */
 export function socketUrl(
   apiBase: string = API_BASE_URL,
   origin: string | undefined = globalThis.location?.origin,
+  override: string | undefined = import.meta.env.VITE_WS_URL,
 ): string {
+  if (override) return override;
   const base = new URL(apiBase, origin);
   const url = new URL(`${base.pathname.replace(/\/$/, '')}/ws`, base);
   url.protocol = url.protocol === 'https:' ? 'wss:' : 'ws:';

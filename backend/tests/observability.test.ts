@@ -96,6 +96,12 @@ describe('metrics', () => {
     const { h } = await playOneTurn();
     await request(h.app).get('/api/v1/metrics').expect(404);
   });
+
+  it('can be turned off', async () => {
+    await request(harness({ metricsEnabled: false }).app)
+      .get('/metrics')
+      .expect(404);
+  });
 });
 
 describe('worker metrics endpoint', () => {

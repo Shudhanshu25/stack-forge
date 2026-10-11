@@ -129,6 +129,9 @@ IMAGE_PREFIX=ghcr.io/<owner>/stackforge infrastructure/deploy/deploy.sh <sha>   
 infrastructure/backup/restore.sh                    # restore the newest backup (or pass a dump; --now to take one)
 ssh -L 3000:localhost:3000 <server>                 # Grafana on the server (bound to localhost)
 
+# Managed alternative: React on Vercel (vercel.json), API/worker/simulation on Render (render.yaml
+# Blueprint), MongoDB Atlas, Upstash Redis. Setup steps: docs/deployment.md, "Vercel and Render"
+
 # CI/CD: .github/workflows/ci.yml (pull requests) and deploy.yml (merge to main); see docs/deployment.md
 
 # Load tests (k6) against the running prod stack; results in docs/performance.md
