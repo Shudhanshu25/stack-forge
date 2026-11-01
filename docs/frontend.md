@@ -4,7 +4,8 @@ React and Vite. Views and the routes they live at:
 
 | View | Route | What it shows |
 | --- | --- | --- |
-| Log in / register | `/login`, `/register` | Accounts; a new user goes straight into the creation wizard |
+| **Landing** | `/` | Public home page for guests: hero, how it works, features, AI advisor, plans, FAQ. Signed-in users go to `/startups` |
+| Log in / register | `/login`, `/register` | Accounts, in a split layout (brand panel beside the form; form only under 1100 px); a new user goes straight into the creation wizard |
 | Email verification | `/verify-email?token=…` | Confirms the email from the emailed link; until then a banner offers to resend it and simulations cannot start |
 | Password reset | `/forgot-password` | Three steps on one page: email, the 6-digit code from the email (resend after 30 s), the new password twice (signs out everywhere). `/reset-password` redirects here |
 | Google sign-in | `/auth/google/done` | Return point after Google; restores the session |
@@ -14,6 +15,8 @@ React and Vite. Views and the routes they live at:
 | Creation wizard | `/startups/new` | 9 steps: name, industry, location, business model, capital, product, price, market size, difficulty. The location step picks a state, then a city filtered by state or "Another city" with its size, and shows the location profile card before confirming |
 | Edit startup | `/startups/:id/edit` | All wizard fields on one form |
 | **Dashboard** | `/simulations/:id` | Header (product, startup, turn); market event cards; KPI cards with change since last turn; revenue and profit chart; decision panel with preview and the live pipeline checklist; market panel; AI CEO side panel |
+| **Decisions** | `/simulations/:id/decisions` | Product & Pricing (`#pricing`), Team & Hiring (`#hiring`) and Marketing: where each lever stands this month (engine figures from the latest turn), then the decision form with preview and the live pipeline |
+| **AI Business Advisor** | `/simulations/:id/advisor` | The AI CEO panel on its own page, with what the advisor can and cannot do and example questions |
 | **Scenario comparison** | `/simulations/:id/scenarios` | Two decision sets from the current state, horizon 1–6, same seed and rules agents; totals as side-by-side bars and a table of differences; revenue, profit, customers, churn and cash over time; neutral trade-offs; nothing saved |
 | **Analytics: financial** | `/simulations/:id/analytics/financial` | Gross margin, burn rate, runway, CAC, LTV, ARPU; revenue against expenses; cash; expense breakdown |
 | **Analytics: customers** | `/simulations/:id/analytics/customers` | Customers and churn by segment; new against churned; segment table |
@@ -29,7 +32,18 @@ The onboarding coach appears on top of these pages for a new user; see below.
 
 Every figure on these pages comes from `GET /simulations/:id/analytics`, which the simulation service computes from the stored turn records. The browser only formats numbers; it calculates nothing.
 
-The simulation views share one layout route, which loads the simulation, its turns and its analytics once (each settles separately, so one failure does not blank the page). The chart-heavy views load on demand, so login and the wizard never download the chart library.
+The simulation views share one layout route, which loads the simulation, its turns and its analytics once (each settles separately, so one failure does not blank the page). The layout also owns the simulation's one turn runner, shared by the decision form and the top-bar controller, and announces finished turns. The chart-heavy views load on demand, so login and the wizard never download the chart library.
+
+## App shell
+
+Signed-in pages sit in one frame (`src/components/shell`):
+
+- **Sidebar** (240 px, collapsible to 72 px and remembered in `localStorage` as `sf-sidebar-collapsed`; icons only under 1100 px). Brand, then Overview, My Startup, Business Strategy, Finance, Marketing, Team & Hiring, Product & Pricing, Market Insights, AI Business Advisor, Reports & Analytics; below, Notifications, Help & Support, Settings and the user. Each destination opens the view that owns its numbers (`nav.ts`): Finance is the financial analytics tab, Marketing the customers tab, Market Insights the market tab, Reports the forecasts tab, Team and Product the Decisions page, Notifications the turn timeline, Settings the account page. Outside a simulation they use the last simulation opened (`sf-last-simulation`), or the startup list.
+- **Top bar**: breadcrumb (startup / page), the **simulation controller** while a simulation is open, the command palette, notifications, the theme switch and the account menu.
+- **Simulation controller**: month, quarter, status and turn progress; **advance one month** plays the next turn with the current plan (`POST …/turns` with no decisions; use the decision form to change the plan first); **auto-play** repeats that with a pause between months of 8 s, 4 s or 1.5 s at 1x, 2x or 5x, and stops when paused, when a turn fails or when the simulation ends. One turn is one month, as in the engine; the controller never computes figures.
+- **Phones** (under 900 px): the sidebar becomes a drawer, a bottom bar carries Home, Finance, Advisor, Reports and More, and the controller takes its own row.
+
+Guest pages use a slim header (brand and theme switch); sign-in pages use the split layout.
 
 ## Accessibility
 
@@ -41,9 +55,10 @@ The dashboard, wizard and play flow work by keyboard alone, and so does every co
 
 Two themes, dark and light, built from one set of design tokens: CSS custom properties in `src/styles.css`. Every colour, shadow, chart colour and motion value is a token; components use only tokens. `src/design-tokens.test.ts` fails if a colour literal appears anywhere else, and checks that both themes define the same tokens.
 
-- **One type scale** (12, 13, 15, 18, 24 and 32 px, system sans) and **one accent**, blue `#3987e5`, in both themes. Links use `--accent-text` (`#4a92e8` dark, `#2468c2` light) and filled buttons `--accent-strong` (`#2468c2`), so both meet AA on their backgrounds.
-- **Dark** separates cards from the near-black page (`#0d0d0d`) by tone (`#1a1a19`), with warm neutrals for ink (`#ffffff`, `#c3c2b7`, `#8f8d86`).
-- **Light** is the same product in daylight, not an inverted copy: a warm off-white page (`#f5f4ef`) with white cards lifted by a hairline border and a soft shadow, ink `#191917` / `#4a4944` / `#6b6963`, and the dark theme's hues for status and series, darkened just enough for AA on white.
+- **Midnight Purple.** One type scale (12, 13, 14, 16, 20 and 28 px) in **Inter** (self-hosted through `@fontsource-variable/inter`, so no request leaves the site), and **one accent**, purple (`#8b5cf6` dark, `#7c3aed` light). Links use `--accent-text` (`#c4b5fd` dark, `#5b21b6` light) and filled buttons `--accent-strong` (`#7c3aed`, 5.7:1 with white), so both meet AA. Cards have a 12 px radius.
+- **Dark** separates cards (`#171725`) and raised surfaces (`#1e1e2d`) from the page (`#0b0b12`) by tone, with a `#0e0e17` sidebar and ink `#f8fafc` / `#a1a1b5` / `#8b8ba0`.
+- **Light** is the same product in daylight: a cool off-white page (`#f8f9fc`) with white cards lifted by a hairline border (`#e7e5ef`) and a soft shadow, ink `#171525` / `#666579` / `#67667c`.
+- **Departures from the brand palette, for contrast:** muted text (`#717184` dark, `#9291a3` light in the brand sheet) is lifted to `#8b8ba0` and darkened to `#67667c`; light-theme green, amber, blue and purple text use darker shades (`#166534`, `#b45309`, `#0369a1`, `#5b21b6`). The brand colours remain for fills, marks and charts.
 - **Contrast:** body text, secondary text, links and status text are at least 4.5:1 on every surface of their theme; series colours and chart marks at least 3:1.
 - **Status colours** (green, red, amber) never carry meaning alone: deltas have an arrow and a sign ("▲ +₹14.3K vs last turn"), events say "Good news" or "Bad news", errors start with ✕. Churn counts as better when it falls.
 - **Amounts** use Indian formatting, for example ₹8.45L, ₹1.2Cr and 12,34,567.
@@ -97,7 +112,7 @@ The **profile card** (`components/location/LocationProfileCard.tsx`) shows each 
 
 `src/components/charts` wraps Recharts. The rules follow the dataviz method:
 
-- **Categorical series** use a fixed order: blue, orange, aqua, yellow, magenta, as tokens `--series-1` to `--series-5` with a palette per theme. The dark order was validated with adjacent CVD ΔE ≥ 8.4, normal-vision ΔE ≥ 19.3 and contrast ≥ 3:1; the light palette keeps the hues, darkened to at least 3:1 on white. A series keeps its colour when others are hidden.
+- **Categorical series** use a fixed order: purple, amber, green, sky, pink, as tokens `--series-1` to `--series-5` with a palette per theme; adjacent series differ in lightness as well as hue, and every series is at least 3:1 against its theme's cards. A series keeps its colour when others are hidden.
 - **Theme tokens in SVG.** SVG presentation attributes do not accept `var()`, so `useChartPalette()` resolves the tokens to the current theme's computed values and resolves them again when the theme changes.
 - **One y-axis per chart.** Measures in different units go in separate charts; scenarios use small multiples.
 - **Marks:** 2 px lines, solid hairline gridlines, and a 2 px surface gap between stacked bars.

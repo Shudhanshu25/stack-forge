@@ -74,3 +74,8 @@ export function useAuth(): AuthState {
   if (!ctx) throw new Error('useAuth must be used inside AuthProvider');
   return ctx;
 }
+
+/** The signed-in user's name for greetings; null outside an AuthProvider or when signed out. */
+export function useUserName(): string | null {
+  return useContext(AuthContext)?.user?.name ?? null;
+}

@@ -1,5 +1,3 @@
-import { useEffect, useRef } from 'react';
-import type { SimulationJob, SimulationTurn } from '@stackforge/shared';
 import { QuotaNotice } from '../components/AccountNotices';
 import { LineChartCard } from '../components/charts/Charts';
 import { SERIES } from '../components/charts/theme';
@@ -9,80 +7,26 @@ import { EventCards } from '../components/dashboard/EventCards';
 import { KpiRow } from '../components/dashboard/KpiRow';
 import { MarketPanel } from '../components/dashboard/MarketPanel';
 import { EmptyState, ErrorState, PanelBoundary } from '../components/feedback/States';
-import { useToast, type ToastInput } from '../components/feedback/Toaster';
-import { useTurnRunner } from '../hooks/useSimulation';
-import { formatChange, formatInrCompact } from '../lib/format';
-import { describeJobError } from '../lib/play';
-import { useTour } from '../onboarding/Onboarding';
+import { useUserName } from '../auth/AuthContext';
+import { formatInrCompact } from '../lib/format';
 import { useSimulationContext } from './SimulationLayout';
 
-/** The toast for a finished job; completed turns are announced once their record has loaded. */
-export function jobToast(job: SimulationJob): ToastInput | null {
-  if (job.status === 'FAILED') {
-    return {
-      kind: 'error',
-      title: `Turn ${job.turnNumber} failed`,
-      body: describeJobError(job) || 'Nothing changed; you can play the turn again.',
-    };
-  }
-  if (job.status === 'CANCELLED') {
-    return {
-      kind: 'info',
-      title: `Turn ${job.turnNumber} cancelled`,
-      body: 'Nothing was recorded; your decisions are still in the form.',
-    };
-  }
-  return null;
-}
+export { jobToast, turnToasts } from '../lib/turnToasts';
 
-/** The toasts for a newly recorded turn: completion, and the quota notice when it applied. */
-export function turnToasts(turn: SimulationTurn, previous: SimulationTurn | null): ToastInput[] {
-  const s = turn.stateAfter;
-  const revenueChange = previous ? s.revenue - previous.stateAfter.revenue : null;
-  const toasts: ToastInput[] = [
-    {
-      kind: 'success',
-      title: `Turn ${turn.turnNumber} complete`,
-      body: `Revenue ${formatInrCompact(s.revenue)}${
-        revenueChange === null ? '' : ` (${formatChange('money', revenueChange)})`
-      }, profit ${formatInrCompact(s.profit)}.`,
-    },
-  ];
-  if (turn.llmUsage?.dailyQuotaExhausted) {
-    toasts.push({
-      kind: 'warning',
-      key: 'quota',
-      title: 'Daily AI quota reached',
-      body: 'This turn ran in rules mode: rule-based customer and competitor agents, and no AI CEO analysis until the quota resets.',
-    });
-  }
-  return toasts;
+/** "Good morning, Aarav" by the local time of day. */
+export function greeting(name: string | undefined, now = new Date()): string {
+  const h = now.getHours();
+  const part = h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
+  const first = name?.trim().split(/\s+/)[0];
+  return first ? `${part}, ${first}` : part;
 }
 
 /** The founder dashboard: KPIs, revenue and profit, decisions, market and the AI CEO. */
 export function DashboardPage() {
-  const { simulation, analytics, turns, reload, analyticsError, turnsError } =
+  const { simulation, analytics, turns, reload, analyticsError, turnsError, runner } =
     useSimulationContext();
-  const tour = useTour();
-  const { notify } = useToast();
-  // A turn this page played: announced once its record has loaded (with the quota flag).
-  const expected = useRef<number | null>(null);
-  const runner = useTurnRunner(simulation.id, simulation.activeJobId, (job) => {
-    if (job.status === 'COMPLETED') {
-      expected.current = job.turnNumber;
-      tour.advance('play');
-    }
-    void reload();
-    const toast = jobToast(job);
-    if (toast) notify(toast);
-  });
   const latest = turns.at(-1) ?? null;
-
-  useEffect(() => {
-    if (expected.current === null || !latest || latest.turnNumber < expected.current) return;
-    expected.current = null;
-    turnToasts(latest, turns.at(-2) ?? null).forEach(notify);
-  }, [latest, turns, notify]);
+  const userName = useUserName();
 
   const retry = () => void reload();
   const blocked = turnBlockedReason(simulation, runner.running);
@@ -92,6 +36,15 @@ export function DashboardPage() {
   return (
     <div className="dash">
       <div className="stack">
+        <div className="greeting">
+          <div>
+            <h2 className="section-h">{greeting(userName ?? undefined)}</h2>
+            <p className="muted small">
+              Here&apos;s how {simulation.startupName} is performing in month{' '}
+              {simulation.currentTurn}.
+            </p>
+          </div>
+        </div>
         <QuotaNotice exhaustedOnLastTurn={Boolean(latest?.llmUsage?.dailyQuotaExhausted)} />
         {turns.length === 0 && !turnsError && (
           <EmptyState

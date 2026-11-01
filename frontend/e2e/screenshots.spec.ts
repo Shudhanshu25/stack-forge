@@ -7,7 +7,10 @@ import { mockApi } from './mock-api';
  */
 const OUT = process.env.SHOT_DIR;
 const PAGES: [string, string, boolean][] = [
+  ['landing', '/', false],
   ['dashboard', '/simulations/sim1', true],
+  ['decisions', '/simulations/sim1/decisions', true],
+  ['advisor', '/simulations/sim1/advisor', true],
   ['scenarios', '/simulations/sim1/scenarios', true],
   ['analytics', '/simulations/sim1/analytics', true],
   ['analytics-market', '/simulations/sim1/analytics/market', true],
