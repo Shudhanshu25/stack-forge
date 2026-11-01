@@ -115,7 +115,7 @@ export function buildOpenApi(version: string): Json {
   return {
     openapi: '3.1.0',
     info: {
-      title: 'Stack Forge API',
+      title: 'Brevio API',
       version,
       description:
         'Public REST API. Bodies are JSON in camelCase, money is integer paise, and every error has the shape { error: { code, message, details } }. Live turn events: WebSocket at /api/v1/ws.',

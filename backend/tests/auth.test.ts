@@ -214,7 +214,7 @@ describe('request hardening', () => {
     await request(limited)
       .post('/api/v1/auth/password-reset')
       .send({ email: 'locked@example.com' })
-      .expect(202);
+      .expect(404); // not 429: the account does not exist, but the limiter let it through
   });
 
   it('only failed logins count towards the sign-in limit', async () => {

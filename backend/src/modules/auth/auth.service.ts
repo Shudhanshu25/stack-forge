@@ -164,12 +164,16 @@ export class AuthService {
   // ---- Password reset ------------------------------------------------------------------------
 
   /**
-   * Emails a 6-digit reset code if the address has an account (a new code cancels the previous
-   * one). Never reveals whether the address has an account.
+   * Emails a 6-digit reset code to an address that has an account (a new code cancels the
+   * previous one). An unknown address gets 404 ACCOUNT_NOT_FOUND so the page can say so; sign-up
+   * already reveals registered addresses with EMAIL_TAKEN, so this adds no new exposure beyond
+   * the rate limit that guards both.
    */
   async requestPasswordReset(email: string): Promise<void> {
     const user = await UserModel.findOne({ email: email.trim().toLowerCase() });
-    if (!user) return;
+    if (!user) {
+      throw new AppError(404, 'ACCOUNT_NOT_FOUND', 'No account is registered with this email');
+    }
     const minutes = this.config.passwordResetCodeTtlMinutes;
     const code = await issueOtp(user._id, 'reset_password', minutes * 60_000);
     await this.deliver(passwordResetCodeEmail(user.email, code, minutes), 'password reset');

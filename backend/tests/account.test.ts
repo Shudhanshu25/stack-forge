@@ -95,9 +95,16 @@ describe('password reset by emailed code', () => {
   /** A code that is certainly not the live one. */
   const wrong = (code: string) => String((Number(code) + 1) % 1_000_000).padStart(6, '0');
 
-  it('never reveals whether an email has an account', async () => {
-    await ask('nobody@example.com');
+  it('says so when the email has no account, and sends nothing', async () => {
+    const res = await request(h.app)
+      .post('/api/v1/auth/password-reset')
+      .send({ email: 'nobody@example.com' })
+      .expect(404);
+    expect(res.body.error.code).toBe('ACCOUNT_NOT_FOUND');
     expect(h.email.sent).toHaveLength(0);
+  });
+
+  it('keeps the code check generic for an unknown email', async () => {
     const res = await verify('nobody@example.com', '123456').expect(400);
     expect(res.body.error.code).toBe('INVALID_CODE');
   });

@@ -110,7 +110,7 @@ export function loadConfig(overrides: Partial<Config> = {}): Config {
           ? 'none'
           : 'outbox')) as Config['emailProvider'],
     emailApiKey: process.env.EMAIL_API_KEY ?? '',
-    emailFrom: process.env.EMAIL_FROM ?? 'Stack Forge <no-reply@localhost>',
+    emailFrom: process.env.EMAIL_FROM ?? 'Brevio <no-reply@localhost>',
     smtpHost: process.env.SMTP_HOST ?? 'smtp.gmail.com',
     smtpPort: int('SMTP_PORT', 465),
     smtpSecure: (process.env.SMTP_SECURE ?? String(int('SMTP_PORT', 465) === 465)) === 'true',

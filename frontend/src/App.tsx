@@ -51,7 +51,10 @@ function Header() {
   return (
     <header className="topbar">
       <Link to="/" className="brand">
-        Stack<span>Forge</span>
+        <img src="/logo.svg" alt="" width={28} height={28} />
+        <span className="brand-name">
+          Brev<span>io</span>
+        </span>
       </Link>
       <div className="topbar-tools">
         {user && (
@@ -152,7 +155,7 @@ export function App() {
       <footer className="footer">
         <div className="footer-inner">
           <span>
-            <strong>Stack Forge</strong> · a startup simulator
+            <strong>Brevio</strong> · a startup simulator
           </span>
           <nav aria-label="Footer">
             <Link to="/privacy">Privacy</Link>

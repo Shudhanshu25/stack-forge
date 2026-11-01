@@ -39,10 +39,10 @@ export function docsRoutes(simulationOpenApi: SimulationOpenApi): Router {
     }
   });
   const viewer = {
-    customSiteTitle: 'Stack Forge API',
+    customSiteTitle: 'Brevio API',
     swaggerOptions: {
       urls: [
-        { url: '/api/v1/openapi.json', name: 'Stack Forge API' },
+        { url: '/api/v1/openapi.json', name: 'Brevio API' },
         { url: '/api/v1/openapi/simulation.json', name: 'Simulation service (internal)' },
       ],
     },

@@ -1,4 +1,4 @@
-# Stack Forge
+# Brevio
 
 A turn-based startup simulator. You create a startup, make monthly decisions (price, marketing, hiring, product investment), and a deterministic simulation engine computes what happens: customers, revenue, costs, cash, churn and market share, against rival companies and market events. LLM agents (customers, competitors) nudge demand within strict bounds, an ML model forecasts next month, and an AI CEO explains the results using only the numbers the engine produced.
 

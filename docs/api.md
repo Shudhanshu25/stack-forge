@@ -44,7 +44,7 @@ Access tokens are HS256 JWTs (default 15 minutes) sent as `Authorization: Bearer
 | GET | `/auth/options` | | 200 `AuthOptions` (`google`: whether Google sign-in is configured) |
 | POST | `/auth/verify-email` | `VerifyEmailRequest` (`token`) | 200 `User`; 400 `INVALID_OR_EXPIRED_TOKEN` |
 | POST | `/auth/verify-email/resend` | | 202 (nothing sent if already verified) |
-| POST | `/auth/password-reset` | `PasswordResetRequest` (`email`) | 202 always (no account enumeration); emails a 6-digit code if the account exists |
+| POST | `/auth/password-reset` | `PasswordResetRequest` (`email`) | 202 and a 6-digit code emailed if the account exists; 404 `ACCOUNT_NOT_FOUND` if not (sign-up already reveals registered emails with `EMAIL_TAKEN`) |
 | POST | `/auth/password-reset/verify` | `PasswordResetVerifyRequest` (`email`, `code`) | 200 `PasswordResetVerifyResponse` (`resetToken`, `expiresInSeconds`); 400 `INVALID_CODE` for a wrong, used or expired code or an unknown email |
 | POST | `/auth/password-reset/confirm` | `PasswordResetConfirmRequest` (`token` from verify, `password`) | 204; every session signed out; 400 `WEAK_PASSWORD` or `INVALID_OR_EXPIRED_TOKEN` |
 | GET | `/auth/google/start` | | 302 to Google (404 when not configured) |

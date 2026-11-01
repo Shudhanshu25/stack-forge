@@ -1,5 +1,5 @@
 /*
- * Stack Forge design system: a data-dense founder dashboard in two themes.
+ * Brevio design system: a data-dense founder dashboard in two themes.
  * One type scale (12 / 13 / 15 / 18 / 24 / 32 px) and one accent (blue #3987e5) in both themes.
  * Every colour, shadow, chart colour and motion value is a token below; components use only
  * the tokens. Status colours only ever appear with an icon, sign or label.
@@ -242,12 +242,15 @@ p {
   text-align: right;
 }
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 700;
   color: var(--text);
   text-decoration: none;
   letter-spacing: 0.02em;
 }
-.brand span {
+.brand-name span {
   color: var(--accent-text);
 }
 .icon-button {

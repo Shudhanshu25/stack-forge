@@ -102,6 +102,16 @@ describe('forgot password by emailed code', () => {
     }
   });
 
+  it('tells the user when no account is registered with the email, and stays on the email step', async () => {
+    api.requestPasswordReset.mockRejectedValue(
+      new ApiError(404, 'ACCOUNT_NOT_FOUND', 'No account is registered with this email', null),
+    );
+    type('Email', 'nobody@example.com');
+    await click('Send code');
+    expect(screen.getByRole('alert').textContent).toMatch(/No account is registered/);
+    expect(heading()).not.toBe('Enter the code');
+  });
+
   it('refuses mismatched new passwords without calling the API', async () => {
     await toCodeStep();
     api.verifyResetCode.mockResolvedValue({

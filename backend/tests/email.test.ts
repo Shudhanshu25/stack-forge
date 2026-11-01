@@ -18,9 +18,9 @@ afterEach(() => {
 describe('SMTP email (Gmail)', () => {
   it('sends the message from EMAIL_FROM through the transport', async () => {
     const transport: MailTransport = { sendMail: vi.fn(async () => ({})) };
-    await new SmtpEmailSender(transport, 'Stack Forge <me@gmail.com>').send(message);
+    await new SmtpEmailSender(transport, 'Brevio <me@gmail.com>').send(message);
     expect(transport.sendMail).toHaveBeenCalledWith({
-      from: 'Stack Forge <me@gmail.com>',
+      from: 'Brevio <me@gmail.com>',
       ...message,
     });
   });

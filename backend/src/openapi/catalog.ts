@@ -77,10 +77,10 @@ export const ROUTES: RouteDoc[] = [
     method: 'post',
     path: '/auth/password-reset',
     tag: 'auth',
-    summary: 'Email a 6-digit reset code; 202 whether or not the email has an account',
+    summary: 'Email a 6-digit reset code (404 ACCOUNT_NOT_FOUND if the email has no account)',
     auth: 'none',
     body: 'password-reset-request.schema.json',
-    responses: { 202: null },
+    responses: { 202: null, 404: null },
   },
   {
     method: 'post',

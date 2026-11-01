@@ -72,7 +72,7 @@ function errorText(err: unknown, fallback: string): string {
 
 /**
  * /forgot-password — reset by emailed one-time code, in three steps on one page:
- * 1. the email address (the answer never says whether it has an account);
+ * 1. the email address (an unknown address gets "No account is registered with this email");
  * 2. the 6-digit code from the email (expires in minutes; five wrong tries end it);
  * 3. the new password, twice. Setting it signs out every session.
  */
