@@ -1,25 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brevio">
-  <defs>
-    <linearGradient id="sf-edge" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#b79cf0" />
-      <stop offset="0.55" stop-color="#8fd1b4" />
-      <stop offset="1" stop-color="#f4a77f" />
-    </linearGradient>
-  </defs>
-  <g fill="none" stroke="url(#sf-edge)" stroke-width="3" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M32 14 52 25v22L32 58 12 47V25z" />
-    <path d="M12 25 32 36 52 25M32 36v22" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Stack Forge">
+  <rect width="64" height="64" rx="16" fill="#7c3aed"/>
+  <g fill="none" stroke="#ffffff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" transform="translate(12 12) scale(1.667)">
+    <path d="M12 3 3 7.5l9 4.5 9-4.5z"/>
+    <path d="M3 12l9 4.5 9-4.5"/>
+    <path d="M3 16.5 12 21l9-4.5"/>
   </g>
-  <g fill="#8c78d6" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" text-anchor="middle">
-    <text x="22" y="49" transform="skewY(26) translate(0 -19)">B</text>
-  </g>
-  <g fill="#e8956a" font-family="Arial, Helvetica, sans-serif" font-weight="700" font-size="15" text-anchor="middle">
-    <text x="42" y="49" transform="skewY(-26) translate(0 21)">V</text>
-  </g>
-  <g stroke="#7f8fd6" stroke-width="1.6" stroke-linecap="round">
-    <path d="M32 26 38 11M32 26 26 15" />
-  </g>
-  <circle cx="32" cy="26" r="3.2" fill="#e8956a" />
-  <circle cx="38" cy="11" r="2.8" fill="#8c78d6" />
-  <circle cx="26" cy="15" r="2.4" fill="#8fd1b4" />
 </svg>

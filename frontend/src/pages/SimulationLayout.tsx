@@ -1,5 +1,11 @@
+import { useEffect, useMemo, useRef } from 'react';
 import { NavLink, Outlet, useLocation, useOutletContext, useParams } from 'react-router-dom';
 import type { Simulation } from '@stackforge/shared';
+import { rememberSimulation } from '../components/shell/nav';
+import { useRegisterSimulationChrome } from '../components/shell/SimulationController';
+import { useToast } from '../components/feedback/Toaster';
+import { useTour } from '../onboarding/Onboarding';
+import { jobToast, turnToasts } from '../lib/turnToasts';
 import {
   AnalyticsSkeleton,
   DashboardSkeleton,
@@ -7,9 +13,14 @@ import {
   TimelineSkeleton,
 } from '../components/feedback/Skeletons';
 import { ErrorState } from '../components/feedback/States';
-import { useSimulationData, type SimulationData } from '../hooks/useSimulation';
+import {
+  useSimulationData,
+  useTurnRunner,
+  type SimulationData,
+  type TurnRunner,
+} from '../hooks/useSimulation';
 
-export type LoadedSimulation = SimulationData & { simulation: Simulation };
+export type LoadedSimulation = SimulationData & { simulation: Simulation; runner: TurnRunner };
 
 export const useSimulationContext = () => useOutletContext<LoadedSimulation>();
 
@@ -33,7 +44,35 @@ export function SimulationLayout() {
   const { id = '' } = useParams();
   const { pathname } = useLocation();
   const data = useSimulationData(id);
-  const { simulation, error, loading, reload } = data;
+  const { simulation, error, loading, reload, turns } = data;
+  const tour = useTour();
+  const { notify } = useToast();
+
+  // One turn runner per open simulation, shared by the top-bar controller and the decision form.
+  // A turn played here is announced once its record has loaded (with the quota flag).
+  const expected = useRef<number | null>(null);
+  const runner = useTurnRunner(id, simulation?.activeJobId, (job) => {
+    if (job.status === 'COMPLETED') {
+      expected.current = job.turnNumber;
+      tour.advance('play');
+    }
+    void reload();
+    const toast = jobToast(job);
+    if (toast) notify(toast);
+  });
+  const latest = turns.at(-1) ?? null;
+  useEffect(() => {
+    if (expected.current === null || !latest || latest.turnNumber < expected.current) return;
+    expected.current = null;
+    turnToasts(latest, turns.at(-2) ?? null).forEach(notify);
+  }, [latest, turns, notify]);
+
+  useEffect(() => {
+    if (id) rememberSimulation(id);
+  }, [id]);
+  const chrome = useMemo(() => (simulation ? { simulation, runner } : null), [simulation, runner]);
+  useRegisterSimulationChrome(chrome);
+
   if (!simulation) {
     return loading ? (
       <ViewSkeleton path={pathname} />
@@ -55,7 +94,7 @@ export function SimulationLayout() {
         </div>
         <div className="header-meta">
           <span className="badge">{placeOf(simulation)}</span>
-          <span className="badge">Turn {simulation.currentTurn}</span>
+          <span className="badge">Month {simulation.currentTurn}</span>
           <span className={`badge ${bankrupt ? 'bad' : ''}`}>
             {bankrupt ? '✕ Bankrupt' : simulation.status.toLowerCase()}
           </span>
@@ -68,14 +107,16 @@ export function SimulationLayout() {
       </header>
       <nav className="tabs" aria-label="Simulation views">
         <NavLink to={`/simulations/${id}`} end>
-          Dashboard
+          Overview
         </NavLink>
-        <NavLink to={`/simulations/${id}/scenarios`}>Scenarios</NavLink>
+        <NavLink to={`/simulations/${id}/decisions`}>Decisions</NavLink>
+        <NavLink to={`/simulations/${id}/scenarios`}>Strategy</NavLink>
         <NavLink to={`/simulations/${id}/analytics`}>Analytics</NavLink>
+        <NavLink to={`/simulations/${id}/advisor`}>AI Advisor</NavLink>
         <NavLink to={`/simulations/${id}/timeline`}>Timeline</NavLink>
       </nav>
       <div key={pathname} className="view-fade">
-        <Outlet context={data as LoadedSimulation} />
+        <Outlet context={{ ...data, runner } as LoadedSimulation} />
       </div>
     </>
   );

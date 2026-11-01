@@ -9,7 +9,9 @@ import { ToastProvider } from './components/feedback/Toaster';
 import { ErrorBoundary, initMonitoring } from './lib/monitoring';
 import { OnboardingProvider } from './onboarding/Onboarding';
 import { ThemeProvider } from './theme/ThemeContext';
+import '@fontsource-variable/inter';
 import './styles.css';
+import './shell.css';
 
 initMonitoring();
 

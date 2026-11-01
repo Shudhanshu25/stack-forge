@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 
-/** /privacy — what Brevio stores and what it sends to the LLM provider. Public. */
+/** /privacy — what Stack Forge stores and what it sends to the LLM provider. Public. */
 export function PrivacyPage() {
   return (
     <article className="card prose legal">
@@ -8,8 +8,8 @@ export function PrivacyPage() {
         <div className="eyebrow">Your data</div>
         <h1>Privacy</h1>
         <p className="lead">
-          Brevio is a startup simulator built as a final-year engineering project. This page says
-          plainly what it keeps about you and where your data goes.
+          Stack Forge is a startup simulator built as a final-year engineering project. This page
+          says plainly what it keeps about you and where your data goes.
         </p>
       </header>
 

@@ -1,6 +1,6 @@
 /*
- * Brevio design system: a data-dense founder dashboard in two themes.
- * One type scale (12 / 13 / 15 / 18 / 24 / 32 px) and one accent (blue #3987e5) in both themes.
+ * Stack Forge design system (Midnight Purple): a founder dashboard in two themes.
+ * One type scale (12 / 13 / 14 / 16 / 20 / 28 px), Inter, and one purple accent in both themes.
  * Every colour, shadow, chart colour and motion value is a token below; components use only
  * the tokens. Status colours only ever appear with an icon, sign or label.
  */
@@ -8,11 +8,11 @@
   /* type scale */
   --fs-xs: 12px;
   --fs-sm: 13px;
-  --fs-md: 15px;
-  --fs-lg: 18px;
-  --fs-xl: 24px;
-  --fs-2xl: 32px;
-  --radius: 8px;
+  --fs-md: 14px;
+  --fs-lg: 16px;
+  --fs-xl: 20px;
+  --fs-2xl: 28px;
+  --radius: 12px;
   --gap: 12px;
   /* motion: one easing curve; durations 150-300 ms; zero when reduced motion is requested */
   --ease: cubic-bezier(0.2, 0, 0, 1);
@@ -20,11 +20,14 @@
   --dur: 200ms;
   --dur-slow: 300ms;
   font-family:
+    'Inter Variable',
     system-ui,
     -apple-system,
     'Segoe UI',
     Roboto,
     sans-serif;
+  font-feature-settings: 'cv11', 'ss01';
+  -webkit-font-smoothing: antialiased;
   font-size: var(--fs-md);
   line-height: 1.45;
 }
@@ -38,100 +41,125 @@
 
 /*
  * Dark theme (the default; also the fallback before the theme script runs).
- * Warm near-black neutrals; series colours validated on the dark surface.
+ * Midnight neutrals with a purple accent. Muted text is lifted from the brand #717184 so small
+ * text keeps 4.5:1 on cards; series colours are told apart by lightness as well as hue.
  */
 :root,
 :root[data-theme='dark'] {
   color-scheme: dark;
   /* surfaces and ink */
-  --page: #0d0d0d;
-  --surface: #1a1a19;
-  --surface-2: #232321;
-  --field: #0d0d0d;
-  --border: rgba(255, 255, 255, 0.1);
-  --grid: #2c2c2a;
-  --axis: #383835;
-  --text: #ffffff;
-  --text-2: #c3c2b7;
-  --muted: #8f8d86;
+  --page: #0b0b12;
+  --surface: #171725;
+  --surface-2: #1e1e2d;
+  --field: #11111b;
+  --border: #29293a;
+  --grid: #24243a;
+  --axis: #3a3a50;
+  --text: #f8fafc;
+  --text-2: #a1a1b5;
+  --muted: #8b8ba0;
   /* the one accent: graphics and focus; text uses --accent-text, filled buttons --accent-strong */
-  --accent: #3987e5;
-  --accent-text: #4a92e8;
-  --accent-soft: rgba(57, 135, 229, 0.16);
-  --accent-strong: #2468c2;
+  --accent: #8b5cf6;
+  --accent-text: #c4b5fd;
+  --accent-soft: rgba(139, 92, 246, 0.14);
+  --accent-strong: #7c3aed;
   --on-accent: #ffffff;
   /* status (never series): fills and marks, text on surfaces, soft highlights */
-  --good: #0ca30c;
-  --bad: #d03b3b;
-  --warn: #fab219;
-  --good-text: #3fd13f;
-  --bad-text: #ff8a8a;
-  --warn-text: #fab219;
-  --good-soft: rgba(63, 209, 63, 0.18);
-  --bad-soft: rgba(255, 138, 138, 0.18);
-  --bad-border: rgba(208, 59, 59, 0.6);
-  --warn-border: rgba(250, 178, 25, 0.5);
+  --good: #22c55e;
+  --bad: #ef4444;
+  --warn: #f59e0b;
+  --good-text: #4ade80;
+  --bad-text: #f87171;
+  --warn-text: #fbbf24;
+  --good-soft: rgba(34, 197, 94, 0.14);
+  --bad-soft: rgba(239, 68, 68, 0.14);
+  --bad-border: rgba(239, 68, 68, 0.55);
+  --warn-border: rgba(245, 158, 11, 0.5);
   /* categorical series, fixed order */
-  --series-1: #3987e5;
-  --series-2: #d95926;
-  --series-3: #199e70;
-  --series-4: #c98500;
-  --series-5: #d55181;
+  --series-1: #8b5cf6;
+  --series-2: #f59e0b;
+  --series-3: #22c55e;
+  --series-4: #38bdf8;
+  --series-5: #f472b6;
   /* chart chrome */
   --chart-hover: rgba(255, 255, 255, 0.04);
   /* elevation and overlays */
   --shadow-card: none;
   --shadow-popover: 0 8px 24px rgba(0, 0, 0, 0.5);
-  --shadow-overlay: 0 12px 32px rgba(0, 0, 0, 0.6);
-  --scrim: rgba(0, 0, 0, 0.55);
+  --shadow-overlay: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --scrim: rgba(5, 5, 10, 0.62);
   /* loading placeholders */
-  --skeleton: #262624;
+  --skeleton: #1e1e2d;
+  /* Midnight Purple additions */
+  --page-2: #11111b;
+  --sidebar: #0e0e17;
+  --accent-2: #a78bfa;
+  --accent-hover: #6d28d9;
+  --accent-glow: rgba(124, 58, 237, 0.32);
+  --info: #38bdf8;
+  --info-text: #7dd3fc;
+  --info-soft: rgba(56, 189, 248, 0.14);
+  --warn-soft: rgba(245, 158, 11, 0.14);
+  --border-strong: #3a3a50;
+  --frost: rgba(11, 11, 18, 0.82);
 }
 
 /*
  * Light theme: the same product in daylight, not an inverted copy. Same accent and type scale;
- * a warm off-white page with white cards lifted by a hairline border and a soft shadow (the
+ * a cool off-white page with white cards lifted by a hairline border and a soft shadow (the
  * dark theme separates cards by tone instead). Ink, status and series colours are darkened
  * just enough to keep WCAG AA on every light surface while keeping the dark theme's hues.
  */
 :root[data-theme='light'] {
   color-scheme: light;
-  --page: #f5f4ef;
+  --page: #f8f9fc;
   --surface: #ffffff;
-  --surface-2: #efede6;
+  --surface-2: #f4f3fa;
   --field: #ffffff;
-  --border: rgba(25, 25, 23, 0.12);
-  --grid: #e8e6df;
-  --axis: #c9c6bc;
-  --text: #191917;
-  --text-2: #4a4944;
-  --muted: #6b6963;
-  --accent: #3987e5;
-  --accent-text: #2468c2;
-  --accent-soft: rgba(57, 135, 229, 0.12);
-  --accent-strong: #2468c2;
+  --border: #e7e5ef;
+  --grid: #eceaf3;
+  --axis: #d4d1e2;
+  --text: #171525;
+  --text-2: #666579;
+  --muted: #67667c;
+  --accent: #7c3aed;
+  --accent-text: #5b21b6;
+  --accent-soft: rgba(124, 58, 237, 0.09);
+  --accent-strong: #7c3aed;
   --on-accent: #ffffff;
-  --good: #1b8a1b;
-  --bad: #c42b2b;
-  --warn: #c98500;
-  --good-text: #1b7a1b;
-  --bad-text: #c42b2b;
-  --warn-text: #8f6200;
-  --good-soft: rgba(27, 122, 27, 0.14);
-  --bad-soft: rgba(196, 43, 43, 0.12);
-  --bad-border: rgba(196, 43, 43, 0.45);
-  --warn-border: rgba(201, 133, 0, 0.5);
-  --series-1: #3987e5;
-  --series-2: #c4501d;
-  --series-3: #15835d;
-  --series-4: #a66d00;
-  --series-5: #c4407a;
-  --chart-hover: rgba(25, 25, 23, 0.05);
-  --shadow-card: 0 1px 2px rgba(25, 25, 23, 0.06);
-  --shadow-popover: 0 8px 24px rgba(25, 25, 23, 0.14);
-  --shadow-overlay: 0 16px 40px rgba(25, 25, 23, 0.18);
-  --scrim: rgba(25, 25, 23, 0.32);
-  --skeleton: #e9e7e0;
+  --good: #16a34a;
+  --bad: #dc2626;
+  --warn: #d97706;
+  --good-text: #166534;
+  --bad-text: #b91c1c;
+  --warn-text: #b45309;
+  --good-soft: rgba(22, 163, 74, 0.1);
+  --bad-soft: rgba(220, 38, 38, 0.08);
+  --bad-border: rgba(220, 38, 38, 0.45);
+  --warn-border: rgba(217, 119, 6, 0.5);
+  --series-1: #7c3aed;
+  --series-2: #d97706;
+  --series-3: #16a34a;
+  --series-4: #0284c7;
+  --series-5: #db2777;
+  --chart-hover: rgba(23, 21, 37, 0.05);
+  --shadow-card: 0 1px 2px rgba(23, 21, 37, 0.05);
+  --shadow-popover: 0 8px 24px rgba(23, 21, 37, 0.12);
+  --shadow-overlay: 0 16px 40px rgba(23, 21, 37, 0.16);
+  --scrim: rgba(23, 21, 37, 0.38);
+  --skeleton: #eceaf3;
+  /* Midnight Purple additions */
+  --page-2: #ffffff;
+  --sidebar: #f1f1f7;
+  --accent-2: #8b5cf6;
+  --accent-hover: #6d28d9;
+  --accent-glow: rgba(124, 58, 237, 0.24);
+  --info: #0284c7;
+  --info-text: #0369a1;
+  --info-soft: rgba(2, 132, 199, 0.09);
+  --warn-soft: rgba(217, 119, 6, 0.1);
+  --border-strong: #d4d1e2;
+  --frost: rgba(248, 249, 252, 0.85);
 }
 
 * {
@@ -155,14 +183,17 @@ a {
   color: var(--accent-text);
 }
 h1 {
-  font-size: var(--fs-xl);
+  font-size: var(--fs-2xl);
   margin: 0;
-  font-weight: 650;
+  font-weight: 600;
+  letter-spacing: -0.022em;
+  line-height: 1.2;
 }
 h2 {
   font-size: var(--fs-md);
   margin: 0 0 8px;
-  font-weight: 650;
+  font-weight: 600;
+  letter-spacing: -0.005em;
 }
 h3 {
   font-size: var(--fs-xs);

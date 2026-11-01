@@ -8,11 +8,13 @@ import { mockApi } from './mock-api';
  * reachability and visible focus, and a text alternative for charts. Axe runs with reduced
  * motion so it measures the settled page, not a frame of a fade.
  */
-const GUEST = ['/login', '/register', '/forgot-password', '/privacy'];
+const GUEST = ['/', '/login', '/register', '/forgot-password', '/privacy'];
 const SIGNED_IN = [
   '/startups',
   '/startups/new',
   '/simulations/sim1',
+  '/simulations/sim1/decisions',
+  '/simulations/sim1/advisor',
   '/simulations/sim1/scenarios',
   '/simulations/sim1/analytics',
   '/simulations/sim1/analytics/customers',
