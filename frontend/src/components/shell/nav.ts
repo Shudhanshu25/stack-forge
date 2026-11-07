@@ -188,5 +188,5 @@ export function pageTitle(pathname: string, hash = ''): string {
     return 'Decisions';
   if (/\/analytics\/location$/.test(pathname)) return 'Location';
   const item = [...MAIN_NAV, ...SECONDARY_NAV].find((i) => isCurrent(i, pathname, hash));
-  return item?.label ?? 'Stack Forge';
+  return item?.label ?? 'Brevio';
 }

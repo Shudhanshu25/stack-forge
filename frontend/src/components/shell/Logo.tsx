@@ -1,4 +1,4 @@
-/** The Stack Forge mark: three stacked layers. Inherits the text colour. */
+/** The Brevio mark: three stacked layers. Inherits the text colour. */
 export function Logo({ size = 18 }: { size?: number }) {
   return (
     <svg

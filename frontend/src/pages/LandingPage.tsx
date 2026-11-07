@@ -76,7 +76,7 @@ const PLANS = [
 const FAQ = [
   [
     'Is any real money involved?',
-    'No. Every rupee in Stack Forge is simulated. Go bankrupt, restart and try another strategy as often as you like.',
+    'No. Every rupee in Brevio is simulated. Go bankrupt, restart and try another strategy as often as you like.',
   ],
   [
     'How realistic is the simulation?',
@@ -87,7 +87,7 @@ const FAQ = [
     'No. The simulation engine calculates every financial number. The AI reads those numbers, explains them and suggests decisions, which only take effect if you apply them.',
   ],
   [
-    'Can I use Stack Forge in a classroom?',
+    'Can I use Brevio in a classroom?',
     'Yes. Simulations are seeded, so a class can face the same market and compare results.',
   ],
   [
@@ -124,7 +124,7 @@ function Faq() {
   );
 }
 
-/** The public home page: what Stack Forge is and a way in. */
+/** The public home page: what Brevio is and a way in. */
 export function LandingPage() {
   return (
     <div className="landing">
@@ -170,7 +170,7 @@ export function LandingPage() {
           <div
             className="hero-preview card"
             role="img"
-            aria-label="Preview of the Stack Forge dashboard: revenue, profit, cash and customers, a rising revenue chart and an AI insight"
+            aria-label="Preview of the Brevio dashboard: revenue, profit, cash and customers, a rising revenue chart and an AI insight"
           >
             <div className="hero-preview-bar" aria-hidden>
               <i />
@@ -225,7 +225,7 @@ export function LandingPage() {
 
         <section id="how" className="band">
           <div className="landing-inner">
-            <p className="eyebrow">How Stack Forge works</p>
+            <p className="eyebrow">How Brevio works</p>
             <h2 className="section-title">
               One month at a time, every decision has a consequence.
             </h2>
@@ -481,7 +481,7 @@ export function LandingPage() {
               <span className="brand-mark" aria-hidden>
                 <Logo size={16} />
               </span>
-              <span className="brand-title">Stack Forge</span>
+              <span className="brand-title">Brevio</span>
             </div>
             <p className="muted small">Build. Simulate. Scale.</p>
           </div>

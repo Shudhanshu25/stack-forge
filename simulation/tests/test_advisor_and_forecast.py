@@ -4,9 +4,11 @@ from pathlib import Path
 import numpy as np
 import pytest
 from fastapi.testclient import TestClient
+from stackforge_shared.models.enums_schema import AdviceMode
 from stackforge_shared.templates import build_configuration
 
 import engine
+from app.advisor.advisor import TASKS
 from app.advisor.faithfulness import check, extract_claims
 from app.config import Settings
 from app.llm.client import FakeLLMClient
@@ -174,3 +176,10 @@ def test_advisor_route_without_llm_reports_unavailable(tmp_path) -> None:
     advice = client.post("/advisor/ask", json=body).json()
     assert advice["available"] is False
     assert advice["unavailableReason"] == "LLM not configured"
+
+
+def test_analyze_task_asks_for_drivers_risks_and_next_step() -> None:
+    task = TASKS[AdviceMode.analyze]
+    for field in ("positiveFactors", "negativeFactors", "keyRisk", "recommendation"):
+        assert field in task
+    assert "Drivers" in task and "Risks" in task and "Next step" in task

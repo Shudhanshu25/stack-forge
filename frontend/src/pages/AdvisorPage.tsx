@@ -14,7 +14,7 @@ export function AdvisorPage() {
             <Sparkles size={18} />
           </span>
           <div>
-            <h2 className="section-h">Stack Forge AI Advisor</h2>
+            <h2 className="section-h">Brevio AI Advisor</h2>
             <p className="muted small">Your intelligent business strategy companion.</p>
           </div>
         </div>

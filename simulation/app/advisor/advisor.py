@@ -51,7 +51,11 @@ DEFAULT_QUESTIONS = {
 TASKS = {
     AdviceMode.explain: "EXPLAIN: answer the founder's why-question about this month, tracing "
     "the answer to specific decisions, events, competitor moves and customer reactions.",
-    AdviceMode.analyze: "ANALYZE: review this month's performance and identify what drove it.",
+    AdviceMode.analyze: "ANALYZE: a structured review of this month. Drivers: put what helped in "
+    "positiveFactors and what hurt in negativeFactors, each naming the decision, event, "
+    "competitor move or customer reaction behind it. Risks: put the main thing that could hurt "
+    "next month in keyRisk. Next step: put the single most useful action for the founder's "
+    "next decisions in recommendation. Keep keyOpportunity to one short sentence.",
     AdviceMode.scenario: "SCENARIO: the founder is weighing a possible decision. Lay out what "
     "to consider and the likely direction of effects, using the current data. Do not "
     "estimate new figures.",

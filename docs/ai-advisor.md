@@ -12,7 +12,7 @@
 | Mode | Default question | Task given to the model |
 | --- | --- | --- |
 | EXPLAIN | Why did my results change this month? | Answer the founder's why-question, tracing it to decisions, events, competitor moves and customer reactions |
-| ANALYZE | What caused this month's performance? | Review the month and identify what drove it |
+| ANALYZE | What caused this month's performance? | A structured review: drivers (what helped and hurt), risks, and one next step |
 | SCENARIO | What should I consider before my next decisions? | Lay out what to weigh for a possible decision and the likely direction of effects, without estimating new figures |
 
 ## Input

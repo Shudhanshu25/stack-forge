@@ -1,6 +1,6 @@
 # Prompt regression evals
 
-Generated 2026-10-06 11:16 UTC · engine 1.0.0 · Python 3.12.3 on Windows
+Generated 2026-11-01 13:18 UTC · engine 1.1.0 · Python 3.12.3 on Windows
 
 | Prompt | Version | Cases | Injection cases | Errors | Schema valid | In range | Within caps | Claims matching data | Fully faithful answers |
 |---|---|---|---|---|---|---|---|---|---|

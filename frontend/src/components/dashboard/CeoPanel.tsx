@@ -44,10 +44,45 @@ function AdvisorUnavailable({ reason, onRetry }: { reason?: string; onRetry?: ()
   );
 }
 
+/** ANALYZE advice as drivers (what helped and hurt), risks and one next step. */
+function AnalysisView({ advice }: { advice: AIAdvice }) {
+  const hasDrivers = advice.positiveFactors.length + advice.negativeFactors.length > 0;
+  return (
+    <div className="advice">
+      <p>{advice.summary}</p>
+      <h3>Drivers</h3>
+      {hasDrivers ? (
+        <ul className="plain">
+          {advice.positiveFactors.map((f) => (
+            <li key={`up-${f}`}>
+              <span aria-label="Helped">▲</span> {f}
+            </li>
+          ))}
+          {advice.negativeFactors.map((f) => (
+            <li key={`down-${f}`}>
+              <span aria-label="Hurt">▼</span> {f}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="muted">No single driver stood out this month.</p>
+      )}
+      <h3>Risks</h3>
+      <p>{advice.keyRisk}</p>
+      <h3>Next step</h3>
+      <p>{advice.recommendation}</p>
+      <p className="xs muted">
+        {advice.reasoning} · confidence {Math.round(advice.confidence * 100)}%
+      </p>
+    </div>
+  );
+}
+
 export function AdviceView({ advice, onRetry }: { advice: AIAdvice; onRetry?: () => void }) {
   if (!advice.available) {
     return <AdvisorUnavailable reason={advice.unavailableReason} onRetry={onRetry} />;
   }
+  if (advice.mode === 'ANALYZE') return <AnalysisView advice={advice} />;
   return (
     <div className="advice">
       <p>{advice.summary}</p>

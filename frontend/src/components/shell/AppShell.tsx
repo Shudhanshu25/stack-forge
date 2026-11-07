@@ -167,11 +167,11 @@ function Sidebar({ collapsed, onToggle }: { collapsed: boolean; onToggle: () => 
   return (
     <aside className={`sidebar ${collapsed ? 'collapsed' : ''}`} aria-label="Sidebar">
       <div className="sidebar-brand">
-        <Link to="/startups" className="brand-mark" aria-label="Stack Forge home">
+        <Link to="/startups" className="brand-mark" aria-label="Brevio home">
           <Logo size={18} />
         </Link>
         <div className="nav-label brand-text">
-          <span className="brand-title">Stack Forge</span>
+          <span className="brand-title">Brevio</span>
           <span className="brand-tag">Build. Simulate. Scale.</span>
         </div>
         <button
@@ -229,7 +229,7 @@ function Drawer({ onClose }: { onClose: () => void }) {
             <Logo size={18} />
           </span>
           <div className="brand-text">
-            <span className="brand-title">Stack Forge</span>
+            <span className="brand-title">Brevio</span>
             <span className="brand-tag">Build. Simulate. Scale.</span>
           </div>
           <button
@@ -305,7 +305,7 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
       >
         <Menu size={20} aria-hidden />
       </button>
-      <Link to="/startups" className="brand-mark show-sm" aria-label="Stack Forge home">
+      <Link to="/startups" className="brand-mark show-sm" aria-label="Brevio home">
         <Logo size={16} />
       </Link>
       <nav aria-label="Breadcrumb" className="crumbs">
@@ -318,7 +318,7 @@ function TopBar({ onMenu }: { onMenu: () => void }) {
           </NavLink>
         ) : (
           <Link to="/startups" className="crumb">
-            Stack Forge
+            Brevio
           </Link>
         )}
         <span className="crumb-sep" aria-hidden>
@@ -389,7 +389,7 @@ export function GuestHeader({ children }: { children?: ReactNode }) {
         <span className="brand-mark" aria-hidden>
           <Logo size={16} />
         </span>
-        <span className="brand-title">Stack Forge</span>
+        <span className="brand-title">Brevio</span>
       </Link>
       <div className="top-spacer" />
       {children}

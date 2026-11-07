@@ -1,5 +1,5 @@
 /*
- * Stack Forge shell and Midnight Purple component layer. Loaded after styles.css; every colour
+ * Brevio shell and Midnight Purple component layer. Loaded after styles.css; every colour
  * is a token from its theme blocks (the design-token test enforces this).
  * Layout: 240 px sidebar (72 px collapsed), 64 px top bar, fluid content; under 900 px the
  * sidebar becomes a drawer and a bottom bar carries the main destinations.

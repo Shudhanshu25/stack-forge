@@ -182,6 +182,39 @@ describe('empty states', () => {
     expect(api.advise).toHaveBeenCalledWith('sim1', { mode: 'ANALYZE' });
   });
 
+  it('an ANALYZE answer is shown as drivers, risks and a next step', () => {
+    const latest = {
+      ...turnsFixture.at(-1)!,
+      advice: {
+        available: true,
+        mode: 'ANALYZE',
+        summary: 'Revenue rose on marketing.',
+        positiveFactors: ['Marketing spend lifted new customers'],
+        negativeFactors: ['A rival cut prices'],
+        keyRisk: 'Cash is falling faster than revenue grows.',
+        keyOpportunity: 'Retention is improving.',
+        recommendation: 'Hold marketing steady and raise the price slowly.',
+        reasoning: 'Based on this month.',
+        confidence: 0.8,
+      } as AIAdvice,
+    };
+    render(
+      <Providers path="/">
+        <CeoPanel simulationId="sim1" latest={latest} />
+      </Providers>,
+    );
+    expect(screen.getAllByRole('heading', { level: 3 }).map((h) => h.textContent)).toEqual([
+      'Turn ' + latest.turnNumber + ' analysis',
+      'Drivers',
+      'Risks',
+      'Next step',
+    ]);
+    expect(screen.getByText(/Marketing spend lifted/)).toBeTruthy();
+    expect(screen.getByText(/A rival cut prices/)).toBeTruthy();
+    expect(screen.getByText(/Cash is falling/)).toBeTruthy();
+    expect(screen.getByText(/Hold marketing steady/)).toBeTruthy();
+  });
+
   it('a turn without an analysis is shown as the advisor being unavailable', () => {
     const latest = { ...turnsFixture.at(-1)!, advice: undefined };
     render(
